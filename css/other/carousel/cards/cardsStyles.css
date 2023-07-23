@@ -1,0 +1,87 @@
+@import url("../../root/default.css");
+.cards{
+    --cardBackgroundColor:rgba(31, 107, 107, 0.281);
+    --cardBoxShadow:rgba(0, 0, 0, 0.61);
+    --cardBoxShadowRadius:10px;
+    --cardTextShadowColor:black;
+    --cardButtonBackgroundColor:blue;
+    --cardButtonFontColor:white;
+}
+.cards{
+
+
+    
+    display: grid;
+    grid-gap: 2.5cqh 2cqw;
+
+    align-items: center;
+    justify-items: center;
+
+    background-color: var(--cardBackgroundColor);
+    padding: 4cqb;
+    border-radius: 10%;
+    box-shadow: var(--cardBoxShadow) 2px 2px var(--cardBoxShadowRadius);
+    text-shadow: var(--cardTextShadowColor) 0.2px 0.2px 1px;
+
+    
+    grid-template-areas: 
+    "p p p p h h h h"
+    "p p p p h h h h"
+    "p p p p h h h h"
+    "p p p p h h h h"
+    "d d d d d d d d"
+    "d d d d d d d d"
+    "d d d d d d d d"
+    "d d d d d d d d"
+    "d d d d d d d d"
+    "b b b b b b b b"
+    ;
+    
+}
+.cards img{
+    grid-area: p;
+
+    max-width: 7cqw;
+    min-width: 7cqw;
+    max-height: 7cqw;
+    min-height: 7cqw;
+    
+    border-radius: 100%;
+    outline: solid white 0.2cqw;
+    outline-offset: 5px;
+
+}
+
+.cards h1{
+    text-transform: capitalize;
+    font-size: 1.5cqi ;
+
+    grid-area: h;
+}
+
+.cards .description{
+    grid-area: d;
+    line-height: 2.2cqh;
+
+    font-size: 0.7cqi;
+
+}
+.cards .description::first-letter{
+    font-size: 1.4cqi;
+}
+.cards button{
+    grid-area: b;
+    align-self: center;
+    justify-self: center;
+    font-size: 1.2cqi;
+    padding: 0.7cqb 5cqb;
+    background-color: var(--cardButtonBackgroundColor);
+    color: var(--cardButtonFontColor);
+    font-weight: 900;
+    border-radius: 5cqb;
+    transition: transform 200ms ease;
+    cursor: pointer;
+}
+.cards button:hover{
+    transform: translateY(2px);
+}

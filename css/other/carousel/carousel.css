@@ -1,0 +1,58 @@
+@import url("./cards/cardsStyles.css");
+
+.carosal{
+    --carouselBackgroundColor:white;
+
+    --carosalArrowSize:2.7cqw;
+    --carosalArrowPosition:1.2cqw;
+    --carosalArrowBackgroundColor:white;
+    --carosalArrowOutlineColor:black;
+    --carosalArrowOutlineWidth:0.4cqh;
+    --carosalArrowOutlineOffset:0.1cqh;
+}
+.carosal{
+    padding: 7cqb 0cqb;
+    display: grid;
+    grid-template-columns: 1fr 10fr 1fr;
+
+    align-items: center;
+    justify-items: center;
+}
+
+.carosalContainer{
+    background-color: var(--carosalArrowBackgroundColor);
+    padding: 2cqw;
+    
+    
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: min-content;
+    max-width: 100%;
+    /* set the maximum width can get by the carosal container is the allocated size by the secion */
+    grid-gap: 4cqw;
+    
+    overflow: hidden;
+    border-radius: 10%;
+
+    scroll-behavior: smooth;
+}
+
+.carosalArrows{
+    display: block;
+    object-fit: cover;
+
+    width: var(--carosalArrowSize);
+    height: var(--carosalArrowSize);
+
+    border-radius: 50%;
+    outline: solid var(--carosalArrowOutlineColor) var(--carosalArrowOutlineWidth);
+    outline-offset: var(--carosalArrowOutlineOffset);
+
+    cursor: pointer;
+
+    transition: transform 200ms ease;
+}
+
+.carosalArrows:hover{
+    transform: scale(1.1);
+}

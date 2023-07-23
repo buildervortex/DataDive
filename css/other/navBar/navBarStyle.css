@@ -1,0 +1,151 @@
+@import url("./HamburgerMenue/hamburgerMenuStyle.css");
+.navBar{
+    --asideBarBackgroundColor:blue;
+    --navBarBackgroundColor:none;
+    --navBarLinksFontColor:black;
+    --navBarLinksFontSize:2cqb;
+}
+.navBar{
+    position: fixed;
+    top: 0;
+
+    width: 100%;
+    height: 9vh;
+
+    display: grid;
+    grid-template-columns: minmax(10%,10%) 1fr minmax(max-content,10%);
+
+    background-color: var(--navBarBackgroundColor);
+
+    transition: background-color 250ms ease-in;
+    font-size: var(--navBarLinksFontSize);
+}
+
+.navBar #Logo{
+    max-height: 100%;
+    min-height: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    object-fit: cover;
+}
+.navBar #SignInButton{
+
+    /* align and justify the sign in button at center of the grid box */
+    align-self: center;
+    text-align: center;
+}
+
+.navBar .links-container #SignUpButton{
+    padding: 1.4cqb;
+    background-color: chartreuse;
+    border-radius: 20px;
+}
+
+.navBar .links-container{
+    
+    display: grid;
+    grid-template-columns: repeat(5,max-content) minmax(max-content,1fr);
+    grid-gap: 4vw;
+    justify-items: center;
+    align-items: center;
+    min-height: max-content;
+
+    padding-left:2vw;
+    overflow: scroll;
+}
+
+
+.navBar .links-container a:last-of-type{
+    /* location the sign up button at the end */
+    justify-self: end;
+}
+
+.navBar .links-container #category{
+    display: grid;
+    min-height: 100%;
+    grid-auto-flow: column;
+    grid-gap: 10%;
+    align-items: center;
+}
+
+.navBar .links-container #category img{
+    max-height: 1.1cqw;
+    rotate: 180deg;
+}
+
+
+/* designing section */
+
+.navBar a{
+    text-decoration: none;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 900;
+    color: var(--navBarLinksFontColor);
+}
+
+
+
+
+/* Add the hamburgerMenue to the .navBar bar*/
+.navBar .hamburgerMenu{
+
+    /* hamburger menue not showing in the wide screens */
+    display: none;
+
+    align-self: center;
+    justify-self: start;
+    position: relative;
+    left: 7%;
+}
+
+/* javascript needed classes */
+
+.asideBarToggler{
+    transform: translateX(0vw) !important; /* the toggler class which toggle by the javascript to show the aside bar when clicked the hamburger menu icon */    
+}
+
+.onScrollNavBarBackgroundColorToggler{
+    background-color: white;
+}
+
+/* media queries for screen sizes */
+
+@media screen and (max-width: 950px) {
+    .navBar .hamburgerMenu{
+        display: block;
+    }
+    .navBar{
+        grid-template-columns: 1fr minmax(20%,20%) 1fr;
+    }
+    .navBar #CompanyLogo{
+        grid-column: 2/3;
+    }
+    .navBar .links-container{
+        position: fixed;
+        top: 9vh;
+        min-height: 91vh;
+        min-width: 40vw;
+
+        grid-template-columns: 1fr;
+        grid-auto-flow: row;
+        justify-items: start; 
+
+        
+        transform: translateX(-40vw);
+        transition: all 400ms ease-in;
+        
+        background-color: var(--asideBarBackgroundColor);
+    }
+    .navBar aside a:last-of-type{
+        order: -1;
+        justify-self: center;
+    }
+    .navBar .links-container #SignUpButton{
+        padding: 5%;
+        border-radius: 5%;
+        justify-self: center;
+    }
+    .navBar #SignInButton{
+        font-size: 2.4cqw;
+    }
+}

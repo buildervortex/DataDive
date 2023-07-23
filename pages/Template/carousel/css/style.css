@@ -1,0 +1,10 @@
+@import url("../../../../css/other/navBar/navBarStyle.css");
+@import url("../../../../css/other/carousel/carousel.css");
+
+.cards{
+    background-color: green;
+}
+
+.carosalArrows{
+    background-color: red;
+}
