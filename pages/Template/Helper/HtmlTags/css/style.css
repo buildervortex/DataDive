@@ -1,0 +1,63 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+table td >*{
+    margin: 20px;
+}
+
+/* 
+    * table tr:nth-of-type(2) td:nth-of-type(2) > *
+    * this is a css selector.
+    * in this scenaro this selector selects <table> and go inside it.
+    * then it select the second <tr> element of the <table> tag.
+    * then it select the second <td> element of the second <tr> element
+    * After all of these it select the all elements inside that selected <td> element.
+
+*/
+
+table tr:nth-of-type(2) td:nth-of-type(2) > *{
+    /* styling the button */
+    border: none;
+    padding: 10px;
+    border-radius: 20px;
+}
+table tr:nth-of-type(3) td:nth-of-type(2) > *{ /* this selector selects the text area.*/
+    /* styling the text area */
+    border-radius: 10px;
+    max-width: 100%;
+    max-height: 100%;
+
+    /* disable the resizability of the text area */
+    resize: none;
+}
+
+table tr:nth-of-type(4) td:nth-of-type(2) > input[type="file"]::file-selector-button{
+    /* select the file selecting element and its browse button */
+    padding: 15px 20px;
+    margin: 0 10px;
+    border-radius: 10px;
+    border: none;
+    background-color: blue;
+    color: white;
+}
+table tr:nth-of-type(10) td:nth-of-type(2) > *{
+    /* selet the email input field */
+    padding: 5px;
+    border-radius: 10px;
+    border: solid;
+}
+table tr:nth-of-type(11) td:nth-of-type(2) > *{
+    /* select the url input field */
+    padding: 5px;
+    border-radius: 10px;
+    border: solid;
+}
+
+table tr td:nth-of-type(1) > h4{
+
+    padding: 10px;
+    background-color: aqua;
+    border-radius: 20px;
+}
