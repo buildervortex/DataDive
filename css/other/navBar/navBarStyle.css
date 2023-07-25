@@ -19,6 +19,8 @@
 
     transition: background-color 250ms ease-in;
     font-size: var(--navBarLinksFontSize);
+
+    z-index: 2;
 }
 
 .navBar #Logo{

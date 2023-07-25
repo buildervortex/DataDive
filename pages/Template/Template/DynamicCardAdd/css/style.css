@@ -1,0 +1,39 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    display: grid;
+    margin: 50px;
+    background-color: aqua;
+    max-height: 500px;
+    grid-gap: 20px;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 50px;
+    border-radius: 20px;
+
+    /* set the overflow scroll */
+    overflow: scroll;
+}
+.container .item{
+    background-color: #333;
+    color: white;
+    padding: 15px;
+    display: grid;
+    justify-items: center;
+    grid-gap: 20px;
+    border-radius: 20px;
+}
+
+.container .item h1{
+    background-color: #1b1a1a;
+    padding: 10px;
+    border-radius: 20px;
+}
+.container .item p{
+    background-color: #555353;
+    padding: 10px;
+    border-radius: 20px;
+}
