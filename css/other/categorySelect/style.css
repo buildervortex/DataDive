@@ -1,0 +1,17 @@
+@import url("../root/default.css");
+
+.categorySelectionContainer{
+    display: grid;
+    width: max-content;
+    grid-gap: 2cqb;
+
+    /* remove this padding if no need to put the container padding */
+    padding: 1cqb;
+}
+
+
+.categorySelectionContainer > select{
+    padding: 0.7cqb 2cqb;
+    border-radius: 20px;
+    border: none;
+}
