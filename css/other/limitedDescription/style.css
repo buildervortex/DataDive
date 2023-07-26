@@ -1,0 +1,27 @@
+@import url("../root/default.css");
+
+.textareaContainer{
+    padding: 2cqb;
+    width: max-content;
+
+    display: grid;
+    grid-gap: 1.5cqb;
+}
+
+.textareaContainer .limitedtextarea{
+    resize: none;
+    border-radius: 10px;
+    background-color: #e9e9ed;
+    border: none;
+    padding: 1.5cqb;
+}
+.textareaContainer .errorMessage{
+    border: solid 1px red;
+    padding: 0.7cqb;
+    border-radius: 20px;
+    color: red;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    max-width: max-content;
+    display: none;
+    transition: all 2000ms ease;
+}

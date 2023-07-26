@@ -1,0 +1,24 @@
+@import url("../../../../../css/other/root/default.css");
+
+a{
+    /* remove default link underline */
+    text-decoration: none;
+    display: block;
+
+    margin: 20px;
+    padding: 10px 20px;
+
+    background-color: blue;
+
+    /* set max width of the button is to its maximum content width */
+    max-width: max-content;
+
+    /* set the font color */
+    color: white;
+    font-weight: 700;
+
+    border-radius: 20px;
+}
+a:hover{
+    background-color: rgb(2, 2, 163);
+}

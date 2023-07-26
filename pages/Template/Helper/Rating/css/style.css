@@ -1,0 +1,13 @@
+@import url("../../../../../css/other/root/default.css");
+
+select{
+    padding: 10px 20px;
+    margin: 20px;
+    border-radius: 15px;
+    border: none;
+}
+select{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 15px;
+    padding: 10px 20px;
+}

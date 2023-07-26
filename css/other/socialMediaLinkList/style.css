@@ -1,0 +1,71 @@
+@import url("../root/default.css");
+
+.socialMediaContainer{
+    display: grid;
+    grid-gap: 2cqb;
+}
+
+.socialMediaContainer .addedAccountContainer{
+    display: grid;
+    grid-gap: 2cqb;
+}
+.socialMediaContainer .addedAccountContainer .account{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 4cqb;
+    /* background-color: rgba(172, 255, 47, 0.692); */
+    border-radius: 20px;
+}
+.socialMediaContainer .addedAccountContainer .account h4{
+    background-color: aqua;
+    padding: 2cqb;
+    border-radius: 20px;
+    text-align: center;
+    text-transform: capitalize;
+}
+.socialMediaContainer .addedAccountContainer .account input{
+    border: none;
+    border-radius: 20px;
+    display: block;
+    background-color: #e9e9ed;
+    padding: 2cqb;
+}
+.socialMediaContainer .addedAccountContainer .account button{
+    padding: 2cqb;
+    border-radius: 20px;
+    background-color: red;
+    border: none;
+}
+.socialMediaContainer .addedAccountContainer .account button:hover{
+    cursor: pointer;
+    background-color: rgb(190, 0, 0);
+}
+.accountAddingContainer{
+    max-width: 100%;
+    border-radius: 20px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 4cqb;
+    /* background-color: aquamarine; */
+}
+.accountAddingContainer .socialMediaAccountType{
+    border: none;
+    padding: 2cqb;
+    border-radius: 20px;
+}
+.accountAddingContainer input{
+    border: none;
+    background: #e9e9ed;
+    border-radius: 20px;
+    padding: 2cqb;
+}
+.accountAddingContainer button{
+    background-color: green;
+    border: none;
+    border-radius: 20px;
+}
+.accountAddingContainer button:hover{
+    background-color: rgb(1, 100, 1);
+    cursor: pointer;
+}

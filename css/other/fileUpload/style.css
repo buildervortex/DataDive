@@ -1,0 +1,45 @@
+@import url("../root/default.css");
+
+.FileContainer{
+    padding: 2cqb;
+    max-width: max-content;
+}
+.FileContainer .container{
+    padding: 2.5cqb 15cqb;
+    border: dashed 2px black;
+    border-radius: 20px;
+
+    display: grid;
+    justify-items: center;
+    grid-gap: 4cqh;
+}
+.FileContainer .container h2{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.5cqi;
+}
+.FileContainer .container h4{
+
+    color: gray;
+    font-size: 1.2cqi;
+}
+
+.FileContainer .container input{
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 0.7cqb;
+}
+.FileContainer .container input::file-selector-button{
+    background-color: blue;
+    padding: 1.4cqb;
+    border-radius: 20px;
+    border: none;
+}
+.FileContainer .container input::file-selector-button:hover{
+    background-color: rgb(1, 1, 187);
+    cursor: pointer;
+}
+
+/* css for the javascript */
+.FileContainer .container.activeDrag{
+    background-color: rgb(226, 219, 219);
+}
