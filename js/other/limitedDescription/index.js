@@ -4,7 +4,8 @@ export function setDescriptionTextArea(characterlimit=500,textAreaSelector=".tex
 
     textAreaElement.addEventListener("keydown",(element)=>{
         let textAreaValue = textAreaElement.value;
-        if(!(textAreaValue.length < characterlimit)){
+        console.log(textAreaValue.length);
+        if((textAreaValue.length >= characterlimit)){
             textAreaElement.value = textAreaValue.substr(0,characterlimit-1);
             errorMessageElement.style.display="block";
             setTimeout(()=>{
@@ -14,8 +15,8 @@ export function setDescriptionTextArea(characterlimit=500,textAreaSelector=".tex
     });
     textAreaElement.addEventListener("keyup",(element)=>{
         let textAreaValue = textAreaElement.value;
-        if(!(textAreaValue.length < characterlimit)){
-            textAreaElement.value = textAreaValue.substr(0,characterlimit-1);
+        if((textAreaValue.length >= characterlimit)){
+            textAreaElement.value = textAreaValue.substr(0,characterlimit);
         }
     });
 }
