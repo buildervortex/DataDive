@@ -338,3 +338,11 @@
      padding-bottom: var(--p-0-8);
      cursor: pointer;
  }
+ 
+ .ratingStar {
+     border: none;
+     padding: 1cqb;
+     position: relative;
+     left: 5cqb;
+     top: -1cqb;
+ }
