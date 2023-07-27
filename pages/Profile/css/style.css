@@ -1,0 +1,340 @@
+ @import url("https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i");
+ @import url("./card.css");
+ * {
+     padding: 0;
+     margin: 0;
+     font-size: 14px;
+     font-family: sans-serif;
+     list-style: none;
+     text-decoration: none;
+     font-family: "Poppins", sans-serif;
+ }
+ /*############# Body  Font size #############*/
+ 
+ html {
+     font-size: 10px;
+ }
+ /*############ Css variable ########*/
+ 
+ :root {
+     /* #######font color########*/
+     --f1-color: #fff;
+     --f2-color: #000;
+     --f3-color: rgba(0, 0, 0, 0.8);
+     --f4-color: rgba(0, 0, 0, 0.6);
+     --f5-color: #0099cc;
+     --f6-color: #88cee6;
+     /*#########Background Color ####### */
+     --bg1-color: #fff;
+     --bg2-color: #000;
+     --bg3-color: #33ccff;
+     --bg4-color: #33cc33;
+     --bg5-color: #0099cc;
+     --bg6-color: rgba(0, 0, 0, 0.4);
+     --bg7-color: rgba(0, 0, 0, 0.2);
+     --glass-bg: linear-gradient( to right bottom, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.3));
+     --c-lg-bg: linear-gradient(45deg, #ff3399, #ff9933);
+     /*############# Font Size ######*/
+     --xxx1-fs: 2.2rem;
+     --xx1-1fs: 1.8rem;
+     --x1-fs: 1.6rem;
+     --1-fs: 1.4rem;
+     --m-fs: 1.2rem;
+     --s-fs: 1.1rem;
+     --xs-fs: 1rem;
+     /*############## Margin ###########*/
+     --m-2-5: 2.5rem;
+     --m-1-8: 1.8rem;
+     --m-1-5: 1.5rem;
+     --m-0-6: 0.6rem;
+     --m-0-5: 0.5rem;
+     --m-0-3: 0.3rem;
+     /*############## Padding ##########*/
+     --p-2-5: 2.5rem;
+     --p-1-5: 1.5rem;
+     --p-1-0: 1.0rem;
+     --p-0-8: 0.8rem;
+     --p-0-5: 0.5rem;
+     --p-0-4: 0.4rem;
+     --p-0-3: 0.3rem;
+ }
+ /* body */
+ 
+ body {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     min-height: 100vh;
+ }
+ /* body main background */
+ 
+ .main_bg {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 150%;
+     background: url("../img/Background.jpg");
+     background-size: cover;
+     background-position: left;
+     z-index: -1;
+     filter: blur(2vh);
+ }
+ /* main-container css */
+ 
+ .container {
+     position: relative;
+     display: grid;
+     grid-template-columns: 1fr 1.5fr;
+     grid-template-areas: "header header " "userProfile userDetails" "Description_interest about" "Description_interest about" "card card";
+     width: 85%;
+     background: var(--glass-bg);
+     padding: var(--p-1-5);
+     box-shadow: 0 0 5vh rgba(255, 255, 255, 0.5), 0 0 10vh rgba(0, 0, 0, 0.5);
+     grid-gap: 1.5vh;
+ }
+ /* Container card grid area css */
+ 
+ body .Cardcontainer {
+     grid-area: card;
+ }
+ 
+ header {
+     grid-area: header;
+ }
+ 
+ .userProfile {
+     grid-area: userProfile;
+ }
+ 
+ .Description_interest {
+     grid-area: Description_interest;
+ }
+ 
+ .userDetails {
+     grid-area: userDetails;
+ }
+ 
+ .about {
+     grid-area: about;
+ }
+ /* container card css */
+ 
+ .container .card {
+     background: var(--glass-bg);
+     backdrop-filter: blur(4vh);
+     border-radius: 1.5vh;
+     box-shadow: 0 0 30vh rgba(0, 0, 0, 0.07);
+     padding: var(--p-1-5);
+ }
+ /* container header/ navbar css */
+ 
+ .container header {
+     padding: 0 var(--p-2-5);
+ }
+ 
+ .container header .brandLogo {
+     display: flex;
+     align-items: center;
+ }
+ 
+ .container header .brandLogo figure img {
+     width: 3.5rem;
+     height: 3.5rem;
+ }
+ 
+ .container header .brandLogo span {
+     font-size: var(--x1-fs);
+     font-weight: 700;
+     margin-left: var(--m-0-5);
+ }
+ /* user main profile css */
+ 
+ .container .userProfile {
+     position: relative;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     background: none;
+     backdrop-filter: none;
+     box-shadow: none;
+ }
+ 
+ .container .userProfile .profile figure img {
+     width: 30vh;
+     height: 30vh;
+     border-radius: 50%;
+ }
+ 
+ .container .Description_interest {
+     padding: var(--p-1-5);
+ }
+ 
+ .Description_interest .Description .heading,
+ .Description_interest .Knowledge .heading {
+     position: relative;
+     font-size: 2vh;
+     color: rgba(0, 0, 0, 0.6);
+     text-transform: uppercase;
+     margin-bottom: var(--m-1-5);
+ }
+ 
+ .Description_interest .Description .heading::before,
+ .Description_interest .Knowledge .heading::before {
+     content: "";
+     position: absolute;
+     bottom: 0;
+     right: 0;
+     height: 0.2vh;
+     width: 88%;
+     background: var(--bg6-color);
+ }
+ 
+ .userDetails .Button .rate a pre,
+ .userDetails .Button .report a pre {
+     width: 6vh;
+     top: 1;
+     right: 1rem;
+     font-weight: 900;
+     font-size: 1.8vh;
+     color: var(--f3-color);
+     background: #6fc0db;
+     border-radius: 1vh;
+     padding: var(--p-0-4) var(--p-1-0);
+ }
+ 
+ .container .Description_interest .Description p {
+     font-size: 2vh;
+     font-weight: 600;
+ }
+ /* Interest css  */
+ 
+ .Description_interest .Knowledge ul li {
+     position: relative;
+     font-size: 1.8vh;
+     line-height: 2.6vh;
+     margin: var(--m-0-5);
+     color: var(--f2-color);
+     font-weight: 500;
+ }
+ 
+ .Description_interest .Knowledge ul li::before {
+     content: "";
+     position: absolute;
+     top: o;
+     bottom: 0;
+     right: 0;
+     margin: auto;
+     height: 0.5vh;
+     background: var(--bg3-color);
+     animation: Knowledge 8s linear infinite;
+     animation-delay: calc(-2s * var(--i));
+ }
+ 
+ @keyframes Knowledge {
+     0% {
+         width: 50%;
+         filter: hue-rotate(180deg);
+     }
+     50% {
+         width: 0;
+     }
+     100% {
+         width: 50%;
+         filter: hue-rotate(0);
+     }
+ }
+ 
+ .userDetails {
+     position: relative;
+     padding: var(--p-1-5)var(--p-2-5);
+ }
+ 
+ .userDetails .userName h1 {
+     font-size: var(--xxx1-fs);
+ }
+ 
+ .userDetails .userName .map {
+     position: absolute;
+     top: 1.8vh;
+     left: 38vh;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+ }
+ 
+ .userDetails .userName .map .ri {
+     margin-right: var(--m-0-3);
+     font-size: var(--m-fs);
+ }
+ 
+ .userDetails .userName .map span {
+     font-size: var(--s-fs);
+     color: var(--f3-color);
+     font-weight: 700;
+ }
+ 
+ .userDetails .userName p {
+     font-size: 2vh;
+     font-weight: 800;
+     color: var(--f5-color);
+     margin-bottom: var(--m-1-8);
+ }
+ 
+ .userDetails .rank {
+     position: relative;
+     margin-bottom: var(--m-1-8);
+ }
+ 
+ .userDetails .rank .heading {
+     font-size: var(--x1-fs);
+     color: var(--f4-color);
+     text-transform: uppercase;
+     margin-bottom: var(--m-0-6);
+ }
+ 
+ .userDetails .rank span {
+     font-size: 3vh;
+     font-weight: 800;
+ }
+ 
+ .userDetails .rank .rating {
+     position: absolute;
+     top: 0.1rem;
+     left: 5rem;
+ }
+ 
+ .userDetails .rank .rating .rate {
+     color: var(--f5-color);
+     font-size: var(--1-fs);
+ }
+ 
+ .userDetails .rank .rating .underrate {
+     color: var(--f6-color);
+ }
+ 
+ .about .tabs ul {
+     position: relative;
+     display: flex;
+     align-items: center;
+     margin-bottom: var(--m-2-5);
+ }
+ 
+ .about .tabs ul::before {
+     content: "";
+     position: absolute;
+     bottom: 0;
+     right: 1vh;
+     width: 100%;
+     height: 0.5vh;
+     background: var(--bg7-color);
+ }
+ 
+ .about .tabs ul li {
+     position: relative;
+     display: flex;
+     align-items: center;
+     margin-right: var(--m-2-5);
+     padding-bottom: var(--p-0-8);
+     cursor: pointer;
+ }

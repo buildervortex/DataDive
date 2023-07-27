@@ -1,0 +1,20 @@
+body .Cardcontainer {
+    display: grid;
+    grid-gap: 2cqb;
+    grid-auto-flow: column;
+}
+
+body .Cardcontainer .item {
+    background-color: red;
+    display: grid;
+    justify-items: center;
+    grid-gap: 1cqb;
+    padding: 1cqb;
+    border-radius: 20px;
+    background: url("../img/Background.jpg");
+}
+
+body .Cardcontainer .item img {
+    max-width: 14cqb;
+    border-radius: 50%;
+}
