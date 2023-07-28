@@ -41,9 +41,10 @@ function createAccountElement(Heading, linkAddress, accountTypeSelectingElement)
 
     let DeleteButtonElement = document.createElement("button");
     DeleteButtonElement.innerText = "Delete";
-    DeleteButtonElement.addEventListener("click", (event) => {
+
+    DeleteButtonElement.addEventListener("click",(event)=>{
         event.preventDefault();
-        deleteButtonHanlder(AccountContainerElement, accountTypeSelectingElement);
+        deleteButtonHanlder(AccountContainerElement,accountTypeSelectingElement);
     });
 
 
@@ -77,8 +78,9 @@ export function InitializeTheSocialMediaLinkAdder(socialMediaAccountTypeSelectin
     let socialMediaAccountUrlElement = document.querySelector(socialMediaAccountUrlSelector);
     let socialMediaAccountAddButtonElement = document.querySelector(socialMediaAccountAddButtonSeletor);
 
-    socialMediaAccountAddButtonElement.addEventListener("click", (event) => {
-        event.preventDefault();
-        AddButtonHandler(addedAccountContainerElement, accountTypeSelectingElement, socialMediaAccountUrlElement);
-    });
+
+   socialMediaAccountAddButtonElement.addEventListener("click",(event)=>{
+    event.preventDefault();
+    AddButtonHandler(addedAccountContainerElement,accountTypeSelectingElement,socialMediaAccountUrlElement);
+   });
 }
