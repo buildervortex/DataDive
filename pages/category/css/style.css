@@ -1,4 +1,5 @@
 @import url("../../../../css/other/navBar/navBarStyle.css");
+@import url("../../../../css/other/categorySelect/style.css");
 
 body, html {
     margin: 0;
@@ -136,6 +137,7 @@ body {
     width: 250px;
     height: 370px;
     padding: 20px;
+    box-shadow:#82dce2;
     border: 2px solid #3f168a;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);

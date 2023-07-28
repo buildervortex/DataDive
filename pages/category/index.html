@@ -34,11 +34,28 @@
     <div class="container">
         
         <div class="filter">
+
+            <div class="categorySelectionContainer Override">
+                <select name="mainCategorySelector" class="mainCategorySelector Override">
+                    <option value="null" class="Override">Select The Main Category</option>
+                </select>
+                <select name="subCategorySelector" class="subCategorySelector Override">
+                    <option value="null" class="Override">Select The Sub Category</option>
+                </select>
+            </div>
+
             <select name="sort" onchange="handleSortChange()" onmouseover="handleSortHover()">
                 <option value="1" onmouseover="handleSelectionHover()">Selection</option>
                 <option value="2" onmouseover="handleMainCategoryHover()">Main Category</option>
                 <option value="3" onmouseover="handleSubCategoryHover()">Sub Category</option>
             </select>
+            <div><br>
+                <div class="checkbox">
+                <label><input type="checkbox" name="subOption" value="like">Like</label><br><br>
+                <label><input type="checkbox" name="subOption" value="rating">Rating</label><br><br>
+                <label><input type="checkbox" name="subOption" value="comment">Comment</label><br><br>
+            </div>
+            </div>
             <div id="additionalOption" style="display: none;">
                 <div class="calendar-container" onmouseover="updateCalendar()">
                     <div class="calendar-header">
