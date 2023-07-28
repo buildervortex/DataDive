@@ -11,10 +11,18 @@ body .Cardcontainer .item {
     grid-gap: 1cqb;
     padding: 1cqb;
     border-radius: 20px;
-    background: url("../img/Background.jpg");
+    background: url("../img/card_image.jpg");
+    font-size: 10cqb;
+    font-weight: 700;
 }
 
 body .Cardcontainer .item img {
-    max-width: 14cqb;
-    border-radius: 50%;
+    max-width: 40cqb;
+    border: 10px;
+    border-color: red;
+}
+
+body .Cardcontainer .item .h1 {
+    font-weight: 900;
+    font-size: 30cqb;
 }

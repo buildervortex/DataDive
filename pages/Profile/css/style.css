@@ -287,21 +287,21 @@
  }
  
  .userDetails .rank .heading {
-     font-size: var(--x1-fs);
+     font-size: 2.5cqb;
      color: var(--f4-color);
      text-transform: uppercase;
      margin-bottom: var(--m-0-6);
  }
  
  .userDetails .rank span {
-     font-size: 3vh;
+     font-size: 2.7cqw;
      font-weight: 800;
  }
  
  .userDetails .rank .rating {
      position: absolute;
      top: 0.1rem;
-     left: 5rem;
+     left: 8rem;
  }
  
  .userDetails .rank .rating .rate {
@@ -345,4 +345,9 @@
      position: relative;
      left: 5cqb;
      top: -1cqb;
+ }
+ 
+ .about .cotact .span {
+     font-weight: 400;
+     font-size: large;
  }
