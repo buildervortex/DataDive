@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+   
+    <title>Filtering and Cards</title>
+</head>
+
+<body>
+    <nav class="navBar Override">
+        <div class="hamburgerMenu Override">
+            <div id="asideBarActivator" class="Override">
+                <div class="Override"></div>
+                <div class="Override"></div>
+                <div class="Override"></div>
+            </div>
+        </div>
+        <img src="../../../img/other/navBar/CompanyLogo.png" alt="CompanyLogo" id="Logo" class="Override" />
+        <aside class="links-container Override">
+            <a href="#" class="Override">Home</a>
+            <a href="" id="category" class="Override"><span class="Override">Category</span><img src="../../../icon/other/navBar/arrowHead.png" class="Override" /></a>
+            <a href="" class="Override">Services</a>
+            <a href="" class="Override">contact us</a>
+            <a href="" class="Override">About us</a>
+            <a href="" id="SignUpButton" class="Override">Sign Up</a>
+        </aside>
+        <a href="" id="SignInButton" class="Override">Sign In</a>
+    </nav>
+
+
+    <div class="container">
+        
+        <div class="filter">
+
+            <div class="categorySelectionContainer Override">
+                <select name="mainCategorySelector" class="mainCategorySelector Override">
+                    <option value="null" class="Override">Select The Main Category</option>
+                </select>
+                <select name="subCategorySelector" class="subCategorySelector Override">
+                    <option value="null" class="Override">Select The Sub Category</option>
+                </select>
+            </div>
+
+            <select name="sort" onchange="handleSortChange()" onmouseover="handleSortHover()">
+                <option value="1" onmouseover="handleSelectionHover()">Selection</option>
+                <option value="2" onmouseover="handleMainCategoryHover()">Main Category</option>
+                <option value="3" onmouseover="handleSubCategoryHover()">Sub Category</option>
+            </select>
+            <div><br>
+               
+                <label><input type="checkbox" name="subOption" value="like">Like</label><br><br>
+                <label><input type="checkbox" name="subOption" value="rating">Rating</label><br><br>
+                <label><input type="checkbox" name="subOption" value="comment">Comment</label><br><br>
+            </div>
+            
+            <div id="additionalOption" style="display: none;">
+                <div class="calendar-container" onmouseover="updateCalendar()">
+                    <div class="calendar-header">
+                        <span id="currentMonth">July 2023</span>
+                    </div>
+                    <div class="calendar-days">
+                        <div class="day">Sun</div>
+                        <div class="day">Mon</div>
+                        <div class="day">Tue</div>
+                        <div class="day">Wed</div>
+                        <div class="day">Thu</div>
+                        <div class="day">Fri</div>
+                        <div class="day">Sat</div>
+                       
+                        <div class="empty"></div>
+                        <div class="empty"></div>
+                        <div class="empty"></div>
+                        <div class="empty"></div>
+                        <div class="empty"></div>
+                        <div class="empty"></div>
+                        <div class="empty"></div>
+                        <!-- Add dates here -->
+                        <div class="date">1</div>
+                        <div class="date">2</div>
+                        <div class="date">3</div>
+                        <!-- Add more dates as needed -->
+                    </div>
+                </div>
+            </div>
+            <div id="checkboxOptions" style="display: none;">
+                <label><input type="radio" name="subOption" value="like">Like</label><br>
+                <label><input type="radio" name="subOption" value="rating">Rating</label><br>
+                <label><input type="radio" name="subOption" value="comment">Comment</label><br>
+            </div>
+        </div>
+
+
+        <div class="content">
+            <div class="background">
+                
+                <div class="search-bar">
+                    <div class="search-container">
+                        <input type="text" class="search-input" placeholder="Search..." id="searchInput">
+                        <div class="search-button" onclick="handleSearchButtonClick()">
+                            <div class="search-icon"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-container" id="cardContainer">
+                <div class="card" onclick="goToCategoryDetails('Card 1')">Science <img src="./img/science2.jpg" alt="Card 1">
+                    <p>A online page dedicated to learning science provides interactive learning tools and educational resources to
+                        promote comprehension of scientific ideas and principles.</p>
+                        <div class="rating">
+                        
+                            <img src="./img/star.jpg" alt="Star">
+                            <img src="./img/star.jpg" alt="Star">
+                            <img src="./img/star.jpg" alt="Star">
+                            <img src="./img/star.jpg" alt="Star">
+                            <img src="./img/star.jpg" alt="Star">
+                        </div>
+                        <div class="likes">
+                            <img src="./img/like.jpg" alt="Like" onclick="incrementLikeCount(0)">
+                            <span class="like-count" id="likeCount0">1</span>
+                        </div>
+                        <div class="comments">
+                            <img src="./img/comment.gif" alt="Comment" onclick="incrementCommentCount(0)">
+                            <span class="comment-count" id="commentCount0">1</span>
+                        </div></div>
+                        
+                <div class="card" onclick="goToCategoryDetails('Card 2')">Mathematics <img src="./img/maths.jpg" alt="Card 2">
+                    <p>The website offers interactive math lessons, practice problems, and tools to enhance users' understanding and problem-solving skills.</p>
+                        <div class="rating">
+                        
+                            <img src="./img/star.jpg" alt="Star">
+                            <img src="./img/star.jpg" alt="Star">
+                            <img src="./img/star.jpg" alt="Star">
+                            <img src="./img/star.jpg" alt="Star">
+                            <img src="./img/star.jpg" alt="Star">
+                    </div>
+                    <div class="likes">
+                        <img src="./img/like.jpg" alt="Like" id="likeButton" onclick="incrementLikeCount()">
+                        <span class="like-count" id="likeCount">1</span>
+                    </div>
+                    <div class="comments">
+                        <img src="./img/comment.gif" alt="Comment" id="commentButton" onclick="incrementCommentCount()">
+                        <span class="comment-count" id="commentCount">1</span>
+                    </div>
+                    </div>
+                    <div class="card" onclick="goToCategoryDetails('Card 4')">Arts and Crafts <img src="./img/ARTS.jpg" alt="Card 4">
+                        <p>One can find tutorials, step-by-step directions, and creative inspiration on a website page dedicated to learning
+                             arts and crafts.</p>
+                             <div class="rating">
+                            
+                                <img src="./img/star.jpg" alt="Star">
+                                <img src="./img/star.jpg" alt="Star">
+                                <img src="./img/star.jpg" alt="Star">
+                                <img src="./img/star.jpg" alt="Star">
+                                <img src="./img/star.jpg" alt="Star">
+                            </div>
+                            <div class="likes">
+                                <img src="./img/like.jpg" alt="Like" id="likeButton" onclick="incrementLikeCount()">
+                                <span class="like-count" id="likeCount">1</span>
+                            </div>
+                            <div class="comments">
+                                <img src="./img/comment.gif" alt="Comment" id="commentButton" onclick="incrementCommentCount()">
+                                <span class="comment-count" id="commentCount">1</span>
+                            </div>
+                            </div>
+                            <div class="card" onclick="goToCategoryDetails('Card 3')">IT <img src="./img/IT.jpg" alt="Card 3">
+                                <p>A learning IT internet page provides a wide selection of tutorials, tools, and hands-on activities to assist people in
+                                     developing their knowledge and skills in a variety of information technology fields.</p>
+                                     <div class="rating">
+                                    
+                                        <img src="./img/star.jpg" alt="Star">
+                                        <img src="./img/star.jpg" alt="Star">
+                                        <img src="./img/star.jpg" alt="Star">
+                                        <img src="./img/star.jpg" alt="Star">
+                                        <img src="./img/star.jpg" alt="Star">
+                                    </div>
+                                    <div class="likes">
+                                        <img src="./img/like.jpg" alt="Like" id="likeButton" onclick="incrementLikeCount()">
+                                        <span class="like-count" id="likeCount">1</span>
+                                    </div>
+                                    <div class="comments">
+                                        <img src="./img/comment.gif" alt="Comment" id="commentButton" onclick="incrementCommentCount()">
+                                        <span class="comment-count" id="commentCount">1</span>
+                                    </div>
+                                    </div>
+
+                                    <div class="card" onclick="goToCategoryDetails('Card 5')">Programming <img src="./img/Programming.jpg" alt="Card 5">
+                                        <p>A internet page dedicated to studying programming provides in-depth coding tutorials, exercises, and resources to aid people 
+                                            in becoming proficient in programming languages and improving their problem-solving skills.</p>
+                                            <div class="rating">
+                                            
+                                                <img src="./img/star.jpg" alt="Star">
+                                                <img src="./img/star.jpg" alt="Star">
+                                                <img src="./img/star.jpg" alt="Star">
+                                                <img src="./img/star.jpg" alt="Star">
+                                                <img src="./img/star.jpg" alt="Star">
+                                            </div>
+                                            <div class="likes">
+                                                <img src="./img/like.jpg" alt="Like" id="likeButton" onclick="incrementLikeCount()">
+                                                <span class="like-count" id="likeCount">1</span>
+                                            </div>
+                                            <div class="comments">
+                                                <img src="./img/comment.gif" alt="Comment" id="commentButton" onclick="incrementCommentCount()">
+                                                <span class="comment-count" id="commentCount">1</span>
+                                            </div>
+                                            </div>
+                                            <div class="card" onclick="goToCategoryDetails('Card 8')">Language Learnings <img src="./img/language1.jpg" alt="Card 8">
+                                                <p>An online resource for learning languages provides in-depth language lectures, interactive exercises, and tools to speed
+                                                     up language learning and proficiency.</p>
+                                                     <div class="rating">
+                                                    
+                                                        <img src="./img/star.jpg" alt="Star">
+                                                        <img src="./img/star.jpg" alt="Star">
+                                                        <img src="./img/star.jpg" alt="Star">
+                                                        <img src="./img/star.jpg" alt="Star">
+                                                        <img src="./img/star.jpg" alt="Star">
+                                                    </div>
+                                                    <div class="likes">
+                                                        <img src="./img/like.jpg" alt="Like" id="likeButton" onclick="incrementLikeCount()">
+                                                        <span class="like-count" id="likeCount">1</span>
+                                                    </div>
+                                                    <div class="comments">
+                                                        <img src="./img/comment.gif" alt="Comment" id="commentButton" onclick="incrementCommentCount()">
+                                                        <span class="comment-count" id="commentCount">1</span>
+                                                    </div>
+                                                    </div>
+
+                            
+                                                          <div class="card" onclick="goToCategoryDetails('Card 6')">History <img src="./img/history.jpg" alt="Card 6">
+                                                            <p>In order to increase knowledge and awareness of historical events and their effects on the globe, a learning history
+                                                                 internet page offers interesting content, hands-on activities, and insightful narratives.</p>
+                                                                 <div class="rating">
+                                                                
+                                                                    <img src="./img/star.jpg" alt="Star">
+                                                                    <img src="./img/star.jpg" alt="Star">
+                                                                    <img src="./img/star.jpg" alt="Star">
+                                                                    <img src="./img/star.jpg" alt="Star">
+                                                                    <img src="./img/star.jpg" alt="Star">
+                                                                </div>
+                                                                <div class="likes">
+                                                                    <img src="./img/like.jpg" alt="Like" id="likeButton" onclick="incrementLikeCount()">
+                                                                    <span class="like-count" id="likeCount">1</span>
+                                                                </div>
+                                                                <div class="comments">
+                                                                    <img src="./img/comment.gif" alt="Comment" id="commentButton" onclick="incrementCommentCount()">
+                                                                    <span class="comment-count" id="commentCount">1</span>
+                                                                </div>
+                                                                </div>
+                            <div class="card" onclick="goToCategoryDetails('Card 7')">Health and Crafts <img src="./img/health.jpg" alt="Card 7">
+                                <p>The promotion of physical and mental well-being through diverse health practices and artistic crafts is made possible by 
+                                    a website page dedicated to learning about health and crafts, which offers useful advice,
+                                     suggestions, and tutorials.</p>
+                                     <div class="rating">
+                                    
+                                        <img src="./img/star.jpg" alt="Star">
+                                        <img src="./img/star.jpg" alt="Star">
+                                        <img src="./img/star.jpg" alt="Star">
+                                        <img src="./img/star.jpg" alt="Star">
+                                        <img src="./img/star.jpg" alt="Star">
+                                    </div>
+                                    <div class="likes">
+                                        <img src="./img/like.jpg" alt="Like" id="likeButton" onclick="incrementLikeCount()">
+                                        <span class="like-count" id="likeCount">1</span>
+                                    </div>
+                                    <div class="comments">
+                                        <img src="./img/comment.gif" alt="Comment" id="commentButton" onclick="incrementCommentCount()">
+                                        <span class="comment-count" id="commentCount">1</span>
+                                    </div>
+                                    </div>
+                        </div>
+    
+
+
+<script src="./js/index.js"></script>                       
+                    </body>
+                    </html>
