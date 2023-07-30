@@ -1,9 +1,9 @@
 @import url("./HamburgerMenue/hamburgerMenuStyle.css");
 .navBar{
-    --asideBarBackgroundColor:blue;
+    --asideBarBackgroundColor:rgba(67, 146, 188, 0.88);
     --navBarBackgroundColor:none;
     --navBarLinksFontColor:black;
-    --navBarLinksFontSize:2cqb;
+    --navBarLinksFontSize:3.5cqb;
     --navBarScrollColor:white;
 }
 .navBar{

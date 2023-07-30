@@ -1,5 +1,5 @@
 main .pageHead{
-    --HeaderHeadingColor:white;
+    --HeaderHeadingColor:rgb(255, 255, 255);
     --HeaderHeadingFontWeight:900;
     --HeaderHeadingFontSize:2.5cqw; /* responsive font sizes */
     --HeaderSearchBarFontSize:1.2em;
