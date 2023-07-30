@@ -144,7 +144,7 @@ body main .cardContainer{
     padding: 2cqb;
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
-    grid-gap: 1cqb;
+    grid-gap: 9cqb;
 }
 body main .cardContainer .card{
     width: 100%;
