@@ -1,0 +1,186 @@
+@import url("../../../../css/other/navBar/navBarStyle.css");
+@import url("../../../../css/other/categorySelect/style.css");
+
+body main.mainSection{
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    grid-template-rows: 70vh 1fr;
+}
+body main div.SearchBarBox{
+    grid-column: 1/3;
+}
+
+body main aside{
+    grid-column: 1/2;
+    grid-row: 2/3;
+}
+body main .cardContainer{
+    grid-row: 2/3;
+    grid-column: 2/3;
+}
+body main aside .asideContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 4cqb;
+}
+
+body main div.SearchBarBox{
+    background: url("../img/search_bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+body main div.SearchBarBox .SearchBox{
+    padding: 2cqb;
+    border-radius: 20px;
+    display: block;
+    height: 5cqb;
+    width: 20cqw;
+    background-color: #504e7a;
+    border: solid rgb(125, 32, 219) 5px;
+    color: white;
+    font-weight: 700;
+    font-size: 1cqi;
+    
+    transition: all 400ms ease-out;
+}
+body main div.SearchBarBox div{
+    display: grid;
+    grid-auto-flow: column;
+    background-color: #504e7a;
+    padding: 2cqb;
+    border-radius: 40px;
+    grid-gap: 2cqb;
+}
+body main div.SearchBarBox .SearchBox:focus{
+    background-color: #3a0d8d;
+    border: solid rgb(44, 2, 87) 5px;
+    outline: none;
+    box-shadow: white 0px 0px 10px;
+}
+body main div.SearchBarBox .SerachIcon{
+    height: 5cqb;
+    width: 5cqb;
+    border-radius: 50%;
+    border: none;
+    background-color: limegreen;
+    outline: solid white 2px;
+    outline-offset: -1.5cqb;
+    transition: all 400ms ease-out;
+    cursor: pointer;
+}
+body main div.SearchBarBox .SerachIcon:hover{
+    transform: scale(1.2);
+}
+body main aside {
+    max-width: min-content;
+    display: grid;
+    grid-gap: 2cqb;
+    padding: 1cqb;
+}
+body main aside .asideContainer{
+    background-color: rgba(128, 0, 128, 0.74);
+    padding: 2cqb;
+    border-radius: 20px;
+
+}
+body main aside .filterbox{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    white-space: nowrap;
+    grid-gap: 2cqb;
+    align-items: center;
+    justify-items: center;
+}
+body main aside .filterbox label{
+    background-color: purple;
+    padding: 1cqb;
+    border-radius: 20px;
+    text-align: center;
+    color: white;
+    font-weight: 700;
+    font-size: 1cqi;
+    width: 100%;
+}
+body main aside .filterbox input{
+    width: 7.2cqw;
+}
+body main aside .filterbox input[type="radio"]{
+    transform: scale(1.7);
+    cursor: pointer;
+}
+body main aside .filterbox input[type="date"]{
+    background-color: rgba(128, 0, 128, 0.39);
+    border: none;
+    padding: 1cqb;
+    border-radius: 20px;
+}
+body main aside .filterbox input[type="date"]:focus{
+    outline: solid purple 4px;
+    box-shadow: white 0px 0px 10px;
+}
+.categorySelectionContainer{
+    width: 100%;
+}
+.categorySelectionContainer > select{
+    background-color: purple;
+    padding: 1cqb;
+    min-width: 15cqw;
+    font-size: 1cqi;
+    text-align: center;
+    font-weight: 700;
+    color: white;
+}
+.categorySelectionContainer > select:focus{
+    box-shadow: white 0px 0px 10px;
+}
+
+
+body main .cardContainer{
+    padding: 2cqb;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+    grid-gap: 9cqb;
+}
+body main .cardContainer .card{
+    width: 100%;
+    display: grid;
+    grid-auto-rows: min-content;
+    grid-gap: 2.9cqb;
+    padding: 2cqb;
+    /* background-color: #c95cf5af; */
+    border-radius: 20px;
+    border: solid black 2px;
+    justify-items: center;
+    box-shadow: #3a0d8d81 2px 2px 10px;
+}
+body main .cardContainer .card .thumbnail{
+    max-width: 15cqb;
+    max-height: 15cqb;
+    display: block;
+}
+body main .cardContainer .card p {
+    line-height: 20px;
+    text-align: center;
+}
+body main .cardContainer .card p::first-letter{
+    text-transform: capitalize;
+    font-size: 2.4cqb;
+}
+body main .cardContainer .card .comment ,body main .cardContainer .card .like{
+    display: grid;
+    grid-auto-flow: column;
+    grid-gap: 2cqb;
+    align-items: center;
+}
+body main .cardContainer .card  .comment img,body main .cardContainer .card .like img{
+    max-width: 2.9cqb;
+    max-height: 2.9cqb;
+}
+body main .cardContainer .card .rating{
+    letter-spacing: 1cqi;
+}
