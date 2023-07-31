@@ -55,7 +55,7 @@
                     <!-- <i><img src="./svg/Map_icon.gif" width="40px" height="40px"></i>
                     <span>Sri Lanka, Colombo</span> -->
                 </div>
-                <p><i><img src="./svg/Map_icon.gif" width="40px" height="40px"></i>Colombo</p>
+                <p><i><img src="./svg/Map_icon.gif" width="40px" height="40px"></i>Sri Lanka</p>
             </div>
             <div class="rank">
                 <h1 class="heading">Rankings</h1>
@@ -150,9 +150,18 @@
             </div>
         </section>
 
+
+
+        <section class="button">
+
+            <button type="submit" class="btn">More</button>
+
+        </section>
+
     </div>
 
-
 </body>
+
+
 
 </html>
