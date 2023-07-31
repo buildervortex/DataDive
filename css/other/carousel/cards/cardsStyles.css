@@ -1,11 +1,11 @@
 @import url("../../root/default.css");
 .cards{
-    --cardBackgroundColor:rgba(31, 107, 107, 0.281);
+    --cardBackgroundColor:rgba(0, 59, 96, 0.61);
     --cardBoxShadow:rgba(0, 0, 0, 0.61);
     --cardBoxShadowRadius:10px;
     --cardTextShadowColor:black;
-    --cardButtonBackgroundColor:blue;
-    --cardButtonFontColor:white;
+    --cardButtonBackgroundColor:rgb(12, 83, 175);
+    --cardButtonFontColor:rgb(248, 252, 22);
 }
 .cards{
 
@@ -57,13 +57,15 @@
     font-size: 1.5cqi ;
 
     grid-area: h;
+    color: white;
 }
 
 .cards .description{
     grid-area: d;
-    line-height: 2.2cqh;
+    line-height: 2.5cqh;
 
-    font-size: 0.7cqi;
+    font-size: 0.9cqi;
+    color: white;
 
 }
 .cards .description::first-letter{
