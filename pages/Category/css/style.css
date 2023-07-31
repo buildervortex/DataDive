@@ -113,7 +113,7 @@ body main aside .filterbox input[type="radio"]{
     transform: scale(1.7);
     cursor: pointer;
 }
-body main aside .filterbox input[type="date"]{
+/* body main aside .filterbox input[type="date"]{
     background-color: rgba(128, 0, 128, 0.39);
     border: none;
     padding: 1cqb;
@@ -122,6 +122,21 @@ body main aside .filterbox input[type="date"]{
 body main aside .filterbox input[type="date"]:focus{
     outline: solid purple 4px;
     box-shadow: white 0px 0px 10px;
+} */
+body main aside .filterbox button{
+    background-color: purple;
+    padding: 1cqb 2cqb;
+    border-radius: 20px;
+    text-align: center;
+    color: white;
+    font-weight: 700;
+    font-size: 1cqi;
+    border: solid rgb(82, 1, 82) 2px;
+    cursor: pointer;
+    transition: color 200ms ease-in;
+}
+body main aside .filterbox button:hover{
+    background-color: rgb(56, 2, 56);
 }
 .categorySelectionContainer{
     width: 100%;
@@ -157,6 +172,7 @@ body main .cardContainer .card{
     border: solid black 2px;
     justify-items: center;
     box-shadow: #3a0d8d81 2px 2px 10px;
+    cursor: pointer;
 }
 body main .cardContainer .card .thumbnail{
     max-width: 15cqb;

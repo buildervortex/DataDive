@@ -3,7 +3,6 @@
 $root = __DIR__."/../../uploads/";
 $defaultProfilePicture = $root."author/profilePicture/defaultProfilePicture.jpg";
 $defaultThumbnail = $root."publication/pdf/defaultThumbnail.png";
-// var_dump(scandir($root));
 
 function getProfilePictureLocation($userId){
     global $root,$defaultProfilePicture;

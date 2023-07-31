@@ -3,7 +3,7 @@
     --asideBarBackgroundColor:rgba(67, 146, 188, 0.88);
     --navBarBackgroundColor:none;
     --navBarLinksFontColor:black;
-    --navBarLinksFontSize:3.5cqb;
+    --navBarLinksFontSize:2cqb;
     --navBarScrollColor:white;
 }
 .navBar{
@@ -118,6 +118,7 @@
     }
     .navBar{
         grid-template-columns: 1fr minmax(20%,20%) 1fr;
+        font-size: 3cqb;
     }
     .navBar #CompanyLogo{
         grid-column: 2/3;

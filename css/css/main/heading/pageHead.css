@@ -48,6 +48,9 @@ main .pageHead .container .searchBar input {
 
     font-size: var(--HeaderSearchBarFontSize);
 }
+main .pageHead .container .searchBar input:focus{
+    background-color: rgb(172, 172, 172);
+}
 
 main .pageHead .container .searchBar #searchIcon{
     display: block;
@@ -59,4 +62,9 @@ main .pageHead .container .searchBar #searchIcon{
     background-color: var(--HeaderSearchBarSearchIconBackgroundColor);
     padding: 4px;
     border-radius: 50px;
+    transition: all 290ms ease;
+}
+main .pageHead .container .searchBar #searchIcon:hover{
+    transform: scale(1.2);
+    background-color: green;
 }

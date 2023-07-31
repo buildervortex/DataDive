@@ -52,7 +52,8 @@
                 <label for="RatingFilter">Filter By Rating</label>
                 <div class="filter"><input type="radio" name="RatingFilter" id=""></div>
                 <label for="DateFilter">Filter By Date</label>
-                <div class="filter"><input type="date" name="DateFilter" id=""></div>
+                <div class="filter"><input type="radio" name="DateFilter" id=""></div>
+                <button>Filter</button>
             </div>
         </div>
     </aside>
