@@ -2,6 +2,7 @@ function setSubCategory(MainCategoryValue, SubCategoryElement, phpFileName) {
 
     let jsonObject = {
         "category": MainCategoryValue,
+        // "ID":1 // TODO : put the cookies id value here
     };
 
     fetch(phpFileName, {
@@ -29,7 +30,7 @@ function clearSubCategorySelector(SubCategoryElement) {
 
 }
 
-function setUpTheCategorySelection(SubCategoryPhpFileLocation = "./js/AuthorProfileViewSubCategory.php", mainCategorySelector = ".categorySelectionContainer .mainCategorySelector", subCategorySelector = ".categorySelectionContainer .subCategorySelector") {
+function setUpTheCategorySelection(SubCategoryPhpFileLocation = "./js/PublicationCreateViewSubCategory.php", mainCategorySelector = ".categorySelectionContainer .mainCategorySelector", subCategorySelector = ".categorySelectionContainer .subCategorySelector") {
     let MainCategoryElement = document.querySelector(mainCategorySelector);
     let SubCategoryElement = document.querySelector(subCategorySelector);
 

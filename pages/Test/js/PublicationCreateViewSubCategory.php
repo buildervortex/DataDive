@@ -1,9 +1,9 @@
 <?php
-include_once __DIR__."/../../../php/lib/db/pages/AuthorProfileView/AuthorProfileViewDatabaseHandler.php";
+include_once __DIR__."/../../../php/lib/db/pages/PublicationCreateView/PublicationCreateViewHandler.php";
 
 
 function subcategory($mainCategory){
-    return json_encode(getSubCategory(isCookiesThere(),$mainCategory),JSON_FORCE_OBJECT);
+    return json_encode(getAllSubCategory($mainCategory),JSON_FORCE_OBJECT);
 }
 
 $decodeJsonData;

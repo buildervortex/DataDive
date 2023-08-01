@@ -174,6 +174,7 @@ echo "</div>";
 <a href="./AuthorProfileDelete.php">Delete</a>
 <a href="./AuthorProfileUpdate.php">Update</a>
 <a href="./SingOut.php">Sing Out</a>
+<a href="./PublicationCreateView.php">Create Publication</a>
 <script src="./js/AuthorProfileView.js"></script>
 <script>
     // ! HAVE TO INCLUDE SENDS THE PUBLICATION ID TO THE PUBLICATION VIEW PAGE
