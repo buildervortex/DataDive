@@ -1,6 +1,14 @@
 <?php 
+// ! EACH PUBLICATIONS VIEW HAVE TO GO TO THE PUBLICATION VIEW PAGE
+
 include_once __DIR__."/../../php/lib/db/pages/AuthorProfileView/AuthorProfileViewDatabaseHandler.php";
-$id = 1;
+$id = isCookiesThere();
+if(!$id){
+    session_name("Check_sing_in");
+    session_start();
+    header(("Location: ./SingIn.php")); // TODO : change to redirect to the author profile view.
+    session_write_close();
+}
 $userData = getUserData($id);
 $userSkills = getUserSkills($id);
 $userInterests = getUserInterests($id);
@@ -10,8 +18,12 @@ $publications = [];
 
 
 
+
 if($_SERVER["REQUEST_METHOD"]=="POST"){
     $publications = getPublications($id,$_POST);
+}
+else{
+    $publications = getPublications($id,[]);
 }
 ?>
 <!DOCTYPE html>
@@ -22,6 +34,9 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     <title>Document</title>
 </head>
 <body>
+    <?php
+        echo "<img src='".getProfilePictureLocation($id)."'></img>";
+    ?>
     <table>
         <?php
         echo $userData["UserName"]!=null?"<tr>
@@ -49,7 +64,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         ?>
         <?php
         echo $userData["PhoneNumber"]!=null?"<tr>
-            <td>Email</td>
+            <td>Number</td>
             <td><input type='text' name='PhoneNumber' readonly value = '".$userData["PhoneNumber"]."' ></td>
         </tr>":"";
         ?>
@@ -133,11 +148,20 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 
     <input type="submit" value="Submit">
 </form>
+<style>
+    .Cardcontainer .card{
+        background-color: aqua;
+        padding: 20px;
+        margin: 20px;
+        cursor: pointer;
+    }
+</style>
 <?php 
-echo "<div class='container'>";
+echo "<div class='Cardcontainer'>";
 foreach($publications as $publication)
 {
     echo "<div class='card'>";
+    echo "<div>".$publication["PublicationId"]."</div>";
     echo "<div class='title'>".$publication["Title"]."</div>"; // TODO : CHECK THE THUMBNAILS
     echo "<img src='".getThumbnailLocation($id,$publication["PublicationId"])."' class='thumbnail'>";
     echo "<div class='likecount'>".$publication["LikeCount"]."</div>";
@@ -147,7 +171,15 @@ foreach($publications as $publication)
 echo "</div>";
 
 ?>
-
+<a href="./AuthorProfileDelete.php">Delete</a>
+<a href="./AuthorProfileUpdate.php">Update</a>
+<a href="./SingOut.php">Sing Out</a>
 <script src="./js/AuthorProfileView.js"></script>
+<script>
+    // ! HAVE TO INCLUDE SENDS THE PUBLICATION ID TO THE PUBLICATION VIEW PAGE
+    document.querySelector(".Cardcontainer .card").addEventListener("click",()=>{
+        window.location.href="https://www.google.com"; // TODO : GIVE ALL CARDS TO GO TO THE PUBLICATION VIEW
+    });
+</script>
 </body>
 </html>

@@ -1,7 +1,8 @@
 function deleteButtonHanlder(AccountElement, socialMediaAccountTypeSelectingElement) {
     let AccountTypeText = AccountElement.querySelector("h4").innerText.toLowerCase();
     let Value = AccountElement.querySelector("input").getAttribute("accountid");
-    AccountElement.parentElement.removeChild(AccountElement);
+    let superElement = AccountElement.parentElement;
+    superElement.removeChild(AccountElement);
 
     let optionElement = document.createElement("option");
     optionElement.value = Value;
@@ -40,7 +41,7 @@ function createAccountElement(Heading, linkAddress, accountTypeSelectingElement,
     InputElement.type = "url";
     InputElement.name = Value;
     InputElement.readOnly = true;
-    InputElement.value = linkAddress;
+    InputElement.setAttribute("value",linkAddress);
     InputElement.setAttribute("AccountId",Value);
 
     let DeleteButtonElement = document.createElement("button");
@@ -77,7 +78,7 @@ function AddButtonHandler(socialMediaAccountAddedContainerElement, socialMediaAc
 
 }
 
-export function InitializeTheSocialMediaLinkAdder(socialMediaAccountTypeSelectingSelector = ".socialMediaContainer .accountAddingContainer .socialMediaAccountType", socialMediaAccountAddedContainerSelector = ".socialMediaContainer .addedAccountContainer", socialMediaAccountUrlSelector = ".socialMediaContainer .accountAddingContainer input", socialMediaAccountAddButtonSeletor = ".socialMediaContainer .accountAddingContainer button") {
+function InitializeTheSocialMediaLinkAdder(socialMediaAccountTypeSelectingSelector = ".socialMediaContainer .accountAddingContainer .socialMediaAccountType", socialMediaAccountAddedContainerSelector = ".socialMediaContainer .addedAccountContainer", socialMediaAccountUrlSelector = ".socialMediaContainer .accountAddingContainer input", socialMediaAccountAddButtonSeletor = ".socialMediaContainer .accountAddingContainer button") {
     let addedAccountContainerElement = document.querySelector(socialMediaAccountAddedContainerSelector);
     let accountTypeSelectingElement = document.querySelector(socialMediaAccountTypeSelectingSelector);
     let socialMediaAccountUrlElement = document.querySelector(socialMediaAccountUrlSelector);
@@ -96,3 +97,53 @@ export function InitializeTheSocialMediaLinkAdder(socialMediaAccountTypeSelectin
     }
    });
 }
+
+function deletButtonSetup(container){
+    container.addEventListener("click",(event)=>{
+        if(event.target.name == "DeleteButton"){
+            event.target.addEventListener("click",(event)=>{
+                event.preventDefault();
+            });
+            let subSuperElement = event.target.parentElement;
+            let superElement = subSuperElement.parentElement;
+            superElement.removeChild(subSuperElement);
+        }
+    });
+}
+function AddDropDownItem(container,name){
+    let element = document.createElement("div");
+    element.classList.add("container");
+
+    let InputTag = document.createElement("input");
+    InputTag.type = "text";
+    InputTag.name = name;
+    InputTag.placeholder = "Add "+name;
+
+    let DeleteButton = document.createElement("button");
+    DeleteButton.classList.add("Delete");
+    DeleteButton.name = "DeleteButton";
+    DeleteButton.innerText = "Delete";
+    deletButtonSetup(container);
+
+    element.appendChild(InputTag);
+    element.appendChild(DeleteButton);
+
+    container.appendChild(element);
+}
+
+function InitDropDown(ContainerElementSelector = ".DropDownContainer",AddButtonSelector=".DropDownContainer .DropDownContainerAddButton"){
+    let ContainerElement = document.querySelector(ContainerElementSelector);
+    let AddButtonElement = document.querySelector(AddButtonSelector);
+
+    deletButtonSetup(ContainerElement);
+
+    AddButtonElement.addEventListener("click",(event)=>{
+        event.preventDefault();
+        AddDropDownItem(ContainerElement,ContainerElement.getAttribute("name"));
+    });
+
+}
+
+InitDropDown(".DropDownContainer.first",".DropDownContainer.first .DropDownContainerAddButton");
+InitDropDown(".DropDownContainer.second",".DropDownContainer.second .DropDownContainerAddButton");
+InitializeTheSocialMediaLinkAdder();

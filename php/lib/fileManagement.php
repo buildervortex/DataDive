@@ -4,13 +4,18 @@ $root = __DIR__."/../../uploads/";
 $defaultProfilePicture = $root."author/profilePicture/defaultProfilePicture.jpg";
 $defaultThumbnail = $root."publication/pdf/defaultThumbnail.png";
 
+function convertPathToLocalPath($path){
+    return (explode("Project/php/lib/../..",$path)[1]);
+}
+
+
 function getProfilePictureLocation($userId){
     global $root,$defaultProfilePicture;
     $profilePictureSet = glob($root."author/profilePicture/".$userId."*");
     if(count($profilePictureSet)==1){
-        return $profilePictureSet[0];
+        return convertPathToLocalPath($profilePictureSet[0]);
     }
-    return $defaultProfilePicture;
+    return convertPathToLocalPath($defaultProfilePicture);
 }
 
 function getThumbnailLocation($userId,$publicationId){
@@ -18,9 +23,9 @@ function getThumbnailLocation($userId,$publicationId){
     if(!is_dir($root."publication/thumbnail/".$userId."/"))return null;
     $thumbnailSet = glob($root."publication/thumbnail/".$userId."/".$publicationId."*");
     if(count($thumbnailSet)==1){
-        return $thumbnailSet[0];
+        return convertPathToLocalPath($thumbnailSet[0]);
     }
-    return $defaultThumbnail;
+    return convertPathToLocalPath($defaultThumbnail);
 
 }
 
@@ -28,7 +33,7 @@ function getPdfLocation($userId,$publicationId){
     global $root;
     $pdfSet = glob($root."publication/pdf/".$userId."/".$publicationId."*");
     if(count($pdfSet)==1){
-        return $pdfSet[0];
+        return convertPathToLocalPath($pdfSet[0]);
     }
     return null;
 }

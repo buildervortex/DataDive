@@ -4,10 +4,10 @@
     if(isCookiesThere()){
         session_name("Check_sing_in");
         session_start();
-        header(("Location: https://www.google.com")); // TODO : change to redirect to the author profile view.
+        header(("Location: ./AuthorProfileView.php")); // TODO : change to redirect to the author profile view.
         session_write_close();
     }
-
+    
     $Email = "";
     $Password = "";
     $result = [
@@ -29,7 +29,7 @@
             setCookies_($result["ID"]);
             session_start();
             $_SESSION["SignUp_Success"] = true;
-            header(("Location: https://www.google.com")); // TODO : change to redirect to the author profile view.
+            header(("Location: ./AuthorProfileView.php")); // TODO : change to redirect to the author profile view.
             exit();
         }
     }
@@ -52,6 +52,7 @@
         <input type="email" placeholder="Email" name="Email" required <?php echo "value=\"".$Email."\"" ?>><br>
         <input type="password" name="Password" placeholder="Password" required <?php echo "value=\"".$Password."\"" ?>><br>
         <input type="submit" value="Submit"><br>
+        <a href="./SignUp.php">Sing up</a>
     </form>
 </body>
 </html>

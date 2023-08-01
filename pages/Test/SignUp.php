@@ -4,7 +4,7 @@
     if(isCookiesThere()){
         session_name("Check_sing_in");
         session_start();
-        header(("Location: https://www.google.com")); // TODO : change to redirect to the author profile view.
+        header(("Location: ./AuthorProfileView.php")); // TODO : change to redirect to the author profile view.
         session_write_close();
     }
 
@@ -47,7 +47,7 @@
             setCookies_($result["ID"]);
             session_start();
             $_SESSION["SignUp_Success"] = true;
-            header(("Location: https://www.google.com")); // TODO : change to redirect to the author profile view.
+            header(("Location: ./AuthorProfileView.php")); // TODO : change to redirect to the author profile view.
             exit(); //exit the code without executing below html
         }
     }
@@ -61,7 +61,7 @@
 </head>
 <body>
     <img src="" alt="">
-    <h1>Sign In</h1>
+    <h1>Sign Up</h1>
     <form action="SignUp.php" name="SignInForm" method="post" enctype="multipart/form-data">
         <?php
         if($result["Result"] == false){
@@ -77,5 +77,6 @@
         <input type="password" name="Password" required placeholder="Password" <?php echo "value=\"".$Password."\"" ?>><br>
         <input type="submit" value="Submit"><br>
     </form>
+    <a href="./SingIn.php">Sing in</a>
 </body>
 </html>
