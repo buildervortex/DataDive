@@ -1,15 +1,3 @@
-function setMainCategories(MainCategoryElement, phpFileName) {
-
-    fetch(phpFileName).then(response => response.json()).then(jsonData => {
-        for (let i in jsonData) {
-            let optionElement = document.createElement("option");
-            optionElement.value = i;
-            optionElement.textContent = jsonData[i];
-            MainCategoryElement.appendChild(optionElement);
-        }
-    });
-}
-
 function setSubCategory(MainCategoryValue, SubCategoryElement, phpFileName) {
 
     let jsonObject = {
@@ -41,13 +29,13 @@ function clearSubCategorySelector(SubCategoryElement) {
 
 }
 
-export function setUpTheCategorySelection(MainCategoryPhpFileLocation = "../../../php/PdfCategoryHandlers/mainCategoryHandler/mainCategoryHandler.php", SubCategoryPhpFileLocation = "../../../php/PdfCategoryHandlers/subCategoryHandler/subCategoryHandler.php", mainCategorySelector = ".categorySelectionContainer .mainCategorySelector", subCategorySelector = ".categorySelectionContainer .subCategorySelector") {
+
+export function setUpTheCategorySelection(SubCategoryPhpFileLocation = "/php/js/php/PublicationCreateViewSubCategory.php", mainCategorySelector = ".categorySelectionContainer .mainCategorySelector", subCategorySelector = ".categorySelectionContainer .subCategorySelector") {
     let MainCategoryElement = document.querySelector(mainCategorySelector);
     let SubCategoryElement = document.querySelector(subCategorySelector);
 
-    setMainCategories(MainCategoryElement, MainCategoryPhpFileLocation);
-
     MainCategoryElement.addEventListener("click", (event) => {
+        console.log("hi");
 
         let MainCategorySelectedIndex = MainCategoryElement.selectedIndex;
 

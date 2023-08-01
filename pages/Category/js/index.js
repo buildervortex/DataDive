@@ -3,3 +3,13 @@ import {setUpTheCategorySelection} from "../../../../js/other/categorySelect/ind
 
 setUpTheCategorySelection();
 navBarInit();
+
+let AuthorProfileViewCards = document.querySelectorAll(".cardContainer .card");
+AuthorProfileViewCards.forEach(e=>{
+    e.addEventListener("click",()=>{
+        let publicationId = parseInt(e.querySelector("#ThePublicationIdForRedirection").getAttribute("name"));
+        console.log(publicationId);
+        window.location.href="./PublicationAuthorView.php?prate="+publicationId;
+        
+    });
+});

@@ -2,27 +2,7 @@
 require_once __DIR__."/../../databaseConnector.php";
 
 
-function getAllMainCategory(){
-    $MainCategory = [];
-    $result = queryData("SELECT * FROM MainCategory");
-    for($i = 0 ; $i<$result->num_rows;$i++){
-        $Row = $result->fetch_assoc();
-        $MainCategory[$Row["ID"]] = $Row["Name"];
-    }
-    return $MainCategory;
-}
-
-function getAllSubCategory($MID){
-    $SubCategory = [];
-    $result = queryData("SELECT ID,Name FROM SubCategory WHERE MainCategoryId = $MID");
-    for($i = 0 ; $i<$result->num_rows;$i++){
-        $Row = $result->fetch_assoc();
-        $SubCategory[$Row["ID"]] = $Row["Name"];
-    }
-    return $SubCategory;
-}
-
-function getPublications($post){
+function getAllPublications($post){
     $FILTERSC1 = ["mainCategorySelector","subCategorySelector","FBS"];
     $FILTERSC2 = ["FBL","FBC","FBD","FBR"];
     $SQLQuery = "SELECT M.Name AS MainCategory,A.ID AS AuthorId,P.ID AS PublicationId,S.Name AS SubCategory,P.PublishedDate,P.Title,PD.LikeCount,PD.CommentCount,PD.Ratings,A.FullName,P.Description FROM Publication AS P LEFT JOIN SubCategory AS S ON S.ID = P.SubCategoryId LEFT JOIN MainCategory AS M ON M.ID = S.MainCategoryId LEFT JOIN PublicationsDetails AS PD ON PD.PublicationId = P.ID LEFT JOIN Author AS A ON A.ID = P.AuthorId ";
@@ -99,7 +79,38 @@ function AddFilter($filter,$value,$with=""){
     }
 }
 
-$array = [
+
+function getAllMainCategory(){
+    $MainCategory = [];
+    $result = queryData("SELECT * FROM MainCategory");
+    for($i = 0 ; $i<$result->num_rows;$i++){
+        $Row = $result->fetch_assoc();
+        $MainCategory[$Row["ID"]] = $Row["Name"];
+    }
+    return $MainCategory;
+}
+
+function getAllSubCategory($MID){
+    $SubCategory = [];
+    $result = queryData("SELECT ID,Name FROM SubCategory WHERE MainCategoryId = $MID");
+    for($i = 0 ; $i<$result->num_rows;$i++){
+        $Row = $result->fetch_assoc();
+        $SubCategory[$Row["ID"]] = $Row["Name"];
+    }
+    return $SubCategory;
+}
+
+function RatingStar($rating){
+    $output="";
+    $rating = round($rating);
+    $maxRating = 5;
+    $output.=str_repeat("⭐",$rating);
+    $output.=str_repeat("☆",$maxRating-$rating);
+    return $output;
+
+}
+
+// $array = [
     // "mainCategorySelector"=>1,
     // "subCategorySelector"=>1,
     // "FBS"=>"",
@@ -108,6 +119,6 @@ $array = [
     // "FBD"=>"on",
     // "FBR"=>"on"
 
-];
-var_dump(getPublications($array));
+// ];
+// var_dump(getPublications($array));
 // var_dump(getPublications(1,$array));
