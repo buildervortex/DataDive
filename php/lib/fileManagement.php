@@ -2,7 +2,7 @@
 // get the location of the uploads directory
 $root = __DIR__."/../../uploads/";
 $defaultProfilePicture = $root."author/profilePicture/defaultProfilePicture.jpg";
-$defaultThumbnail = $root."publication/pdf/defaultThumbnail.png";
+$defaultThumbnail = $root."publication/thumbnail/defaultThumbnail.png";
 
 function convertPathToLocalPath($path){
     return (explode("Project/php/lib/../..",$path)[1]);
@@ -92,6 +92,8 @@ function removeRecursively($path){
 function removePublication($userId,$publicationId){
     global $root;
     $pathForPdf = $root."publication/pdf/".$userId."/".$publicationId.".pdf";
+    $thumbnailSet = glob($root."publication/thumbnail/".$userId."/".$publicationId."*");
+    unlink($thumbnailSet[0]);
     unlink($pathForPdf);
 }
 

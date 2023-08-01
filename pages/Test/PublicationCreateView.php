@@ -36,18 +36,20 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         $selectedthePdf = false;
     }
     if($postMainCategory != 0 && $postSubCategory !=0 && $selectedthePdf){
-        if(createPublication($id,$postTitle,$postDescription,$_FILES["Publication"]["size"],$postLanguage,$postSubCategory));
-        $thumbnailName = $_FILES["Thumbnail"]["name"];
-        move_uploaded_file($_FILES["Thumbnail"]["tmp_name"],__DIR__."/$thumbnailName");
-        $publicationId =getPublicationId($id,$postTitle);
-        addThumbnail($id,$publicationId,__DIR__."/$thumbnailName");
-        move_uploaded_file($_FILES["Publication"]["tmp_name"],__DIR__."/$pdfName");
-        addPdf($id,$publicationId,__DIR__."/$pdfName");
+        if(createPublication($id,$postTitle,$postDescription,$_FILES["Publication"]["size"],$postLanguage,$postSubCategory)){
 
-        session_start();
-        $_SESSION["PdfUploaded"] = true;
-        header(("Location: ./AuthorProfileView.php"));
-        exit();
+            $thumbnailName = $_FILES["Thumbnail"]["name"];
+            move_uploaded_file($_FILES["Thumbnail"]["tmp_name"],__DIR__."/$thumbnailName");
+            $publicationId =getPublicationId($id,$postTitle);
+            addThumbnail($id,$publicationId,__DIR__."/$thumbnailName");
+            move_uploaded_file($_FILES["Publication"]["tmp_name"],__DIR__."/$pdfName");
+            addPdf($id,$publicationId,__DIR__."/$pdfName");
+    
+            session_start();
+            $_SESSION["PdfUploaded"] = true;
+            header(("Location: ./AuthorProfileView.php"));
+            exit();
+        }
     }
 
 }
@@ -84,7 +86,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
             </tr>
             <tr>
                 <td>Description</td>
-                <td><textarea name="Description" cols="30" rows="10" style="resize: none;"><?php echo "$postTitle"?></textarea></td>
+                <td><textarea name="Description" cols="30" rows="10" style="resize: none;"><?php echo "$postDescription"?></textarea></td>
             </tr>
             <tr>
                 <td>Langugae</td>

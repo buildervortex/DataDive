@@ -1,6 +1,7 @@
 <?php
 
-include_once __DIR__."/../../php/lib/db/pages/PublicationCreateView/PublicationCreateViewHandler.php";
+include_once __DIR__."/../../php/lib/db/pages/PublicationAuthorView/PublicationAuthorViewHandler.php";
+
 
 $id = isCookiesThere();
 if(!$id){
@@ -9,47 +10,40 @@ if(!$id){
     header(("Location: ./SingIn.php")); // TODO : change to redirect to the author profile view.
     session_write_close();
 }
-
-$MainCategoryList = getAllMainCategory();
-
 $postTitle = null;
 $postDescription = null;
 $postLanguage = null;
 $postMainCategory = null;
 $postSubCategory = null;
-$mainCategorySelected = true;
-$SubCategorySelected = true;
+$postSize=null;
+$postPublishedDate= null;
+$postLikeCount =null;
+$postCommentCount=null;
+$postComments=null;
+$postPublicationThumbnalFilePath=null;
+$postPublicationPdfFilePath=null;
+$pubid = null;
 
-$selectedthePdf=true;
 
+if($_SERVER["REQUEST_METHOD"]=="GET"){
+    global $pubid;
 
-if($_SERVER["REQUEST_METHOD"]=="POST"){
+    $pubid = (int)$_GET["prate"];
+    $publicationDetails = getPublication($pubid,$id);
 
-    $postTitle = $_POST["Title"];
-    $postDescription = $_POST["Description"];
-    $postLanguage = $_POST["Language"];
-    $postMainCategory = $_POST["mainCategorySelector"];
-    $postSubCategory = $_POST["subCategorySelector"];
-    $pdfName = $_FILES["Publication"]["name"];
-
-    if(pathinfo($pdfName,PATHINFO_EXTENSION) != "pdf"){
-        $selectedthePdf = false;
-    }
-    if($postMainCategory != 0 && $postSubCategory !=0 && $selectedthePdf){
-        if(createPublication($id,$postTitle,$postDescription,$_FILES["Publication"]["size"],$postLanguage,$postSubCategory));
-        $thumbnailName = $_FILES["Thumbnail"]["name"];
-        move_uploaded_file($_FILES["Thumbnail"]["tmp_name"],__DIR__."/$thumbnailName");
-        $publicationId =getPublicationId($id,$postTitle);
-        addThumbnail($id,$publicationId,__DIR__."/$thumbnailName");
-        move_uploaded_file($_FILES["Publication"]["tmp_name"],__DIR__."/$pdfName");
-        addPdf($id,$publicationId,__DIR__."/$pdfName");
-
-        session_start();
-        $_SESSION["PdfUploaded"] = true;
-        header(("Location: ./AuthorProfileView.php"));
-        exit();
-    }
-
+    $postTitle = $publicationDetails["Title"];
+    $postDescription = $publicationDetails["Description"];
+    $postLanguage = $publicationDetails["Language"];
+    $postSize = $publicationDetails["Size"];
+    $postPublishedDate = $publicationDetails["PublishedDate"];
+    $postMainCategory = $publicationDetails["MainCategory"];
+    $postSubCategory = $publicationDetails["SubCategory"];
+    $postLikeCount = $publicationDetails["LikeCount"];
+    $postCommentCount = $publicationDetails["CommentCount"];
+    $postCommentCount = $publicationDetails["CommentCount"];
+    $postPublicationThumbnalFilePath = getThumbnailLocation($id,$pubid);
+    $postPublicationPdfFilePath = getPdfLocation($id,$pubid);
+    $postComments = getComments($pubid,$id);
 }
 ?>
 <!DOCTYPE html>
@@ -63,68 +57,65 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     <?php
         echo "<img src='".getProfilePictureLocation($id)."'></img>";
     ?>
-    <form action="" method="post" enctype="multipart/form-data">
         <table>
             <tr>
                 <td>Title</td>
-                <td><input type="text" name="Title" required <?php echo "value = $postTitle"?>></td>
+                <td><input type="text" name="Title" readonly <?php echo "value = $postTitle"?>></td>
             </tr>
             <tr>
                 <td>Thumbnail</td>
-                <td><input type="file" name="Thumbnail"></td>
+                <td><img <?php echo "src= $postPublicationThumbnalFilePath" ?>></td>
             </tr>
-            <?php
-                if(!$selectedthePdf){
-                    echo "<h4 style='background-color:red;'>Select valid pdf file</h4>";
-                }
-            ?>
             <tr>
                 <td>Publication</td>
-                <td><input type="file" name="Publication" required></td>
+                <td><a <?php echo "href = $postPublicationPdfFilePath" ?> download="download.pdf">Download</a></td>
             </tr>
             <tr>
                 <td>Description</td>
-                <td><textarea name="Description" cols="30" rows="10" style="resize: none;"><?php echo "$postTitle"?></textarea></td>
+                <td><textarea name="Description" cols="30" rows="10" readonly style="resize: none;"><?php echo "$postDescription"?></textarea></td>
             </tr>
             <tr>
-                <td>Langugae</td>
-                <td><select name='Language'>
-                        <?php
-                        $langugaeslist = getAllLanguages();
-                        foreach ($langugaeslist as $id => $name) {
-                            if($id == $postLanguage){
-                                echo "<option value='$id' selected>$name</option>";
-                            }
-                                echo "<option value='$id'>$name</option>";
-                        }
-                        ?>
-                    </select></td>
+                <td>Language</td>
+                <td><input type="text" name="Language" readonly <?php echo "value = $postLanguage"?>></td>
+            </tr>
+            <tr>
+                <td>Size</td>
+                <td><input type="text" name="Size" readonly <?php echo "value = $postSize"?>></td>
+            </tr>
+            <tr>
+                <td>Published Date</td>
+                <td><input type="text" name="Size" readonly <?php echo "value = $postPublishedDate"?>></td>
+            </tr>
+            <tr>
+                <td>Main Category</td>
+                <td><input type="text" name="Size" readonly <?php echo "value = $postMainCategory"?>></td>
+            </tr>
+            <tr>
+                <td>Sub Category</td>
+                <td><input type="text" name="Size" readonly <?php echo "value = $postSubCategory"?>></td>
+            </tr>
+            <tr>
+                <td>Like Count</td>
+                <td><input type="text" name="Size" readonly <?php echo "value = $postLikeCount"?>></td>
+            </tr>
+            <tr>
+                <td>Comment Count</td>
+                <td><input type="text" name="Size" readonly <?php echo "value = $postCommentCount"?>></td>
             </tr>
         </table>
-        <?php
-        if($_SERVER["REQUEST_METHOD"]=="POST"){
-            if($postMainCategory == 0 || $postSubCategory == 0){
-                echo "<h4 style='background-color:red;'>Select Sub And Main Category</h4>";
+        <?php 
+            foreach ($postComments as $comment){
+                echo "<h2>$comment</h2>";
             }
-        }
+        ?>
+        <?php
+        echo "<a href='./PublicationAuthorUpdateView.php?prate=$pubid'>Update</a>";
         
         ?>
-        <div class="categorySelectionContainer Override">
-            <select name="mainCategorySelector" class="mainCategorySelector Override">
-                <option value='0' class='Override'>Select The Main Category</option>
-                <?php
-                    foreach($MainCategoryList as $ID => $Name){
-                        echo "<option value='$ID' class='Override'>$Name</option>";
-                    }
-                ?>
-            </select>
-            <select name="subCategorySelector" class="subCategorySelector Override">
-                <option value="0" class="Override">Select The Sub Category</option>
-            </select>
-        </div>
-        <input type="submit" value="Submit">
-    </form>
-    <script src="./js/PublicationCreateView.js"></script>
+<a href="./AuthorProfileView.php">Back</a>
+<?php
+    echo "<a href='./PublicationAuthorDelete.php?prate=$pubid'>Delete</a>";
+?>
 
 </body>
 </html>

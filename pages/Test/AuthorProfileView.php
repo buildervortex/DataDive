@@ -160,12 +160,12 @@ else{
 echo "<div class='Cardcontainer'>";
 foreach($publications as $publication)
 {
-    echo "<div class='card'>";
-    echo "<div>".$publication["PublicationId"]."</div>";
-    echo "<div class='title'>".$publication["Title"]."</div>"; // TODO : CHECK THE THUMBNAILS
-    echo "<img src='".getThumbnailLocation($id,$publication["PublicationId"])."' class='thumbnail'>";
-    echo "<div class='likecount'>".$publication["LikeCount"]."</div>";
-    echo "<div class='commentcount'>".$publication["CommentCount"]."</div>";
+    echo "<div class='card' style='background-color:aqua;'>";
+        echo "<div style='display:none;' id='ThePublicationIdForRedirection' name='".$publication["PublicationId"]."'>".$publication["PublicationId"]."</div>";
+        echo "<div class='title'>".$publication["Title"]."</div>"; // TODO : CHECK THE THUMBNAILS
+        echo "<img src='".getThumbnailLocation($id,$publication["PublicationId"])."' class='thumbnail'>";
+        echo "<div class='likecount'>".$publication["LikeCount"]."</div>";
+        echo "<div class='commentcount'>".$publication["CommentCount"]."</div>";
     echo "</div>";
 }
 echo "</div>";
@@ -178,8 +178,14 @@ echo "</div>";
 <script src="./js/AuthorProfileView.js"></script>
 <script>
     // ! HAVE TO INCLUDE SENDS THE PUBLICATION ID TO THE PUBLICATION VIEW PAGE
-    document.querySelector(".Cardcontainer .card").addEventListener("click",()=>{
-        window.location.href="https://www.google.com"; // TODO : GIVE ALL CARDS TO GO TO THE PUBLICATION VIEW
+    let AuthorProfileViewCards = document.querySelectorAll(".Cardcontainer .card");
+    AuthorProfileViewCards.forEach(e=>{
+        e.addEventListener("click",()=>{
+            let publicationId = parseInt(e.querySelector("#ThePublicationIdForRedirection").getAttribute("name"));
+            console.log(publicationId);
+            window.location.href="./PublicationAuthorView.php?prate="+publicationId;
+            
+        });
     });
 </script>
 </body>
