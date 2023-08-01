@@ -26,15 +26,15 @@
         </div>
         <img src="./img/other/navBar/CompanyLogo.png" alt="CompanyLogo" id="Logo" />
         <aside class="links-container">
-            <a href="#">Home</a>
-            <a href="" id="category"><span>Category</span><img src="./icon/other/navBar/arrowHead.png" />
+            <a href="./index.php">Home</a>
+            <a href="./pages/Category/index.php" id="category"><span>Category</span><img src="./icon/other/navBar/arrowHead.png" />
             </a>
-            <a href="">Services</a>
-            <a href="">contact us</a>
-            <a href="">About us</a>
-            <a href="" id="SignUpButton">Sign Up</a>
+            <a href="./pages/Services/index.html">Services</a>
+            <a href="./pages/contact us/index.html">contact us</a>
+            <a href="./pages/About us/index.html">About us</a>
+            <a href="./pages/SignUp/index.php" id="SignUpButton">Sign Up</a>
         </aside>
-        <a href="" id="SignInButton">Sign In</a>
+        <a href="./pages/Login/index.php" id="SignInButton">Sign In</a>
     </nav>
     <main>
         <header class="pageHead">

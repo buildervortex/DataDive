@@ -1,5 +1,6 @@
-<?php 
-include_once __DIR__."/../../php/lib/db/pages/CategoryPageHandler/CategoryPageHandler.php";
+<?php
+$DOCUEMENT_ROOT = $_SERVER["DOCUMENT_ROOT"];
+include_once $DOCUEMENT_ROOT."/php/lib/db/pages/CategoryPageHandler/CategoryPageHandler.php";
 // include_once "/home/lahirukasunidilhara/University/web/Project/php/lib/db/pages/CategoryPageHandler/CategoryPageHandler.php";
 
 // ! ADD THE SIGN IN REDIRECT
@@ -36,24 +37,24 @@ $MainCategoryList = getAllMainCategory();
 </head>
 <body>
 <nav class="navBar Override">
-    <div class="hamburgerMenu Override">
-        <div id="asideBarActivator" class="Override">
-            <div class="Override"></div>
-            <div class="Override"></div>
-            <div class="Override"></div>
+        <div class="hamburgerMenu Override">
+            <div id="asideBarActivator" class="Override">
+                <div class="Override"></div>
+                <div class="Override"></div>
+                <div class="Override"></div>
+            </div>
         </div>
-    </div>
-    <img src="../../../img/other/navBar/CompanyLogo.png" alt="CompanyLogo" id="Logo" class="Override" />
-    <aside class="links-container Override">
-        <a href="#" class="Override">Home</a>
-        <a href="" id="category" class="Override"><span class="Override">Category</span><img src="../../../icon/other/navBar/arrowHead.png" class="Override" /></a>
-        <a href="" class="Override">Services</a>
-        <a href="" class="Override">contact us</a>
-        <a href="" class="Override">About us</a>
-        <a href="" id="SignUpButton" class="Override">Sign Up</a>
-    </aside>
-    <a href="" id="SignInButton" class="Override">Sign In</a>
-</nav>
+        <img src="../../../img/other/navBar/CompanyLogo.png" alt="CompanyLogo" id="Logo" class="Override" />
+        <aside class="links-container Override">
+            <a href="/index.php" class="Override">Home</a>
+            <a href="/pages/Category/index.php" id="category" class="Override"><span class="Override">Category</span><img src="../../../icon/other/navBar/arrowHead.png" class="Override" /></a>
+            <a href="/pages/Services/index.html" class="Override">Services</a>
+            <a href="/pages/contact us/index.html" class="Override">contact us</a>
+            <a href="/pages/About us/index.html" class="Override">About us</a>
+            <a href="/pages/SignUp/index.php" id="SignUpButton" class="Override">Sign Up</a>
+        </aside>
+        <a href="/pages/Login/index.php" id="SignInButton" class="Override">Sign In</a>
+    </nav>
 <form action="" method="post" enctype="multipart/form-data">
 <main class="mainSection Override">
     <div class="SearchBarBox">
