@@ -14,6 +14,8 @@ body .Cardcontainer .item {
     background: url("../img/card_image.jpg");
     font-size: 10cqb;
     font-weight: 700;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 body .Cardcontainer .item img {

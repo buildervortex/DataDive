@@ -205,13 +205,13 @@
  
  .container .Description_interest .Description p {
      font-size: 2vh;
-     font-weight: 600;
+     font-weight: 700;
  }
  /* Interest css  */
  
  .Description_interest .Knowledge ul li {
      position: relative;
-     font-size: 1.8vh;
+     font-size: 2vqb;
      line-height: 2.6vh;
      margin: var(--m-0-5);
      color: var(--f2-color);
@@ -337,6 +337,7 @@
      margin-right: var(--m-2-5);
      padding-bottom: var(--p-0-8);
      cursor: pointer;
+     font-weight: 600;
  }
  
  .ratingStar {
@@ -350,4 +351,15 @@
  .about .cotact .span {
      font-weight: 400;
      font-size: large;
+ }
+ 
+ button {
+     background-color: rgb(230, 12, 12);
+     width: 100px;
+     height: 60px;
+     border-color: #000;
+     box-sizing: 10px;
+     border-radius: 50%;
+     font-weight: 700;
+     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
  }
