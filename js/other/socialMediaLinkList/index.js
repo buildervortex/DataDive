@@ -1,30 +1,32 @@
-function deleteButtonHanlder(AccountElement,socialMediaAccountTypeSelectingElement){
+function deleteButtonHanlder(AccountElement, socialMediaAccountTypeSelectingElement) {
     let AccountTypeText = AccountElement.querySelector("h4").innerText.toLowerCase();
     AccountElement.parentElement.removeChild(AccountElement);
-    
+
     let optionElement = document.createElement("option");
     optionElement.value = AccountTypeText;
     optionElement.innerText = AccountTypeText;
     socialMediaAccountTypeSelectingElement.appendChild(optionElement);
 
 }
-function checkInputValidity(InputElement){
-    if(!InputElement.checkValidity()){
+
+function checkInputValidity(InputElement) {
+    if (!InputElement.checkValidity()) {
         let DefaultColor = InputElement.style.color;
         InputElement.value = "Add Valid Url";
         InputElement.style.color = "red";
         InputElement.readOnly = true;
-        setTimeout(()=>{
-            InputElement.value="";
+        setTimeout(() => {
+            InputElement.value = "";
             InputElement.style.color = DefaultColor;
-            InputElement.readOnly =false;
-        },1000);
+            InputElement.readOnly = false;
+        }, 1000);
         return false;
     }
     return true;
 
 }
-function createAccountElement(Heading,linkAddress,accountTypeSelectingElement){
+
+function createAccountElement(Heading, linkAddress, accountTypeSelectingElement) {
     let AccountContainerElement = document.createElement("div");
     AccountContainerElement.classList.add("account");
 
@@ -34,11 +36,12 @@ function createAccountElement(Heading,linkAddress,accountTypeSelectingElement){
     let InputElement = document.createElement("input");
     InputElement.type = "url";
     InputElement.name = Heading;
-    InputElement.readOnly=true;
+    InputElement.readOnly = true;
     InputElement.value = linkAddress;
 
     let DeleteButtonElement = document.createElement("button");
     DeleteButtonElement.innerText = "Delete";
+
     DeleteButtonElement.addEventListener("click",(event)=>{
         event.preventDefault();
         deleteButtonHanlder(AccountContainerElement,accountTypeSelectingElement);
@@ -50,30 +53,31 @@ function createAccountElement(Heading,linkAddress,accountTypeSelectingElement){
     AccountContainerElement.appendChild(DeleteButtonElement);
 
     return AccountContainerElement;
-    
+
 }
 
-function AddButtonHandler(socialMediaAccountAddedContainerElement,socialMediaAccountTypeSelectingElement,socialMediaAccountUrlElement){
+function AddButtonHandler(socialMediaAccountAddedContainerElement, socialMediaAccountTypeSelectingElement, socialMediaAccountUrlElement) {
     let selectElementSelectedIndex = socialMediaAccountTypeSelectingElement.selectedIndex;
-    if(selectElementSelectedIndex == 0)return;
-    if(!checkInputValidity(socialMediaAccountUrlElement))return;
+    if (selectElementSelectedIndex == 0) return;
+    if (!checkInputValidity(socialMediaAccountUrlElement)) return;
 
     let AccountTypeText = (socialMediaAccountTypeSelectingElement.options[socialMediaAccountTypeSelectingElement.selectedIndex]).value;
     socialMediaAccountTypeSelectingElement.options.remove(selectElementSelectedIndex);
-    socialMediaAccountTypeSelectingElement.selectedIndex=0;
+    socialMediaAccountTypeSelectingElement.selectedIndex = 0;
 
     let UrlText = socialMediaAccountUrlElement.value;
-    socialMediaAccountUrlElement.value="";
+    socialMediaAccountUrlElement.value = "";
 
-    socialMediaAccountAddedContainerElement.appendChild(createAccountElement(AccountTypeText,UrlText,socialMediaAccountTypeSelectingElement));
+    socialMediaAccountAddedContainerElement.appendChild(createAccountElement(AccountTypeText, UrlText, socialMediaAccountTypeSelectingElement));
 
 }
 
-export function InitializeTheSocialMediaLinkAdder(socialMediaAccountTypeSelectingSelector=".socialMediaContainer .accountAddingContainer .socialMediaAccountType",socialMediaAccountAddedContainerSelector=".socialMediaContainer .addedAccountContainer",socialMediaAccountUrlSelector=".socialMediaContainer .accountAddingContainer input",socialMediaAccountAddButtonSeletor=".socialMediaContainer .accountAddingContainer button"){
-   let addedAccountContainerElement = document.querySelector(socialMediaAccountAddedContainerSelector);
-   let accountTypeSelectingElement = document.querySelector(socialMediaAccountTypeSelectingSelector);
-   let socialMediaAccountUrlElement = document.querySelector(socialMediaAccountUrlSelector);
-   let socialMediaAccountAddButtonElement = document.querySelector(socialMediaAccountAddButtonSeletor);
+export function InitializeTheSocialMediaLinkAdder(socialMediaAccountTypeSelectingSelector = ".socialMediaContainer .accountAddingContainer .socialMediaAccountType", socialMediaAccountAddedContainerSelector = ".socialMediaContainer .addedAccountContainer", socialMediaAccountUrlSelector = ".socialMediaContainer .accountAddingContainer input", socialMediaAccountAddButtonSeletor = ".socialMediaContainer .accountAddingContainer button") {
+    let addedAccountContainerElement = document.querySelector(socialMediaAccountAddedContainerSelector);
+    let accountTypeSelectingElement = document.querySelector(socialMediaAccountTypeSelectingSelector);
+    let socialMediaAccountUrlElement = document.querySelector(socialMediaAccountUrlSelector);
+    let socialMediaAccountAddButtonElement = document.querySelector(socialMediaAccountAddButtonSeletor);
+
 
    socialMediaAccountAddButtonElement.addEventListener("click",(event)=>{
     event.preventDefault();

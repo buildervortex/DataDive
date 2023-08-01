@@ -1,0 +1,196 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900& display=swap");
+@import url("../../../../css/other/limitedDescription/style.css");
+@import url("../../../../css/other/socialMediaLinkList/style.css");
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins" sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('./../img/image.jpg')no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.wrapper {
+    width: 60cqb;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    color: #fff;
+    border-radius: 10px;
+    padding: 30px 40px;
+}
+
+.wrapper h1 {
+    font-size: 36px;
+    text-align: center;
+}
+
+.wrapper .input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(255, 255, 255, 2);
+    border-radius: 40px;
+    font-size: 16px;
+    color: #fff;
+    padding: 20px 45px 20px 20px;
+}
+
+
+/* DAte css start */
+
+
+/* Basic reset for margin and padding */
+
+body,
+table {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Center the table on the page */
+
+table {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Style the table row */
+
+tr {
+    background-color: #f2f2f2;
+}
+
+
+/* Style the first table cell (containing the heading) */
+
+td:first-child {
+    padding: 10px;
+    font-weight: bold;
+    text-align: right;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+}
+
+
+/* Style the second table cell (containing the input field) */
+
+td:last-child {
+    padding: 10px;
+}
+
+
+/* Style the input field */
+
+input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #fff;
+    border: 2px solid rgba(255, 255, 255, 2);
+    border-radius: 40px;
+    font-size: 16px;
+    color: #fff;
+    padding: 20px 45px 20px 20px;
+    background-color: transparent;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Style the input field when it's focused */
+
+input[type="date"]:focus {
+    outline: none;
+    border-color: #66afe9;
+}
+
+
+/* Style the input field when it's hovered */
+
+input[type="date"]:hover {
+    border-color: #fff;
+}
+
+
+/* Date Css End */
+
+div {
+    padding-bottom: 10px;
+    /* This adds 10 pixels of padding at the bottom of the div */
+}
+
+p {
+    line-height: 1.5;
+    /* This sets the line height to 1.5 times the font size */
+}
+
+span {
+    display: inline-block;
+    /* This will create a line break before and after the span element */
+}
+
+
+/* button start */
+
+.wrapper .btn {
+    width: 100%;
+    height: 45px;
+    background: #fc5c5c;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    cursor: pointer;
+    font-size: 16px;
+    color: #fff;
+    font-weight: 600;
+}
+
+.wrapper .register-link {
+    font-size: 14.5px;
+    text-align: center;
+    margin: 20px 0 15px;
+}
+
+.register-link p a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.register-link p a:hover {
+    text-decoration: underline;
+}
+
+.textareaContainer .limitedtextarea.Override {
+    font-size: 0.7cqi;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.select-box-container select {
+    border-radius: 20px;
+}
