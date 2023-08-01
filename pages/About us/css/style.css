@@ -1,0 +1,102 @@
+@import url("../../../../css/other/navBar/navBarStyle.css");
+@import url("../../../../css/other/carousel/carousel.css");
+
+.cards{
+    background-color: rgb(194, 207, 207);
+}
+
+.carosalArrows{
+    background-color: rgb(24, 252, 195);
+}
+
+.cards {
+
+
+    
+    display: grid;
+    grid-gap: 2.5cqh 2cqw;
+
+    align-items: center;
+    justify-items: center;
+
+    background-color: var(--cardBackgroundColor);
+    padding: 4cqb;
+    border-radius: 10%;
+    box-shadow: var(--cardBoxShadow) 2px 2px var(--cardBoxShadowRadius);
+    text-shadow: var(--cardTextShadowColor) 0.2px 0.2px 1px;
+
+  
+    grid-template-areas: 
+    "p p p p p p p p" 
+    "p p p p p p p p"
+    "p p p p p p p p"
+    "p p p p p p p p "
+    "h h h h h h h h"
+    "h h h h h h h h"
+    "d d d d d d d d"
+    "d d d d d d d d"
+    "d d d d d d d d"
+    "b b b b b b b b"
+    ;
+    
+}
+.cards .icons{
+    grid-area: b;
+}
+.cards h3.Override{
+    grid-area: h;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    
+}
+.our-team {
+    text-align: center;
+    font-size: 32px;
+    margin-top: 30px;
+}
+
+.description-container {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.description-container h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.description-container img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+
+.page-description {
+    font-size: 16px;
+    line-height: 1.6;
+
+}
+.icons{
+    display: flex;
+    width: 50%;
+    margin: auto;
+    justify-content: space-between;
+    grid-area: b;
+    
+}
+.override{
+    grid-area: d;
+}
+.cards:hover{
+    background: linear-gradient(#1eb6b6,#f767c0);
+    color: #ffffff;
+}
+
+
+
