@@ -1,12 +1,12 @@
 <?php
 $DOCUEMENT_ROOT = $_SERVER["DOCUMENT_ROOT"];
-include_once $DOCUEMENT_ROOT."/php/lib/db/pages/PublicationAuthorView/PublicationAuthorViewHandler.php";
-include_once $DOCUEMENT_ROOT."/php/lib/db/pages/PublicationUserViewHandler/publicationUserViewHandler.php";
+include_once $DOCUEMENT_ROOT . "/php/lib/db/pages/PublicationAuthorView/PublicationAuthorViewHandler.php";
+include_once $DOCUEMENT_ROOT . "/php/lib/db/pages/PublicationUserViewHandler/publicationUserViewHandler.php";
 
 
 
 $id = isCookiesThere();
-if(!$id){
+if (!$id) {
     $id = null;
 }
 
@@ -16,24 +16,24 @@ $postDescription = null;
 $postLanguage = null;
 $postMainCategory = null;
 $postSubCategory = null;
-$postSize=null;
-$postPublishedDate= null;
-$postLikeCount =null;
-$postCommentCount=null;
-$postComments=null;
-$postPublicationThumbnalFilePath=null;
-$postPublicationPdfFilePath=null;
+$postSize = null;
+$postPublishedDate = null;
+$postLikeCount = null;
+$postCommentCount = null;
+$postComments = null;
+$postPublicationThumbnalFilePath = null;
+$postPublicationPdfFilePath = null;
 $publicationId = null;
 $authorId = null;
 $liked = false;
 
 
-if($_SERVER["REQUEST_METHOD"]=="GET"){
-    global $publicationId,$authorId;
+if ($_SERVER["REQUEST_METHOD"] == "GET") {
+    global $publicationId, $authorId;
 
     $publicationId = (int)$_GET["PID"];
     $authorId = (int)$_GET["AID"];
-    $publicationDetails = getPublication($publicationId,$authorId);
+    $publicationDetails = getPublication($publicationId, $authorId);
 
     $postTitle = $publicationDetails["Title"];
     $postDescription = $publicationDetails["Description"];
@@ -45,26 +45,28 @@ if($_SERVER["REQUEST_METHOD"]=="GET"){
     $postLikeCount = $publicationDetails["LikeCount"];
     $postCommentCount = $publicationDetails["CommentCount"];
     $postCommentCount = $publicationDetails["CommentCount"];
-    $postPublicationThumbnalFilePath = getThumbnailLocation($authorId,$publicationId);
-    $postPublicationPdfFilePath = getPdfLocation($authorId,$publicationId);
+    $postPublicationThumbnalFilePath = getThumbnailLocation($authorId, $publicationId);
+    $postPublicationPdfFilePath = getPdfLocation($authorId, $publicationId);
     $postComments = getComments($publicationId);
-    if($id){
-        $liked = getLike($id,$publicationId);
+    if ($id) {
+        $liked = getLike($id, $publicationId);
     }
 }
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./css/style.css">
 </head>
+
 <body>
-<nav class="navBar">
+    <nav class="navBar">
         <script>
-            function profileRedirect(){
+            function profileRedirect() {
                 window.location.href = "/pages/AuthorProfileView/index.php";
             }
         </script>
@@ -84,105 +86,106 @@ if($_SERVER["REQUEST_METHOD"]=="GET"){
             <a href="/pages/contact us/index.php">contact us</a>
             <a href="/pages/About us/index.php">About us</a>
             <?php
-                if(!$id){
-                    echo "<a href='/pages/SignUp/index.php' id='SignUpButton'>Sign Up</a>";
-                }
-                else{
-                    echo "<a href='/pages/SignUp/index.php' id='SignUpButton' style='display:none;'>Sign Up</a>";
-                }
+            if (!$id) {
+                echo "<a href='/pages/SignUp/index.php' id='SignUpButton'>Sign Up</a>";
+            } else {
+
+                echo "<a href='/pages/SingOut/index.php' id='SignUpButton'>Sign Out</a>";
+            }
             ?>
         </aside>
         <?php
-            if(!$id){
-                echo "<a href='/pages/Login/index.php' id='SignInButton'>Sign In</a>";
-            }
-            else{
-                echo "<img onclick='profileRedirect()' class='profileImage'  src='".getProfilePictureLocation($id)."'></img>";
-            }
-        ?>
-        
-    </nav>
-    <?php
-    if($id){
-        echo "<img src='".getProfilePictureLocation($id)."'></img>";
-    }
-    ?>
-        <table>
-            <tr>
-                <td>Title</td>
-                <td><input type="text" name="Title" readonly <?php echo "value = \"$postTitle\""?>></td>
-            </tr>
-            <tr>
-                <td>Thumbnail</td>
-                <td><img <?php echo "src= '$postPublicationThumbnalFilePath'" ?>></td>
-            </tr>
-            <tr>
-                <td>Publication</td>
-                <td><a <?php echo "href = '$postPublicationPdfFilePath'" ?> download="download.pdf">Download</a></td>
-            </tr>
-            <tr>
-                <td>Description</td>
-                <td><textarea name="Description" cols="30" rows="10" readonly style="resize: none;"><?php echo "$postDescription"?></textarea></td>
-            </tr>
-            <tr>
-                <td>Language</td>
-                <td><input type="text" name="Language" readonly <?php echo "value = '$postLanguage'"?>></td>
-            </tr>
-            <tr>
-                <td>Size</td>
-                <td><input type="text" name="Size" readonly <?php echo "value = '$postSize'"?>></td>
-            </tr>
-            <tr>
-                <td>Published Date</td>
-                <td><input type="text" name="Size" readonly <?php echo "value = '$postPublishedDate'"?>></td>
-            </tr>
-            <tr>
-                <td>Main Category</td>
-                <td><input type="text" name="Size" readonly <?php echo "value = '$postMainCategory'"?>></td>
-            </tr>
-            <tr>
-                <td>Sub Category</td>
-                <td><input type="text" name="Size" readonly <?php echo "value = '$postSubCategory'"?>></td>
-            </tr>
-            <tr>
-                <td>Like Count</td>
-                <td><input type="text" name="Size" readonly <?php echo "value = '$postLikeCount'"?>></td>
-            </tr>
-            <tr>
-                <td>Comment Count</td>
-                <td><input type="text" name="Size" readonly id="commentCount" <?php echo "value = '$postCommentCount'"?>></td>
-            </tr>
-            <?php
-            if($id){
-                echo "<tr><td>Like</td><td>";
-                    if($liked){
-                        echo "<button userId='$id' publicationId='$publicationId' onclick=\"likeHandler(event)\" class='unLiked liked'>Like</button>";
-                    }
-                    else{
-                        echo "<button userId='$id' publicationId='$publicationId' onclick=\"likeHandler(event)\" class='unLiked'>Like</button>";
-                    }
-                echo "</td></tr>";
-                }
-            ?>
-        </table>
-        <?php
-        if($id){
-        echo "<label for='Comment'>Leave a comment</label>";
-            echo "<textarea userId='$id' publicationId='$publicationId' name=\"Comment\" cols=\"30\" rows=\"10\" id=\"commentbox\"></textarea>";
-            
-        
-            echo "<button onclick='comment(event)'>Submit</button><div id='commentViewBox'>";
-        
-                foreach ($postComments as $comment){
-                    echo "<h4>$comment</h4>";
-                }
-            echo "</div>";
+        if (!$id) {
+            echo "<a href='/pages/Login/index.php' id='SignInButton'>Sign In</a>";
+        } else {
+            echo "<img onclick='profileRedirect()' class='profileImage'  src='" . getProfilePictureLocation($id) . "'></img>";
         }
         ?>
 
-<button onclick="goback()">Back</button>
-<a href="/pages/Login/index.php">Sing in</a>
+    </nav>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path fill="#0099ff" fill-opacity="1" d="M0,64L48,85.3C96,107,192,149,288,165.3C384,181,480,171,576,192C672,213,768,267,864,261.3C960,256,1056,192,1152,154.7C1248,117,1344,107,1392,101.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+    </svg>
+    <main>
+        <header class="PdfThumbnail">
+            <div>
+                <?php
+                echo "<img class='AuthorProfile' onclick=profileClick($authorId) src='" . getProfilePictureLocation($authorId) . "'></img>";
+                ?>
+                <img class="thumbnail" <?php echo "src= '$postPublicationThumbnalFilePath'" ?>>
+                <a <?php echo "href = '$postPublicationPdfFilePath'" ?> download="download.pdf">Download</a>
+            </div>
+        </header>
+        <header class="About">
+            <div>
+                <input type="text" name="Title" id="Title" readonly <?php echo "value = \"$postTitle\"" ?>>
+                <h2>Description</h2>
+                <p><?php echo "$postDescription" ?></p>
+                <h2>Language</h2>
+                <input type="text" name="Language" readonly <?php echo "value = '$postLanguage'" ?>>
+                <h2>Size</h2>
+                <input type="text" name="Size" readonly <?php echo "value = '$postSize'" ?>>
+                <h2>Published Date</h2>
+                <input type="text" name="Size" readonly <?php echo "value = '$postPublishedDate'" ?>>
+                <h2>Main Category</h2>
+                <input type="text" name="Size" readonly <?php echo "value = '$postMainCategory'" ?>>
+                <h2>Sub Category</h2>
+                <input type="text" name="Size" readonly <?php echo "value = '$postSubCategory'" ?>>
+                <div>
+                    <img src="./icon/like.png">
+                    <input type="text" name="Size" id='likeCountElement' readonly <?php echo "value = '$postLikeCount'" ?>>
+                </div>
+                <div>
+                    <img src="./icon/comment.png">
+                    <input type="text" name="Size" readonly id='commentCount' <?php echo "value = '$postCommentCount'" ?>>
+                </div>
+                <div>
+                    <?php
+                    if ($id) {
+                        if ($liked) {
+                            echo "<button userId='$id' publicationId='$publicationId' onclick=\"likeHandler(event)\" class='unLiked liked'>Like</button>";
+                        } else {
+                            echo "<button userId='$id' publicationId='$publicationId' onclick=\"likeHandler(event)\" class='unLiked'>Like</button>";
+                        }
+                        echo "";
+                    }
+                    ?>
+                </div>
+            </div>
+        </header>
+        <section class="UserFuctions">
+            <button onclick="goback()">Back</button>
+        </section>
+        <header class="Comments">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill="#0099ff" fill-opacity="1" d="M0,64L48,85.3C96,107,192,149,288,165.3C384,181,480,171,576,192C672,213,768,267,864,261.3C960,256,1056,192,1152,154.7C1248,117,1344,107,1392,101.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            </svg>
+            <div>
+                
+                    
+                    
+                
+                <?php
+                if ($id) {
+                    echo "<div class='textareaContainer Override'>";
+                    echo "<textarea name='Comment' class='limitedtextarea' userId='$id' publicationId='$publicationId' id='commentbox' class='limitedtextarea Override' placeholder='Enter the Comment' cols='60' rows='10'></textarea>";
+                    echo "<h5 class='errorMessage Override'>The maximum number of characters have added</h5></div>";
 
-<script src="./js/index.js"></script>
+                    echo "<button onclick='comment(event)'>Add Comment</button><div id='commentViewBox' class='CommentBox'>";
+
+                    foreach ($postComments as $comment) {
+                        echo "<div class='comment'><img src='./icon/comment.png'><p>$comment</p></div>";
+                    }
+                    echo "</div>";
+                }
+                ?>
+            </div>
+        </header>
+    </main>
+
+
+    <script src="./js/index.js"></script>
+    <script src="./js/importing.js" type="module"></script>
 </body>
+
 </html>

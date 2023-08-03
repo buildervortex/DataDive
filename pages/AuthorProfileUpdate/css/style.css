@@ -50,7 +50,10 @@ body main{
     z-index: -6;
     border-radius: 20px;
     /* opacity: 0.4; */
-
+    
+}
+.UserDetails .About h1{
+    color:#646463 ;
 }
 .UserDetails .About h1::after{
     content: "";

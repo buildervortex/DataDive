@@ -12,6 +12,7 @@ function goback(){
 
 
 function likeThePublication(phpFileName,UserId,PublicationId,element){
+    let likeElement = document.getElementById("likeCountElement");
     let jsonObject = {
         "UserId": UserId,
         "PublicationId": PublicationId,
@@ -28,9 +29,11 @@ function likeThePublication(phpFileName,UserId,PublicationId,element){
         let result = jsonData.Result;
         if(result){
             element.classList.add("liked");
+            likeElement.value = (parseInt(likeElement.value)+1)+"";
         }
         else{
             element.classList.remove("liked");
+            likeElement.value = (parseInt(likeElement.value)-1)+"";
         }
     })
 }
@@ -65,7 +68,19 @@ function comment(event){
 
 function addComment(comment){
     let commentViewBox  = document.getElementById("commentViewBox");
-    let commentElement = document.createElement("h4");
-    commentElement.innerText = comment;
+    let commentElement = document.createElement("div");
+    commentElement.classList.add("comment");
+    let imageElement = document.createElement("img");
+    imageElement.src = "./icon/comment.png";
+    let commentParagraphElement = document.createElement("p");
+    commentParagraphElement.innerHTML = comment;
+
+    commentElement.appendChild(imageElement);
+    commentElement.appendChild(commentParagraphElement);
+    
     commentViewBox.appendChild(commentElement);
+}
+
+function profileClick(authorId){
+    window.location.href="/pages/AuthorProfileUserView/index.php?AID="+authorId;
 }

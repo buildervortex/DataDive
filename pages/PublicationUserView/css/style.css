@@ -1,6 +1,206 @@
-.unLiked{
-    background-color: red;
+@import url("/shared/css/limitedDescription/style.css");
+@import url("/shared/css/navBar/navBarStyle.css");
+.unLiked {
+  background-color: red;
+  padding: 0.5cqb 2.9cqb;
+  font-size: 1cqi;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 700;
 }
-.liked{
-    background-color: aqua;
+.liked {
+  background-color: aqua;
+}
+
+* {
+  --glass-bg: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.5),
+    rgba(255, 255, 255, 0.3)
+  );
+  --glossy-bg: #b3d6e64f;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  text-shadow: black 0px 0px 1px;
+}
+body > svg {
+  transform: rotate(180deg);
+  position: absolute;
+}
+body main {
+  display: grid;
+  position: relative;
+  padding: 2cqb;
+  top: 9vh;
+  grid-gap: 2cqb;
+  grid-template-columns: 1fr 1fr;
+  text-shadow: black 0px 0px 1.4px;
+}
+body main input {
+  background: none;
+  border: none;
+}
+
+main header.PdfThumbnail {
+  grid-column: 1/2;
+  grid-row: 1/2;
+}
+
+main header.PdfThumbnail a {
+  text-decoration: none;
+  padding: 1.7cqb 10cqb;
+  background-color: rgba(155, 127, 255, 0.692);
+  border-radius: 20px;
+  font-size: 1cqi;
+}
+
+main header.About {
+  grid-column: 2/3;
+  grid-row: 1/2;
+  position: relative;
+}
+main header.Comments {
+  grid-column: 1/3;
+  position: relative;
+  overflow: hidden;
+}
+
+main header.PdfThumbnail > div {
+  background-color: var(--glass-bg);
+  backdrop-filter: blur(4vh);
+  border-radius: 20px;
+  height: 100%;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+main header.PdfThumbnail > div .AuthorProfile {
+  max-width: 7cqb;
+  max-height: 7cqb;
+  border-radius: 50%;
+  cursor: pointer;
+}
+main header.PdfThumbnail > div .thumbnail {
+  max-width: 40cqb;
+  max-height: 40cqb;
+}
+main header.About > div {
+  background-color: var(--glossy-bg);
+  border-radius: 20px;
+  padding: 2cqb;
+  height: 100%;
+  display: grid;
+  grid-gap: 1.2cqb;
+}
+main header.About > div > div {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: min-content;
+  justify-items: center;
+  align-items: center;
+  grid-gap: 2cqb;
+}
+main header.About > div > div img {
+  max-width: 5cqb;
+  max-height: 5cqb;
+}
+
+main header.About input {
+  font-size: 0.7cqi;
+}
+main header.About h2 {
+  font-size: 1cqi;
+}
+main header.About #Title {
+  font-size: 2.4cqi;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  text-transform: capitalize;
+  padding-bottom: 2cqb;
+  font-weight: 700;
+}
+
+main header.Comments > div {
+  padding: 2cqb;
+  background-color: var(--glossy-bg);
+  border-radius: 20px;
+  display: grid;
+  grid-gap: 2cqb;
+}
+main header.Comments > div > h1::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 4px;
+}
+
+main header.Comments svg {
+  transform: rotate(180deg);
+  position: absolute;
+  z-index: -6;
+  opacity: 0.5;
+  border-radius: 20px;
+}
+main header.Comments .textareaContainer textarea {
+  background-color: #4ec1f7fd;
+  display: block;
+  min-width: 100%;
+  padding: 2cqb;
+  border-radius: 20px;
+  border: none;
+}
+main header.Comments .textareaContainer + button {
+  padding: 1cqb 4cqb;
+  white-space: nowrap;
+  max-width: min-content;
+  border-radius: 20px;
+  border: none;
+  background-color: aquamarine;
+  font-weight: 700;
+  cursor: pointer;
+}
+main header.Comments .CommentBox {
+  display: grid;
+  grid-gap: 2cqb;
+  padding: 4cqb;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+main header.Comments .CommentBox p {
+  max-width: 100%;
+  word-break: break-all;
+}
+main header.Comments .CommentBox .comment {
+  padding: 4cqb;
+  background-color: #98cce49f;
+  border-radius: 0px 70px 70px 70px;
+  position: relative;
+}
+main header.Comments .CommentBox .comment img {
+  max-height: 4cqb;
+  max-width: 4cqb;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+main .UserFuctions {
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: 2cqb;
+}
+main .UserFuctions button {
+  text-decoration: none;
+  padding: 1cqb 4cqb;
+  border-radius: 20px;
+  text-align: center;
+  color: black;
+  width: min-content;
+  border: none;
+  background-color: aquamarine;
+  cursor: pointer;
 }
