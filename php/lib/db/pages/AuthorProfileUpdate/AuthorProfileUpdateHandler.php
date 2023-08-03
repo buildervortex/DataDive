@@ -50,12 +50,10 @@ function updateSoialMedia($ID,$SocialMediaList){
     queryData("DELETE FROM Has WHERE AuthorId = $ID");
     foreach($SocialMediaList as $socialMediaId=>$Url){
         queryData(("INSERT INTO Has(AuthorId,SocialMediaId,Url) VALUES($ID,$socialMediaId,\"$Url\")"));
-        echo $socialMediaId."<br>";
     }
 }
 
 function updateUserDetails($ID,$FirstName,$MiddleName,$LastName,$UserName,$Email,$PhoneNumber,$Password,$Bio,$CountryIdNumber=1,$Interests,$Skills,$SocialMediaList){
-    echo $CountryIdNumber;
     $Query = "UPDATE Author SET UserName=\"$UserName\" , FirstName=\"$FirstName\" , MiddleName = \"$MiddleName\" , LastName=\"$LastName\",PhoneNumber=\"$PhoneNumber\",Email=\"$Email\" , Bio = \"$Bio\" , CountryId =$CountryIdNumber , Password = \"$Password\" WHERE ID=$ID";
     queryData($Query);
     updateSkills($ID,$Skills);

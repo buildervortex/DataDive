@@ -134,7 +134,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <?php
                     echo "<div class='Password'>
                     <h2>Password</h2>
-                    <input type='text' name='Password' value = '" . $userData["Password"] . "' ></div>";
+                    <input type='text' name='Password' value = '" . $userData["Password"] . "' placeholder='Enter the Passworld'></div>";
                     ?>
                     <input type="submit" value="Save">
 
@@ -150,12 +150,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <?php
                             echo "
             <h2>Email</h2>
-            <input type='email' name='Email' value = '" . $userData["Email"] . "' >";
+            <input type='email' name='Email' value = '" . $userData["Email"] . "' placeholder='Enter the email' >";
                             ?>
                             <?php
                             echo "
             <h2>Number</h2>
-            <input type='text' name='PhoneNumber' value = '" . $userData["PhoneNumber"] . "' >";
+            <input type='text' name='PhoneNumber' value = '" . $userData["PhoneNumber"] . "' placeholder='Enter the Mobile Number'>";
                             ?>
                             <h2>Social Media</h2>
                             <div class="socialMediaContainer Override">
@@ -229,22 +229,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <?php
                         echo "
             <h2>User Name</h2>
-            <input type='text' name='UserName' value = '" . $userData["UserName"] . "' >";
+            <input placeholder='Enter the User Name' type='text' name='UserName' value = '" . $userData["UserName"] . "' >";
                         ?>
                         <?php
                         echo "
             <h2>First Name</h2>
-            <input type='text' name='FirstName' value = '" . $userData["FirstName"] . "' >";
+            <input placeholder='Enter the First Name' type='text' name='FirstName' value = '" . $userData["FirstName"] . "' >";
                         ?>
                         <?php
                         echo "
             <h2>Middle Name</h2>
-        <input type='text' name='MiddleName' value = '" . $userData["MiddleName"] . "' >";
+        <input placeholder='Enter the Middle Name' type='text' name='MiddleName' value = '" . $userData["MiddleName"] . "' >";
                         ?>
                         <?php
                         echo "
             <h2>Last Name</h2>
-            <input type='text' name='LastName' value = '" . $userData["LastName"] . "' >";
+            <input placeholder='Enter the Last Name' type='text' name='LastName' value = '" . $userData["LastName"] . "' >";
                         ?>
                         <h2>Country</h2>
                         <select name='Country'>

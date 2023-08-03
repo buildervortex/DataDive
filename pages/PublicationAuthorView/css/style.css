@@ -67,6 +67,7 @@ main header.PdfThumbnail > div {
   display: grid;
   align-items: center;
   justify-items: center;
+  grid-gap: 4cqb;
 }
 main header.PdfThumbnail > div img {
     max-width: 40cqb;
@@ -105,6 +106,7 @@ main header.About  #Title{
     text-transform: capitalize;
     padding-bottom: 2cqb;
     font-weight: 700;
+    white-space: normal;
 }
 
 main header.Comments > div {
@@ -173,4 +175,37 @@ main .UserFuctions a:nth-of-type(2){
 }
 main .UserFuctions a:nth-of-type(3){
     background-color: rgba(255, 0, 0, 0.486);
+}
+
+@media screen and (max-width: 950px) {
+  body main {
+    display: grid;
+    position: relative;
+    padding: 2cqb;
+    top: 9vh;
+    grid-gap: 2cqb;
+    grid-template-columns: 1fr;
+    text-shadow: black 0px 0px 1.4px;
+  }
+  main header.PdfThumbnail {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    grid-gap: 7cqb;
+  }
+  main header.About {
+    grid-column: 1/2;
+    grid-row: 2/3;
+  }
+  main header.Comments {
+    grid-column: 1/2;
+  }
+  main header.About input{
+    font-size: 2cqi;
+  }
+  main header.About h2{
+      font-size: 4cqi;
+  }
+  main header.About  #Title{
+    font-size: 5cqi;
+  }
 }

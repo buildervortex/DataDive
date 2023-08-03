@@ -10,7 +10,6 @@
 }
 
 body{
-    display: grid;
     text-shadow: black 0px 0px 1px;
 }
 body > svg{
@@ -18,6 +17,7 @@ body > svg{
     position: absolute;
 }
 body main{
+    overflow: hidden;
     display: grid;
     position: relative;
     padding: 2cqb;
@@ -37,6 +37,7 @@ body main{
 .UserDetails .profilePicture{
     grid-column: 1/4;
     grid-row: 1/2;
+    border-radius: 20px;
 }
 .UserDetails .About{
     grid-column: 4/8;
@@ -49,7 +50,6 @@ body main{
     position: absolute;
     z-index: -6;
     border-radius: 20px;
-    /* opacity: 0.4; */
     
 }
 .UserDetails .About h1{
@@ -118,13 +118,9 @@ body main{
 .UserDetails .Bio svg{
     position: absolute;
     z-index: -5;
-    /* opacity: 0.4; */
     border-radius: 20px;
 
 }
-/* .UserDetails select{
-    padding: 2cqb;
-} */
 .UserDetails .Rating{
     grid-column: 4/8;
     grid-row: 1/2;
@@ -282,5 +278,8 @@ body main{
         background-color: var(--glossy-bg);
         border-radius: 20px;
         height: min-content;
+    }
+    .UserDetails .profilePicture input[type="submit"]{
+        padding: 1cqb 4cqb;
     }
 }

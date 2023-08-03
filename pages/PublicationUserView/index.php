@@ -33,6 +33,13 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
     $publicationId = (int)$_GET["PID"];
     $authorId = (int)$_GET["AID"];
+
+    if($authorId == $id){
+        session_start();
+        $_SESSION["Redirecting_to_userView"] = true;
+        header(("Location: /pages/PublicationAuthorView/index.php?prate=$publicationId"));
+        exit();
+    }
     $publicationDetails = getPublication($publicationId, $authorId);
 
     $postTitle = $publicationDetails["Title"];

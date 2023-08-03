@@ -8,7 +8,10 @@
 .carosalArrows{
     background-color: rgb(24, 252, 195);
 }
-
+body main{
+    position: relative;
+    top: 9vh;
+}
 .cards {
 
 

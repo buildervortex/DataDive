@@ -1,3 +1,5 @@
+import {navBarInit} from "/shared/js/navBar/navBar.js";
+navBarInit();
 function setSubCategory(MainCategoryValue, SubCategoryElement, phpFileName) {
 
     let jsonObject = {
@@ -49,4 +51,26 @@ function setUpTheCategorySelection(SubCategoryPhpFileLocation = "./php/AuthorPro
     });
 }
 
+function preventDefaultBehavior(button){
+    button = document.querySelector(button);
+    button.addEventListener("click",(event)=>{
+        event.preventDefault();
+    })
+}
+
+function deleteWarning(typeCommand,button){
+    typeCommand = document.querySelector(typeCommand).innerText;
+    button = document.querySelector(button);
+    button.addEventListener("click",(event)=>{
+        let inputUesrName = window.prompt("Enter The \""+typeCommand+"\" To Delete the Profile");
+        if(inputUesrName == typeCommand){
+            console.log("deleting");
+            window.location.href = "/pages/AuthorProfileDelete/index.php";
+        }
+    });
+}
+
+
 setUpTheCategorySelection();
+preventDefaultBehavior("main .UserFunctions a,button");
+deleteWarning("#UserName","main .UserFunctions button");

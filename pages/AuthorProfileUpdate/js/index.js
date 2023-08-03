@@ -1,9 +1,8 @@
 import {navBarInit} from "/shared/js/navBar/navBar.js";
 import {setDescriptionTextArea} from "/shared/js/limitedDescription/index.js";
 
-// add the character limit default is 500
-setDescriptionTextArea(500);
 navBarInit();
+setDescriptionTextArea(500);
 function deleteButtonHanlder(AccountElement, socialMediaAccountTypeSelectingElement) {
     let AccountTypeText = AccountElement.querySelector("h4").innerText.toLowerCase();
     let Value = AccountElement.querySelector("input").getAttribute("accountid");

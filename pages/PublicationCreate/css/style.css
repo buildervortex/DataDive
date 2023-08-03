@@ -51,10 +51,11 @@ main header.PdfThumbnail input{
 }
 
 main header.PdfThumbnail button{
-  background-color: #00cba9;
+  background-color: #3bbada;
   padding: 1.2cqb 7cqb;
   border: none;
   border-radius: 20px;
+  cursor: pointer;
 }
 
 
@@ -65,8 +66,8 @@ main header.About {
 }
 
 main header.PdfThumbnail > div img {
-    max-width: 40cqb;
-  max-height: 40cqb;
+    max-width: 20cqb;
+  max-height: 20cqb;
 }
 main header.About > div {
   background-color: var(--glossy-bg);
@@ -89,7 +90,7 @@ main input,textarea,main select{
   border: none;
   border-radius: 20px;
   font-size: medium;
-  background-color: #94fceb;
+  background-color: #50d6e7;
   font-weight: 500;
   max-width: 50%;
   min-width: 50%;

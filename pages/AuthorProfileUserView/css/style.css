@@ -33,6 +33,7 @@ body main{
 .UserDetails .profilePicture{
     grid-column: 1/4;
     grid-row: 1/2;
+    border-radius: 20px;
 }
 
 

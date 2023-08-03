@@ -30,9 +30,9 @@ if(!$id){
 </head>
 
 <body>
-    <nav class="navBar">
+<nav class="navBar">
         <script>
-            function profileRedirect(){
+            function profileRedirect() {
                 window.location.href = "/pages/AuthorProfileView/index.php";
             }
         </script>
@@ -52,23 +52,21 @@ if(!$id){
             <a href="/pages/contact us/index.php">contact us</a>
             <a href="/pages/About us/index.php">About us</a>
             <?php
-                if(!$id){
-                    echo "<a href='/pages/SignUp/index.php' id='SignUpButton'>Sign Up</a>";
-                }
-                else{
-                    echo "<a href='/pages/SignUp/index.php' id='SignUpButton' style='display:none;'>Sign Up</a>";
-                }
+            if (!$id) {
+                echo "<a href='/pages/SignUp/index.php' id='SignUpButton'>Sign Up</a>";
+            } else {
+                echo "<a href='/pages/SingOut/index.php' id='SignUpButton'>Sign Out</a>";
+            }
             ?>
         </aside>
         <?php
-            if(!$id){
-                echo "<a href='/pages/Login/index.php' id='SignInButton'>Sign In</a>";
-            }
-            else{
-                echo "<img onclick='profileRedirect()' class='profileImage'  src='".getProfilePictureLocation($id)."'></img>";
-            }
+        if (!$id) {
+            echo "<a href='/pages/Login/index.php' id='SignInButton'>Sign In</a>";
+        } else {
+            echo "<img onclick='profileRedirect()' class='profileImage'  src='" . getProfilePictureLocation($id) . "'></img>";
+        }
         ?>
-        
+
     </nav>
     <main>
         <header class="pageHead">

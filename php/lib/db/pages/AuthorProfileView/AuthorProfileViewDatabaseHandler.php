@@ -3,7 +3,6 @@
 require_once __DIR__."/../../databaseConnector.php";
 
 function getUserData($ID){
-    echo "$ID";
     // SELECT A.UserName,A.FullName,A.Dob,A.Email,A.PhoneNumber,A.Bio,C.Name AS Country , R.Ratings , COUNT(P.ID) AS PublicationCount FROM Author AS A INNER JOIN Country AS C ON A.CountryId = C.ID LEFT JOIN Ratings AS R ON A.ID = R.AuthorId LEFT JOIN Publication AS P ON A.ID = P.AuthorId WHERE A.ID = 1 GROUP BY A.ID;
     $result = queryData("SELECT A.UserName,A.Password,A.FullName,A.FirstName,A.MiddleName,A.LastName,A.Dob,A.Email,A.PhoneNumber,A.Bio,C.Name AS Country,C.ID AS CountryId , R.Ratings , COUNT(P.ID) AS PublicationCount FROM Author AS A INNER JOIN Country AS C ON A.CountryId = C.ID LEFT JOIN Ratings AS R ON A.ID = R.AuthorId LEFT JOIN Publication AS P ON A.ID = P.AuthorId WHERE A.ID = ".$ID." GROUP BY A.ID");
     return $result->fetch_assoc();

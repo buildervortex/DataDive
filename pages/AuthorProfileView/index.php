@@ -186,7 +186,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         </header>
         <section class="UserFunctions">
-            <a class="delete" href="/pages/AuthorProfileDelete/index.php">Delete Profile</a>
+            <button class="delete">Delete Profile</button>
             <a class="update" href="/pages/AuthorProfileUpdate/index.php">Update Profile</a>
             <a class="create" href="/pages/PublicationCreate/index.php">Create Publication</a>
         </section>

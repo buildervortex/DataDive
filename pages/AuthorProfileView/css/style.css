@@ -34,6 +34,7 @@ body main{
 .UserDetails .profilePicture{
     grid-column: 1/4;
     grid-row: 1/2;
+    border-radius: 20px;
 }
 
 
@@ -196,7 +197,7 @@ main .UserFunctions{
     justify-items: center;
     grid-gap: 7cqb;
 }
-main .UserFunctions a{
+main .UserFunctions a,button{
     text-decoration: none;
     padding: 1cqb 0;
     width: 100%;
@@ -205,9 +206,11 @@ main .UserFunctions a{
     font-weight: 900;
     font-size: 1cqi;
     color: black;
+    border: none;
+    cursor: pointer;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
-main .UserFunctions a.delete{
+main .UserFunctions button.delete{
     background-color: rgba(255, 0, 0, 0.8);
 }
 main .UserFunctions a.update{
@@ -388,5 +391,8 @@ main .UserFunctions a.create{
         background-color: var(--glossy-bg);
         border-radius: 20px;
         height: min-content;
+    }
+    main .UserFunctions{
+        grid-gap: 1cqb;
     }
 }
