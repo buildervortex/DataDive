@@ -1,0 +1,283 @@
+@import url("/shared/css/navBar/navBarStyle.css");
+@import url("/shared/css/limitedDescription/style.css");
+
+*{
+    --glass-bg: linear-gradient( to right bottom, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.3));
+    --glossy-bg:#b3d6e64f;
+    margin: 0;
+    padding: 0 ;
+    box-sizing: border-box;
+}
+
+body{
+    display: grid;
+    text-shadow: black 0px 0px 1px;
+}
+body > svg{
+    transform: rotate(180deg);
+    position: absolute;
+}
+body main{
+    display: grid;
+    position: relative;
+    padding: 2cqb;
+    top: 9vh;
+    grid-gap: 2cqb;
+    
+}
+.UserDetails{
+    display: grid;
+    grid-template-columns: repeat(7,1fr);
+    grid-template-rows: 0.8fr 1fr;
+    grid-gap: 2cqb;
+}
+.UserDetails button{
+    cursor: pointer;
+}
+.UserDetails .profilePicture{
+    grid-column: 1/4;
+    grid-row: 1/2;
+}
+.UserDetails .About{
+    grid-column: 4/8;
+    grid-row: 2/3;
+    background-color: var(--glossy-bg);
+    border-radius: 20px;
+    position: relative;
+}
+.UserDetails .About svg{
+    position: absolute;
+    z-index: -6;
+    border-radius: 20px;
+    /* opacity: 0.4; */
+
+}
+.UserDetails .About h1::after{
+    content: "";
+    display: block;
+    max-width: 90%;
+    position: relative;
+    left: 1cqb;
+    min-height: 2px;
+    background-color: #646463;
+}
+.UserDetails .About > div > div{
+    padding: 1cqb;
+    display: grid;
+    grid-gap: 1cqb;
+}
+
+.UserDetails .About .socialMediaContainer{
+    display: grid;
+    grid-gap: 2cqb;
+}
+.UserDetails .About .socialMediaContainer button{
+    border: none;
+    border-radius: 20px;
+}
+.UserDetails .About .socialMediaContainer .accountAddingContainer{
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+    grid-gap: 2cqb;
+}
+.UserDetails .About .socialMediaContainer .accountAddingContainer button{
+    background-color: #00cba9;
+}
+.UserDetails .About .socialMediaContainer select,.UserDetails .About .socialMediaContainer input{
+    max-width: 100%;
+}
+.UserDetails .About .socialMediaContainer .addedAccountContainer{
+    display: grid;
+    grid-gap: 1cqb;
+}
+.UserDetails .About .socialMediaContainer .addedAccountContainer div{
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+    grid-gap: 2cqb;
+}
+.UserDetails .About .socialMediaContainer .addedAccountContainer div input{
+    justify-self: center;
+    width: 100%;
+}
+.UserDetails .About .socialMediaContainer .addedAccountContainer div button{
+    background-color: rgba(255, 0, 0, 0.459);
+}
+
+.UserDetails .Bio{
+    grid-column: 1/4;
+    grid-row: 2/3;
+    background-color: var(--glossy-bg);
+    border-radius: 20px;
+    position: relative;
+}
+.UserDetails .Bio svg{
+    position: absolute;
+    z-index: -5;
+    /* opacity: 0.4; */
+    border-radius: 20px;
+
+}
+/* .UserDetails select{
+    padding: 2cqb;
+} */
+.UserDetails .Rating{
+    grid-column: 4/8;
+    grid-row: 1/2;
+    background-color: var(--glossy-bg);
+    border-radius: 20px;
+}
+.UserDetails input,textarea,.UserDetails select{
+    padding: 0.5cqb 4cqb;
+    display: block;
+    border: none;
+    border-radius: 20px;
+    font-size: medium;
+    background-color: #94fceb;
+    font-weight: 500;
+    max-width: 50%;
+    min-width: 50%;
+}
+.UserDetails select{
+    background-color: #09bd9f;
+    font-weight: 800;
+}
+.UserDetails input:focus,textarea:focus{
+    box-shadow: #65f7de 2px 2px 15px;
+}
+.UserDetails h2{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.UserDetails .profilePicture{
+    justify-self: center;
+    align-self: center;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    background-color: var(--glass-bg);
+    backdrop-filter: blur(4vh);
+    grid-gap: 8cqb;
+    padding: 2cqb;
+}
+.UserDetails .profilePicture img{
+    max-width: 20cqb;
+    max-height: 20cqb;
+    justify-self: center;
+    align-self: center;
+    border-radius: 50%;
+    border: solid #00cba9 10px;
+}
+.UserDetails .profilePicture #ProfilePicture{
+    display: none;
+}
+.UserDetails .profilePicture .Password{
+    display: grid;
+    grid-auto-flow: column;
+    align-items: flex-start;
+    justify-items: center;
+    width: 100%;
+    grid-gap: 1cqb;
+}
+.UserDetails .profilePicture input[type="submit"]{
+    justify-self: center;
+    background-color: #00cba9;
+    font-size: 1cqi;
+    font-weight: 600;
+    padding: 0px;
+}
+
+.UserDetails .Bio > div{
+    padding: 2cqb ;
+    display: grid;
+    grid-gap: 2cqb;
+}
+.UserDetails .Bio h2{
+    color: #646463;
+}
+.UserDetails .Bio h2::after{
+    content: "";
+    display: block;
+    max-width: 80%;
+    position: relative;
+    left: 1cqb;
+    min-height: 2px;
+    background-color: #646463;
+}
+.UserDetails .Bio h4{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding: 0.4cqb;
+}
+
+.UserDetails .Bio .DropDownContainer{
+    display: grid;
+    align-items: center;
+    grid-gap: 1.4cqb;
+}
+.UserDetails .Bio .DropDownContainer .DropDownContainerAddButton,.UserDetails .Bio .DropDownContainer .Delete{
+    width: min-content;
+    padding: 0.6cqb 4cqb;
+    border-radius: 20px;
+    border: none;
+    font-weight: 700;
+}
+.UserDetails .Bio .DropDownContainer .DropDownContainerAddButton{
+    background-color: greenyellow;
+}
+.UserDetails .Bio .DropDownContainer .Delete{
+    background-color: rgba(255, 0, 0, 0.747);
+}
+.UserDetails .Bio .DropDownContainer .container{
+    display: grid;
+    grid-auto-flow: column;
+}
+
+.UserDetails .Rating{
+    display: grid;
+    grid-auto-flow: row;
+}
+
+
+
+.UserDetails .Rating > div{
+    display: grid;
+    padding: 4cqb;
+    grid-gap: 2cqb;
+}
+.UserDetails .About > div{
+    padding: 2.9cqb;
+}
+@media screen and (max-width: 950px) {
+    .UserDetails{
+        display: grid;
+        grid-template-rows:min-content min-content min-content min-content;
+        grid-template-columns: 1fr;
+        grid-gap: 2cqb;
+    }
+    .UserDetails .profilePicture{
+        grid-column: 1/2;
+        grid-row: 1/2;
+        width: 100%;
+    }
+    
+    .UserDetails .About{
+        grid-column: 1/2;
+        grid-row: 3/4;
+        background-color: var(--glossy-bg);
+        border-radius: 20px;
+        width: 100%;
+    }
+    .UserDetails .Bio{
+        grid-column: 1/2;
+        grid-row: 4/5;
+        background-color: var(--glossy-bg);
+        border-radius: 20px;
+    }
+    .UserDetails .Rating{
+        grid-column: 1/2;
+        grid-row: 2/3;
+        background-color: var(--glossy-bg);
+        border-radius: 20px;
+        height: min-content;
+    }
+}

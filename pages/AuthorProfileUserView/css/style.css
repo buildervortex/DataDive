@@ -162,7 +162,7 @@ body main{
     background-color: #e9e9ed;
 }
 
-.UserDetails .Bio div{
+.UserDetails .Bio > div{
     padding: 4cqb ;
 }
 .UserDetails .Bio h2{

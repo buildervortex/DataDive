@@ -1,19 +1,8 @@
 @import url("../root/default.css");
 
-.textareaContainer{
-    padding: 2cqb;
-    width: max-content;
-
-    display: grid;
-    grid-gap: 1.5cqb;
-}
 
 .textareaContainer .limitedtextarea{
     resize: none;
-    border-radius: 10px;
-    background-color: #e9e9ed;
-    border: none;
-    padding: 1.5cqb;
 }
 .textareaContainer .errorMessage{
     border: solid 1px red;
