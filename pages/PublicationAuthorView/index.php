@@ -139,7 +139,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
             <a href="/pages/AuthorProfileView/index.php">Back</a>
 
             <?php
-            echo "<a href='/pages/PublicationDelete/index.php?prate=$pubid'>Delete</a>";
+            echo "<button id='PublicationDeleteButton' publicationId=$pubid >Delete</button>";
             ?>
         </section>
         <header class="Comments">
@@ -159,6 +159,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         </header>
     </main>
     <script src="./js/index.js" type="module"></script>
+    <script src="./js/deleteHandler.js"></script>
 </body>
 
 </html>

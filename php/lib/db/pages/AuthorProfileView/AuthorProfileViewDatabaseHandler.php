@@ -106,11 +106,11 @@ function AddFilter($filter,$value,$with=""){
             if($value!=null)return "AND P.Title LIKE \"%$value%\" ";
             break;
         case "FBL":
-            return $with." PD.LikeCount ";
+            return $with." PD.LikeCount DESC ";
         case "FBC":
-            return $with." PD.CommentCount ";
+            return $with." PD.CommentCount DESC ";
         case "FBD":
-            return $with." P.PublishedDate ";
+            return $with." P.PublishedDate DESC ";
     }
 }
 

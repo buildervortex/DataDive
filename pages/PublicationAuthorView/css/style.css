@@ -158,12 +158,14 @@ main .UserFuctions{
     grid-auto-flow: column;
     grid-gap: 2cqb;
 }
-main .UserFuctions a{
+main .UserFuctions a,button{
     text-decoration: none;
     padding: 1cqb 4cqb;
     border-radius: 20px;
     text-align: center;
     color: black;
+    border: none;
+    cursor: pointer;
 
 }
 main .UserFuctions a:nth-of-type(1){
@@ -173,7 +175,7 @@ main .UserFuctions a:nth-of-type(1){
 main .UserFuctions a:nth-of-type(2){
     background-color: rgba(127, 255, 212, 0.521);
 }
-main .UserFuctions a:nth-of-type(3){
+main .UserFuctions button:nth-of-type(1){
     background-color: rgba(255, 0, 0, 0.486);
 }
 
