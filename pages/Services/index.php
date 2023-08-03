@@ -4,28 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <nav class="navBar Override">
-        <div class="hamburgerMenu Override">
-            <div id="asideBarActivator" class="Override">
-                <div class="Override"></div>
-                <div class="Override"></div>
-                <div class="Override"></div>
+    <nav class="navBar">
+        <script>
+            function profileRedirect(){
+                window.location.href = "/pages/AuthorProfileView/index.php";
+            }
+        </script>
+        <div class="hamburgerMenu">
+            <div id="asideBarActivator">
+                <div></div>
+                <div></div>
+                <div></div>
             </div>
         </div>
-        <img src="../../../img/other/navBar/CompanyLogo.png" alt="CompanyLogo" id="Logo" class="Override" />
-        <aside class="links-container Override">
-            <a href="/index.php" class="Override">Home</a>
-            <a href="/pages/Category/index.php" id="category" class="Override"><span class="Override">Category</span><img src="../../../icon/other/navBar/arrowHead.png" class="Override" /></a>
-            <a href="/pages/Services/index.html" class="Override">Services</a>
-            <a href="/pages/contact us/index.html" class="Override">contact us</a>
-            <a href="/pages/About us/index.html" class="Override">About us</a>
-            <a href="/pages/SignUp/index.php" id="SignUpButton" class="Override">Sign Up</a>
+        <img src="/shared/img/navBar/CompanyLogo.png" alt="CompanyLogo" id="Logo" />
+        <aside class="links-container">
+            <a href="/index.php">Home</a>
+            <a href="/pages/Category/index.php" id="category"><span>Category</span><img src="/shared/icon/navBar/arrowHead.png" />
+            </a>
+            <a href="/pages/Services/index.php">Services</a>
+            <a href="/pages/contact us/index.php">contact us</a>
+            <a href="/pages/About us/index.php">About us</a>
+            <?php
+                if(!$id){
+                    echo "<a href='/pages/SignUp/index.php' id='SignUpButton'>Sign Up</a>";
+                }
+                else{
+                    echo "<a href='/pages/SignUp/index.php' id='SignUpButton' style='display:none;'>Sign Up</a>";
+                }
+            ?>
         </aside>
-        <a href="/pages/Login/index.php" id="SignInButton" class="Override">Sign In</a>
+        <?php
+            if(!$id){
+                echo "<a href='/pages/Login/index.php' id='SignInButton'>Sign In</a>";
+            }
+            else{
+                echo "<img onclick='profileRedirect()' class='profileImage'  src='".getProfilePictureLocation($id)."'></img>";
+            }
+        ?>
+        
     </nav>
     <main>
         <img src="../Services/img/29493.jpg"></img>

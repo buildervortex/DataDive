@@ -10,12 +10,14 @@ function getPublication($PublicationId,$AuthorId){
 
 // var_dump(getPublication(1,1));
 
-function getComments($PublicationId,$AuthorId){
+function getComments($PublicationId){
     $comments=[];
-    $Query = "SELECT Comment FROM Comments WHERE PublicationId=$PublicationId AND AuthorId = $AuthorId";
+    $Query = "SELECT Comment FROM Comments WHERE PublicationId=$PublicationId";
     $CommentsList =  queryData($Query);
     for($i = 0 ; $i<$CommentsList->num_rows;$i++){
         $comments[]=$CommentsList->fetch_assoc()["Comment"];
     }
     return $comments;
 }
+
+// var_dump(getComments(1,1));

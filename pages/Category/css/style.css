@@ -1,5 +1,5 @@
-@import url("../../../../css/other/navBar/navBarStyle.css");
-@import url("../../../../css/other/categorySelect/style.css");
+@import url("/shared/css/navBar/navBarStyle.css");
+@import url("/shared/css/categorySelect/style.css");
 
 body main.mainSection{
     display: grid;
@@ -167,7 +167,6 @@ body main .cardContainer .card{
     grid-auto-rows: min-content;
     grid-gap: 2.9cqb;
     padding: 2cqb;
-    /* background-color: #c95cf5af; */
     border-radius: 20px;
     border: solid black 2px;
     justify-items: center;

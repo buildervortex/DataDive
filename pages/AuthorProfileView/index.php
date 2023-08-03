@@ -1,7 +1,7 @@
-<?php 
+<?php
 // ! EACH PUBLICATIONS VIEW HAVE TO GO TO THE PUBLICATION VIEW PAGE
 $DOCUEMENT_ROOT = $_SERVER["DOCUMENT_ROOT"];
-include_once $DOCUEMENT_ROOT."/php/lib/db/pages/AuthorProfileView/AuthorProfileViewDatabaseHandler.php";
+include_once $DOCUEMENT_ROOT . "/php/lib/db/pages/AuthorProfileView/AuthorProfileViewDatabaseHandler.php";
 $id = isCookiesThere();
 if(!$id){
     session_name("Check_sing_in");
@@ -19,174 +19,235 @@ $publications = [];
 
 
 
-if($_SERVER["REQUEST_METHOD"]=="POST"){
-    $publications = getPublications($id,$_POST);
-}
-else{
-    $publications = getPublications($id,[]);
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $publications = getPublications($id, $_POST);
+} else {
+    $publications = getPublications($id, []);
 }
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
 </head>
+
 <body>
-    <?php
-        echo "<img src='".getProfilePictureLocation($id)."'></img>";
-    ?>
-    <table>
-        <?php
-        echo $userData["UserName"]!=null?"<tr>
-            <td>User Name</td>
-            <td><input type='text' name='UserName' readonly value = '".$userData["UserName"]."' ></td>
-        </tr>":"";
-        ?>
-        <?php
-        echo $userData["FullName"]!=null?"<tr>
-            <td>Full Name</td>
-            <td><input type='text' name='FullName' readonly value = '".$userData["FullName"]."' ></td>
-        </tr>":"";
-        ?>
-        <?php
-        echo $userData["Dob"]!=null?"<tr>
-            <td>Dob</td>
-            <td><input type='date' name='Dob' readonly value = '".$userData["Dob"]."' ></td>
-        </tr>":"";
-        ?>
-        <?php
-        echo $userData["Email"]!=null?"<tr>
-            <td>Email</td>
-            <td><input type='email' name='Email' readonly value = '".$userData["Email"]."' ></td>
-        </tr>":"";
-        ?>
-        <?php
-        echo $userData["PhoneNumber"]!=null?"<tr>
-            <td>Number</td>
-            <td><input type='text' name='PhoneNumber' readonly value = '".$userData["PhoneNumber"]."' ></td>
-        </tr>":"";
-        ?>
-        <?php
-        echo $userData["Bio"]!=null?"<tr>
-            <td>Bio</td>
-            <td><textarea name='Bio' cols='30' rows='10' readonly style='resize: none;'>".$userData["Bio"]."</textarea></td>
-        </tr>":"";
-        ?>
-        <?php
-        echo $userData["Country"]!=null?"<tr>
-            <td>Country</td>
-            <td><input type='text' name='Country' readonly value = '".$userData["Country"]."' ></td>
-        </tr>":"";
-        ?>
-        <?php
-        echo $userData["Ratings"]!=null?"<tr>
-            <td>Country</td>
-            <td><input type='text' name='Ratings' readonly value = '".$userData["Ratings"]."' ></td>
-        </tr>":"";
-        ?>
-        <?php
-        echo $userData["PublicationCount"]!=null?"<tr>
-            <td>Publication Count</td>
-            <td><input type='text' name='PublicationCount' readonly value = '".$userData["PublicationCount"]."' ></td>
-        </tr>":"";
-        ?>
-        <?php
-        if(count($userSkills)!=0){
-        echo "<tr><td>Skills</td><td><ul>";
-            foreach ($userSkills as $skill){
-                echo "<li> $skill</li>";
+    <nav class="navBar">
+        <script>
+            function profileRedirect() {
+                window.location.href = "/pages/AuthorProfileView/index.php";
             }
-        echo "</ul></td></tr>";
-        }
-        ?>
-        <?php
-        if(count($userInterests)!=0){
-        echo "<tr><td>Interests</td><td><ul>";
-            foreach ($userInterests as $insertest){
-                echo "<li> $insertest</li>";
-            }
-        echo "</ul></td></tr>";
-        }
-        ?>
-        <?php
-        if(count($userSocialMedia)!=0){
-
-            echo "<tr><td>Social Media</td><td><table>";
-            foreach ($userSocialMedia as $Media=>$url){
-
-                echo"<tr>
-                        <td>$Media</td>
-                        <td>$url</td>
-                    </tr>";
-            }
-            echo "</table></td></tr>";
-        }
-        ?>
-    </table>
-    <h1>Publications</h1>
-<form action="" method="post" enctype="multipart/form-data">
-    <div class="categorySelectionContainer Override">
-        <select name="mainCategorySelector" class="mainCategorySelector Override">
-            <option value='0' class='Override'>Select The Main Category</option>
+        </script>
+        <div class="hamburgerMenu">
+            <div id="asideBarActivator">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <img src="/shared/img/navBar/CompanyLogo.png" alt="CompanyLogo" id="Logo" />
+        <aside class="links-container">
+            <a href="/index.php">Home</a>
+            <a href="/pages/Category/index.php" id="category"><span>Category</span><img src="/shared/icon/navBar/arrowHead.png" />
+            </a>
+            <a href="/pages/Services/index.php">Services</a>
+            <a href="/pages/contact us/index.php">contact us</a>
+            <a href="/pages/About us/index.php">About us</a>
             <?php
-                foreach($userMainCategory as $ID => $Name){
-                    echo "<option value='$ID' class='Override'>$Name</option>";
-                }
+            if (!$id) {
+                echo "<a href='/pages/SignUp/index.php' id='SignUpButton'>Sign Up</a>";
+            } else {
+
+                echo "<a href='/pages/SingOut/index.php' id='SignUpButton'>Sign Out</a>";
+            }
             ?>
-        </select>
-        <select name="subCategorySelector" class="subCategorySelector Override">
-            <option value="0" class="Override">Select The Sub Category</option>
-        </select>
-    </div>
+        </aside>
+        <?php
+        if (!$id) {
+            echo "<a href='/pages/Login/index.php' id='SignInButton'>Sign In</a>";
+        } else {
+            echo "<img onclick='profileRedirect()' class='profileImage'  src='" . getProfilePictureLocation($id) . "'></img>";
+        }
+        ?>
 
-    <input type="radio" name="FBL">
-    <input type="radio" name="FBC" >
-    <input type="radio" name="FBD">
-    <input type="search" name="FBS">
+    </nav>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path fill="#5000ca" fill-opacity="1" d="M0,64L48,85.3C96,107,192,149,288,165.3C384,181,480,171,576,192C672,213,768,267,864,261.3C960,256,1056,192,1152,154.7C1248,117,1344,107,1392,101.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+    </svg>
+    <main>
+        <header class="UserDetails">
+            <div class="profilePicture">
+                <?php
+                echo "<img src='" . getProfilePictureLocation($id) . "'></img>";
+                ?>
+            </div>
+            <div class="About">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                    <path fill="#5000ca" fill-opacity="1" d="M0,192L34.3,192C68.6,192,137,192,206,192C274.3,192,343,192,411,208C480,224,549,256,617,256C685.7,256,754,224,823,202.7C891.4,181,960,171,1029,181.3C1097.1,192,1166,224,1234,208C1302.9,192,1371,128,1406,96L1440,64L1440,0L1405.7,0C1371.4,0,1303,0,1234,0C1165.7,0,1097,0,1029,0C960,0,891,0,823,0C754.3,0,686,0,617,0C548.6,0,480,0,411,0C342.9,0,274,0,206,0C137.1,0,69,0,34,0L0,0Z"></path>
+                </svg>
+                <div>
+                    <h1>About</h1>
+                    <div>
+                        <?php
+                        echo $userData["FullName"] != null ? "
+                <h2>Full Name</h2>
+                <h4>" . $userData["FullName"] . "</h4>" : "";
+                        ?>
+                        <?php
+                        echo $userData["Dob"] != null ? "
+                <h2>Dob</h2>
+                <h4>" . $userData["Dob"] . "</h4>" : "";
+                        ?>
+                        <?php
+                        echo $userData["Email"] != null ? "
+                <h2>Email</h2>
+                <h4>" . $userData["Email"] . "</h4>" : "";
+                        ?>
 
-    <input type="submit" value="Submit">
-</form>
-<style>
-    .Cardcontainer .card{
-        background-color: aqua;
-        padding: 20px;
-        margin: 20px;
-        cursor: pointer;
-    }
-</style>
-<?php 
-echo "<div class='Cardcontainer'>";
-foreach($publications as $publication)
-{
-    echo "<div class='card' style='background-color:aqua;'>";
-        echo "<div style='display:none;' id='ThePublicationIdForRedirection' name='".$publication["PublicationId"]."'>".$publication["PublicationId"]."</div>";
-        echo "<div class='title'>".$publication["Title"]."</div>";
-        echo "<img src='".getThumbnailLocation($id,$publication["PublicationId"])."' class='thumbnail'>";
-        echo "<div class='likecount'>".$publication["LikeCount"]."</div>";
-        echo "<div class='commentcount'>".$publication["CommentCount"]."</div>";
-    echo "</div>";
-}
-echo "</div>";
+                        <?php
+                        echo $userData["PhoneNumber"] != null ? "
+                <h2>Number</h2>
+                <h4>" . $userData["PhoneNumber"] . "</h4>" : "";
+                        ?>
 
-?>
-<a href="/pages/AuthorProfileDelete/index.php">Delete</a>
-<a href="/pages/AuthorProfileUpdate/index.php">Update</a>
-<a href="/pages/SingOut/index.php">Sing Out</a>
-<a href="/pages/PublicationCreate/index.php">Create Publication</a>
-<script src="./js/index.js"></script>
-<script>
-    // ! HAVE TO INCLUDE SENDS THE PUBLICATION ID TO THE PUBLICATION VIEW PAGE
-    let AuthorProfileViewCards = document.querySelectorAll(".Cardcontainer .card");
-    AuthorProfileViewCards.forEach(e=>{
-        e.addEventListener("click",()=>{
-            let publicationId = parseInt(e.querySelector("#ThePublicationIdForRedirection").getAttribute("name"));
-            console.log(publicationId);
-            window.location.href="/pages/PublicationAuthorView/index.php?prate="+publicationId;
-            
-        });
-    });
-</script>
+                        <?php
+                        echo $userData["PublicationCount"] != null ? "
+                <h2>Publication Count</h2>
+                <h4>" . $userData["PublicationCount"] . "</h4>" : "";
+                        ?>
+
+                        <?php
+                        if (count($userSocialMedia) != 0) {
+
+                            echo "<h2 >Social Media</h2><div class='SocialMedia'>";
+                            foreach ($userSocialMedia as $Media => $url) {
+
+                                echo "<h3>$Media</h3><h4>$url</h4>";
+                            }
+                            echo "</div>";
+                        }
+                        ?>
+                    </div>
+                </div>
+            </div>
+            <div class="Bio">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                    <path fill="#5000ca" fill-opacity="1" d="M0,192L34.3,192C68.6,192,137,192,206,192C274.3,192,343,192,411,208C480,224,549,256,617,256C685.7,256,754,224,823,202.7C891.4,181,960,171,1029,181.3C1097.1,192,1166,224,1234,208C1302.9,192,1371,128,1406,96L1440,64L1440,0L1405.7,0C1371.4,0,1303,0,1234,0C1165.7,0,1097,0,1029,0C960,0,891,0,823,0C754.3,0,686,0,617,0C548.6,0,480,0,411,0C342.9,0,274,0,206,0C137.1,0,69,0,34,0L0,0Z"></path>
+                </svg>
+                <div>
+                    <div>
+                        <?php
+                        echo $userData["Bio"] != null ? "
+                    <h2>Bio</h2>
+                    <p>" . $userData["Bio"] . "</p>" : "";
+                        ?>
+                        <?php
+                        if (count($userSkills) != 0) {
+                            echo "<h2>Skills</h2><div>";
+                            foreach ($userSkills as $skill) {
+                                echo "<h4> $skill</h4>";
+                            }
+                            echo "</div>";
+                        }
+                        ?>
+
+                        <?php
+                        if (count($userInterests) != 0) {
+                            echo "<h2>Interests</h2><div>";
+                            foreach ($userInterests as $insertest) {
+                                echo "<h4> $insertest</h4>";
+                            }
+                            echo "</div>";
+                        }
+                        ?>
+                    </div>
+                </div>
+            </div>
+            <div class="Rating">
+                <div>
+                    <?php
+                    echo $userData["UserName"] != null ? "
+                <h4 id='UserName'>" . $userData["UserName"] . " </h4>" : "";
+                    ?>
+                    <?php
+                    echo $userData["Country"] != null ? "<tr>
+                    <h4>" . $userData["Country"] . "</h4>" : "";
+                    ?>
+                    <?php
+                    echo $userData["Ratings"] != null ? "<tr>
+                <h2>Ratings</h2>
+                <h4>" . $userData["Ratings"] . "</h4>" : "";
+                    ?>
+                </div>
+            </div>
+        </header>
+        <section class="UserFunctions">
+            <a class="delete" href="/pages/AuthorProfileDelete/index.php">Delete Profile</a>
+            <a class="update" href="/pages/AuthorProfileUpdate/index.php">Update Profile</a>
+            <a class="create" href="/pages/PublicationCreate/index.php">Create Publication</a>
+        </section>
+        <header class="UserPublications">
+            <form class="asideContainer" action="" method="post" enctype="multipart/form-data">
+                <input type="search" name="FBS" placeholder="Search">
+                <div class="categorySelectionContainer Override">
+                    <select name="mainCategorySelector" class="mainCategorySelector Override" AuthorId='<?php echo $id  ?>'>
+                        <option value='0' class='Override'>Select The Main Category</option>
+                        <?php
+                        foreach ($userMainCategory as $ID => $Name) {
+                            echo "<option value='$ID' class='Override'>$Name</option>";
+                        }
+                        ?>
+                    </select>
+                    <select name="subCategorySelector" class="subCategorySelector Override">
+                        <option value="0" class="Override">Select The Sub Category</option>
+                    </select>
+                </div>
+                <div class="filterbox">
+                    <label for="likeFilter">Filter By Likes</label>
+                    <div class="filter"><input type="radio" name="FBL" id=""></div>
+                    <label for="CommentFilter">Filter By Comments</label>
+                    <div class="filter"><input type="radio" name="FBC" id=""></div>
+                    <label for="DateFilter">Filter By Date</label>
+                    <div class="filter"><input type="radio" name="FBD" id=""></div>
+                    <button type="submit">Filter</button>
+                </div>
+            </form>
+            <?php
+            echo "<div class='Cardcontainer'>";
+            foreach ($publications as $publication) {
+                echo "<div class='card'>";
+                echo "<div style='display:none;' id='ThePublicationIdForRedirection' name='" . $publication["PublicationId"] . "'>" . $publication["PublicationId"] . "</div>";
+                echo "<div class='title'>" . $publication["Title"] . "</div>";
+                echo "<img src='" . getThumbnailLocation($id, $publication["PublicationId"]) . "' class='thumbnail'>";
+                echo "<div class='like'><img src='./icon/like.png'>";
+                echo "<div class='likecount'>" . $publication["LikeCount"] . "</div></div>";
+                echo "<div class='comment'><img src='./icon/comment.png'>";
+                echo "<div class='commentcount'>" . $publication["CommentCount"] . "</div></div>";
+                echo "</div>";
+            }
+            echo "</div>";
+
+            ?>
+
+            <script>
+                // ! HAVE TO INCLUDE SENDS THE PUBLICATION ID TO THE PUBLICATION VIEW PAGE
+                let AuthorProfileViewCards = document.querySelectorAll(".Cardcontainer .card");
+                AuthorProfileViewCards.forEach(e => {
+                    e.addEventListener("click", () => {
+                        let publicationId = parseInt(e.querySelector("#ThePublicationIdForRedirection").getAttribute("name"));
+                        console.log(publicationId);
+                        window.location.href = "/pages/PublicationAuthorView/index.php?prate=" + publicationId;
+
+                    });
+                });
+            </script>
+        </header>
+    </main>
+    <script src="./js/index.js" type="module"></script>
 </body>
+
 </html>

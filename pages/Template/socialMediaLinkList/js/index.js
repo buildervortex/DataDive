@@ -1,3 +1,3 @@
-import {InitializeTheSocialMediaLinkAdder} from "../../../../js/other/socialMediaLinkList/index.js";
+import {InitializeTheSocialMediaLinkAdder} from "/shared/js/socialMediaLinkList/index.js";
 
 InitializeTheSocialMediaLinkAdder();

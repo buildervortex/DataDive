@@ -1,0 +1,392 @@
+@import url("/shared/css/navBar/navBarStyle.css");
+*{
+    --glass-bg: linear-gradient( to right bottom, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.3));
+    --glossy-bg:#b3d6e64f;
+    margin: 0;
+    padding: 0 ;
+    box-sizing: border-box;
+}
+
+body{
+    display: grid;
+    text-shadow: black 0px 0px 1px;
+}
+body > svg{
+    transform: rotate(180deg);
+    position: absolute;
+}
+body main{
+    display: grid;
+    position: relative;
+    padding: 2cqb;
+    top: 9vh;
+    grid-gap: 2cqb;
+}
+
+.UserDetails{
+    display: grid;
+    grid-template-columns: repeat(7,1fr);
+    grid-template-rows: 0.8fr 1fr;
+    grid-gap: 2cqb;
+    height: min-content;
+}
+
+.UserDetails .profilePicture{
+    grid-column: 1/4;
+    grid-row: 1/2;
+}
+
+
+.UserDetails .About{
+    grid-column: 4/8;
+    grid-row: 2/3;
+    background-color: var(--glossy-bg);
+    border-radius: 20px;
+    position: relative;
+}
+.UserDetails .About svg{
+    position: absolute;
+    z-index: -6;
+    border-radius: 20px;
+    opacity: 0.6;
+
+}
+.UserDetails .About .SocialMedia{
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    grid-gap: 1cqb;
+}
+.UserDetails .About .SocialMedia h3{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-transform: capitalize;
+}
+
+.UserDetails .About h4{
+    color: #646463;
+    padding-bottom: 1cqh;
+}
+
+
+.UserDetails .Bio{
+    grid-column: 1/4;
+    grid-row: 2/3;
+    background-color: var(--glossy-bg);
+    border-radius: 20px;
+    position: relative;
+}
+.UserDetails .Bio svg{
+    position: absolute;
+    z-index: -5;
+    opacity: 0.6;
+    border-radius: 20px;
+
+}
+.UserDetails .Rating{
+    grid-column: 4/8;
+    grid-row: 1/2;
+    background-color: var(--glossy-bg);
+    border-radius: 20px;
+}
+
+.UserDetails .profilePicture{
+    justify-self: center;
+    align-self: center;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    background-color: var(--glass-bg);
+    backdrop-filter: blur(4vh);
+}
+.UserDetails .profilePicture img{
+    max-width: 20cqb;
+    max-height: 20cqb;
+    justify-self: center;
+    align-self: center;
+    border-radius: 50%;
+}
+
+.UserDetails .About{
+    display: grid;
+    grid-auto-flow: row;
+    font-family: 'Times New Roman', Times, serif;
+}
+.UserDetails .About div{
+    padding: 2.9cqb;
+}
+.UserDetails .About h1{
+    padding: 2cqb;
+    color: #646463;
+}
+.UserDetails .About h1::after{
+    content: "";
+    display: block;
+    max-width: 90%;
+    position: relative;
+    left: 1cqb;
+    min-height: 2px;
+    background-color: #646463;
+}
+
+.UserDetails .Rating{
+    display: grid;
+    grid-auto-flow: row;
+}
+.UserDetails .Rating div{
+    display: grid;
+    padding: 4cqb;
+}
+.UserDetails .Rating #UserName{
+    font-size: 2cqi;
+    text-transform: capitalize;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.UserDetails .Rating h2{
+    font-size: 1.7cqi;
+    color: #646463;
+}
+.UserDetails .Rating h4:nth-of-type(2){
+    font-size: 1.2cqi;
+    padding-left: 5cq;
+    color: blue;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.UserDetails .Rating h4:nth-of-type(3){
+    font-size: 2.9cqi;
+}
+.UserDetails .Rating #RatingBox{
+    width: min-content;
+    height: min-content;
+    padding: 1.2cqb;
+    font-size: larger;
+    border: none;
+    border-radius: 20px;
+    background-color: #e9e9ed;
+}
+
+.UserDetails .Bio div{
+    padding: 4cqb ;
+}
+.UserDetails .Bio h2{
+    color: #646463;
+}
+.UserDetails .Bio h2::after{
+    content: "";
+    display: block;
+    max-width: 80%;
+    position: relative;
+    left: 1cqb;
+    min-height: 2px;
+    background-color: #646463;
+}
+.UserDetails .Bio p{
+    padding: 1cqb;
+    letter-spacing: 0.1cqi;
+    line-height: 2.5cqb;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.UserDetails .Bio h4{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding: 0.4cqb;
+}
+
+main .UserFunctions{
+    padding: 5cqb;
+    display: grid;
+    grid-auto-flow: column;
+    justify-items: center;
+    grid-gap: 7cqb;
+}
+main .UserFunctions a{
+    text-decoration: none;
+    padding: 1cqb 0;
+    width: 100%;
+    text-align: center;
+    border-radius: 20px;
+    font-weight: 900;
+    font-size: 1cqi;
+    color: black;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+main .UserFunctions a.delete{
+    background-color: rgba(255, 0, 0, 0.8);
+}
+main .UserFunctions a.update{
+    background-color: rgba(172, 255, 47, 0.8);
+}
+main .UserFunctions a.create{
+    background-color: rgba(0, 0, 255, 0.8);
+}
+
+.UserPublications{
+    display: grid;
+    grid-template-columns: 0.2fr 1fr;
+}
+
+
+.asideContainer{
+    background-color: rgba(128, 0, 128, 0.7);
+    padding: 2cqb;
+    border-radius: 20px;
+    display: grid;
+    grid-auto-flow: row;
+    grid-auto-rows: min-content;
+    justify-content: center;
+}
+.asideContainer input[type="search"]{
+    display: block;
+    min-width: 80%;
+    justify-self: center;
+    font-size: 1cqi;
+    padding: 1cqb 1.5cqb;
+    border: none;
+    border-radius: 20px;
+}
+.asideContainer .filterbox{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    white-space: nowrap;
+    grid-gap: 2cqb;
+    align-items: center;
+    justify-items: center;
+}
+.asideContainer .filterbox label{
+    background-color: rgba(128, 0, 128, 0.7);
+    padding: 1cqb;
+    border-radius: 20px;
+    text-align: center;
+    color: white;
+    font-weight: 700;
+    font-size: 1cqi;
+    width: 100%;
+}
+.asideContainer .filterbox input{
+    width: 7.2cqw;
+}
+.asideContainer .filterbox input[type="radio"]{
+    transform: scale(1.7);
+    cursor: pointer;
+}
+.asideContainer .filterbox button{
+    background-color: rgba(128, 0, 128, 0.7);
+    padding: 1cqb 2cqb;
+    border-radius: 20px;
+    text-align: center;
+    color: white;
+    font-weight: 700;
+    font-size: 1cqi;
+    border: solid rgba(82, 1, 82, 0.7) 2px;
+    cursor: pointer;
+    transition: color 200ms ease-in;
+}
+.asideContainer .filterbox button:hover{
+    background-color: rgba(56, 2, 56, 0.7);
+}
+.categorySelectionContainer{
+    width: 100%;
+    display: grid;
+    grid-auto-flow: row;
+    grid-gap: 2cqb;
+    padding: 2cqb;
+}
+.categorySelectionContainer > select{
+    background-color: rgba(128, 0, 128, 0.7);
+    padding: 1cqb;
+    min-width: 15cqw;
+    font-size: 1cqi;
+    text-align: center;
+    font-weight: 700;
+    color: white;
+    border: none;
+    border-radius: 20px;
+}
+.categorySelectionContainer > select:focus{
+    box-shadow: white 0px 0px 10px;
+}
+
+.Cardcontainer{
+    padding: 2cqb;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+    grid-gap: 9cqb;
+}
+.Cardcontainer .card{
+    width: 100%;
+    display: grid;
+    grid-auto-rows: min-content;
+    grid-gap: 2.9cqb;
+    padding: 1cqb;
+    border-radius: 20px;
+    border: solid black 2px;
+    justify-items: center;
+    box-shadow: #3a0d8d81 2px 2px 10px;
+    cursor: pointer;
+}
+.Cardcontainer .card .title{
+    font-size: 2cqb;
+    text-align: center;
+    text-transform: capitalize;
+    color: #646463;
+}
+
+.Cardcontainer .card .thumbnail{
+    max-width: 20cqb;
+    max-height: 20cqb;
+    display: block;
+}
+.Cardcontainer .card p {
+    line-height: 20px;
+    text-align: center;
+}
+.Cardcontainer .card p::first-letter{
+    text-transform: capitalize;
+    font-size: 2.4cqb;
+}
+.Cardcontainer .card .comment ,.Cardcontainer .card .like{
+    display: grid;
+    grid-auto-flow: column;
+    grid-gap: 2cqb;
+    align-items: center;
+}
+.Cardcontainer .card  .comment img,.Cardcontainer .card .like img{
+    max-width: 2.2cqb;
+    max-height: 2.2cqb;
+}
+.Cardcontainer .card .rating{
+    letter-spacing: 1cqi;
+}
+
+
+@media screen and (max-width: 950px) {
+    .UserDetails{
+        display: grid;
+        grid-template-rows:min-content min-content min-content min-content;
+        grid-template-columns: 1fr;
+        grid-gap: 2cqb;
+    }
+    .UserDetails .profilePicture{
+        grid-column: 1/2;
+        grid-row: 1/2;
+        width: 100%;
+    }
+    
+    .UserDetails .About{
+        grid-column: 1/2;
+        grid-row: 3/4;
+        background-color: var(--glossy-bg);
+        border-radius: 20px;
+        width: 100%;
+    }
+    .UserDetails .Bio{
+        grid-column: 1/2;
+        grid-row: 4/5;
+        background-color: var(--glossy-bg);
+        border-radius: 20px;
+    }
+    .UserDetails .Rating{
+        grid-column: 1/2;
+        grid-row: 2/3;
+        background-color: var(--glossy-bg);
+        border-radius: 20px;
+        height: min-content;
+    }
+}

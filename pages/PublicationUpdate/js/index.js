@@ -2,7 +2,6 @@ function setSubCategory(MainCategoryValue, SubCategoryElement, phpFileName) {
 
     let jsonObject = {
         "category": MainCategoryValue,
-        // "ID":1 // TODO : put the cookies id value here
     };
 
     fetch(phpFileName, {

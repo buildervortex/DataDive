@@ -1,3 +1,3 @@
-import {setUpTheCategorySelection} from "../../../../js/other/categorySelect/index.js";
+import {setUpTheCategorySelection} from "/shared/js/categorySelect/index.js";
 
 setUpTheCategorySelection();

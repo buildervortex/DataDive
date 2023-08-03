@@ -62,6 +62,46 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     <title>Document</title>
 </head>
 <body>
+<nav class="navBar">
+        <script>
+            function profileRedirect(){
+                window.location.href = "/pages/AuthorProfileView/index.php";
+            }
+        </script>
+        <div class="hamburgerMenu">
+            <div id="asideBarActivator">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <img src="/shared/img/navBar/CompanyLogo.png" alt="CompanyLogo" id="Logo" />
+        <aside class="links-container">
+            <a href="/index.php">Home</a>
+            <a href="/pages/Category/index.php" id="category"><span>Category</span><img src="/shared/icon/navBar/arrowHead.png" />
+            </a>
+            <a href="/pages/Services/index.php">Services</a>
+            <a href="/pages/contact us/index.php">contact us</a>
+            <a href="/pages/About us/index.php">About us</a>
+            <?php
+                if(!$id){
+                    echo "<a href='/pages/SignUp/index.php' id='SignUpButton'>Sign Up</a>";
+                }
+                else{
+                    echo "<a href='/pages/SignUp/index.php' id='SignUpButton' style='display:none;'>Sign Up</a>";
+                }
+            ?>
+        </aside>
+        <?php
+            if(!$id){
+                echo "<a href='/pages/Login/index.php' id='SignInButton'>Sign In</a>";
+            }
+            else{
+                echo "<img onclick='profileRedirect()' class='profileImage'  src='".getProfilePictureLocation($id)."'></img>";
+            }
+        ?>
+        
+    </nav>
     <?php
         echo "<img src='".getProfilePictureLocation($id)."'></img>";
     ?>

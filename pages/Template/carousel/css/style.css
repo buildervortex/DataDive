@@ -1,5 +1,5 @@
-@import url("../../../../css/other/navBar/navBarStyle.css");
-@import url("../../../../css/other/carousel/carousel.css");
+@import url("/shared/css/navBar/navBarStyle.css");
+@import url("/shared/css/carousel/carousel.css");
 
 .cards{
     background-color: green;

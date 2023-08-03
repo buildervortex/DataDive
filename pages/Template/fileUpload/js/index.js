@@ -1,3 +1,3 @@
-import {SetupFileUpload} from "../../../../js/other/fileUpload/index.js";
+import {SetupFileUpload} from "/shared/js/fileUpload/index.js";
 
 SetupFileUpload();

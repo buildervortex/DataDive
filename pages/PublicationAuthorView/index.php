@@ -43,7 +43,7 @@ if($_SERVER["REQUEST_METHOD"]=="GET"){
     $postCommentCount = $publicationDetails["CommentCount"];
     $postPublicationThumbnalFilePath = getThumbnailLocation($id,$pubid);
     $postPublicationPdfFilePath = getPdfLocation($id,$pubid);
-    $postComments = getComments($pubid,$id);
+    $postComments = getComments($pubid);
 }
 ?>
 <!DOCTYPE html>
@@ -54,21 +54,61 @@ if($_SERVER["REQUEST_METHOD"]=="GET"){
     <title>Document</title>
 </head>
 <body>
+<nav class="navBar">
+        <script>
+            function profileRedirect(){
+                window.location.href = "/pages/AuthorProfileView/index.php";
+            }
+        </script>
+        <div class="hamburgerMenu">
+            <div id="asideBarActivator">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <img src="/shared/img/navBar/CompanyLogo.png" alt="CompanyLogo" id="Logo" />
+        <aside class="links-container">
+            <a href="/index.php">Home</a>
+            <a href="/pages/Category/index.php" id="category"><span>Category</span><img src="/shared/icon/navBar/arrowHead.png" />
+            </a>
+            <a href="/pages/Services/index.php">Services</a>
+            <a href="/pages/contact us/index.php">contact us</a>
+            <a href="/pages/About us/index.php">About us</a>
+            <?php
+                if(!$id){
+                    echo "<a href='/pages/SignUp/index.php' id='SignUpButton'>Sign Up</a>";
+                }
+                else{
+                    echo "<a href='/pages/SignUp/index.php' id='SignUpButton' style='display:none;'>Sign Up</a>";
+                }
+            ?>
+        </aside>
+        <?php
+            if(!$id){
+                echo "<a href='/pages/Login/index.php' id='SignInButton'>Sign In</a>";
+            }
+            else{
+                echo "<img onclick='profileRedirect()' class='profileImage'  src='".getProfilePictureLocation($id)."'></img>";
+            }
+        ?>
+        
+    </nav>
     <?php
         echo "<img src='".getProfilePictureLocation($id)."'></img>";
     ?>
         <table>
             <tr>
                 <td>Title</td>
-                <td><input type="text" name="Title" readonly <?php echo "value = $postTitle"?>></td>
+                <td><input type="text" name="Title" readonly <?php echo "value = \"$postTitle\""?>></td>
             </tr>
             <tr>
                 <td>Thumbnail</td>
-                <td><img <?php echo "src= $postPublicationThumbnalFilePath" ?>></td>
+                <td><img <?php echo "src= '$postPublicationThumbnalFilePath'" ?>></td>
             </tr>
             <tr>
                 <td>Publication</td>
-                <td><a <?php echo "href = $postPublicationPdfFilePath" ?> download="download.pdf">Download</a></td>
+                <td><a <?php echo "href = '$postPublicationPdfFilePath'" ?> download="download.pdf">Download</a></td>
             </tr>
             <tr>
                 <td>Description</td>
@@ -76,31 +116,31 @@ if($_SERVER["REQUEST_METHOD"]=="GET"){
             </tr>
             <tr>
                 <td>Language</td>
-                <td><input type="text" name="Language" readonly <?php echo "value = $postLanguage"?>></td>
+                <td><input type="text" name="Language" readonly <?php echo "value = '$postLanguage'"?>></td>
             </tr>
             <tr>
                 <td>Size</td>
-                <td><input type="text" name="Size" readonly <?php echo "value = $postSize"?>></td>
+                <td><input type="text" name="Size" readonly <?php echo "value = '$postSize'"?>></td>
             </tr>
             <tr>
                 <td>Published Date</td>
-                <td><input type="text" name="Size" readonly <?php echo "value = $postPublishedDate"?>></td>
+                <td><input type="text" name="Size" readonly <?php echo "value = '$postPublishedDate'"?>></td>
             </tr>
             <tr>
                 <td>Main Category</td>
-                <td><input type="text" name="Size" readonly <?php echo "value = $postMainCategory"?>></td>
+                <td><input type="text" name="Size" readonly <?php echo "value = '$postMainCategory'"?>></td>
             </tr>
             <tr>
                 <td>Sub Category</td>
-                <td><input type="text" name="Size" readonly <?php echo "value = $postSubCategory"?>></td>
+                <td><input type="text" name="Size" readonly <?php echo "value = '$postSubCategory'"?>></td>
             </tr>
             <tr>
                 <td>Like Count</td>
-                <td><input type="text" name="Size" readonly <?php echo "value = $postLikeCount"?>></td>
+                <td><input type="text" name="Size" readonly <?php echo "value = '$postLikeCount'"?>></td>
             </tr>
             <tr>
                 <td>Comment Count</td>
-                <td><input type="text" name="Size" readonly <?php echo "value = $postCommentCount"?>></td>
+                <td><input type="text" name="Size" readonly <?php echo "value = '$postCommentCount'"?>></td>
             </tr>
         </table>
         <?php 

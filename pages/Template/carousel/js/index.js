@@ -1,5 +1,5 @@
-import {navBarInit} from "../../../../js/other/navBar/navBar.js";
-import {Curousel} from "../../../../js/other/carousel/curousel.js";
+import {navBarInit} from "/shared/js/navBar/navBar.js";
+import {Curousel} from "/shared/js/carousel/curousel.js";
 
 navBarInit();
 ob = new Curousel();

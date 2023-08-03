@@ -1,5 +1,5 @@
-@import url("/css/other/navBar/navBarStyle.css");
-{
+@import url("/shared/css/navBar/navBarStyle.css");
+*{
     margin: 0;
     padding: 0;
     box-sizing:border-box;

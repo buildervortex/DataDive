@@ -1,2 +1,2 @@
-import {navBarInit} from "../../../../js/other/navBar/navBar.js";
+import {navBarInit} from "/shared/js/navBar/navBar.js";
 navBarInit();
