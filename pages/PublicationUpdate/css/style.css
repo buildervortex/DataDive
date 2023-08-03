@@ -1,0 +1,110 @@
+@import url("/shared/css/navBar/navBarStyle.css");
+@import url("/shared/css/limitedDescription/style.css");
+
+* {
+  --glass-bg: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.5),
+    rgba(255, 255, 255, 0.3)
+  );
+  --glossy-bg: #b3d6e64f;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  text-shadow: black 0px 0px 1px;
+}
+body > svg {
+  transform: rotate(180deg);
+  position: absolute;
+}
+body main {
+  display: grid;
+  position: relative;
+  padding: 2cqb;
+  top: 9vh;
+  grid-gap: 2cqb;
+  grid-template-columns: 1fr 1fr;
+  text-shadow: black 0px 0px 1.4px;
+}
+main header.PdfThumbnail {
+  grid-column: 1/2;
+  grid-row: 1/2;
+}
+
+main header.PdfThumbnail > div {
+  background-color: var(--glass-bg);
+  backdrop-filter: blur(4vh);
+  border-radius: 20px;
+  height: 100%;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  grid-gap: 2cqb;
+  padding: 2cqb;
+}
+main header.PdfThumbnail input{
+  display: none;
+}
+
+main header.PdfThumbnail button{
+  background-color: #00cba9;
+  padding: 1.2cqb 7cqb;
+  border: none;
+  border-radius: 20px;
+}
+
+
+main header.About {
+  grid-column: 2/3;
+  grid-row: 1/2;
+  position: relative;
+}
+
+main header.PdfThumbnail > div img {
+    max-width: 40cqb;
+  max-height: 40cqb;
+}
+main header.About > div {
+  background-color: var(--glossy-bg);
+  border-radius: 20px;
+  padding: 2cqb;
+  height: 100%;
+  display: grid;
+  grid-gap: 1.2cqb;
+}
+main header.About input{
+    font-size: 0.7cqi;
+}
+main header.About h2{
+    font-size: 1cqi;
+}
+
+main input,textarea,main select{
+  padding: 0.5cqb 4cqb;
+  display: block;
+  border: none;
+  border-radius: 20px;
+  font-size: medium;
+  background-color: #94fceb;
+  font-weight: 500;
+  max-width: 50%;
+  min-width: 50%;
+}
+.categorySelectionContainer{
+  display: grid;
+  grid-gap: 2cqb;
+}
+main .UserFuctions a:nth-of-type(1){
+    background-color: rgba(153, 205, 50, 0.514);
+}
+
+main .UserFuctions a:nth-of-type(2){
+    background-color: rgba(127, 255, 212, 0.521);
+}
+main .UserFuctions a:nth-of-type(3){
+    background-color: rgba(255, 0, 0, 0.486);
+}
