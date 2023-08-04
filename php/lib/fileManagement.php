@@ -5,7 +5,7 @@ $defaultProfilePicture = $root."author/profilePicture/defaultProfilePicture.jpg"
 $defaultThumbnail = $root."publication/thumbnail/defaultThumbnail.png";
 
 function convertPathToLocalPath($path){
-    return (explode("Project/php/lib/../..",$path)[1]);
+    return "/uploads/".(explode("uploads",$path)[1]);
 }
 
 
