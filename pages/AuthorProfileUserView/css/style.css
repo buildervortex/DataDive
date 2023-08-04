@@ -26,7 +26,6 @@ body main{
 .UserDetails{
     display: grid;
     grid-template-columns: repeat(7,1fr);
-    grid-template-rows: 0.8fr 1fr;
     grid-gap: 2cqb;
 }
 
@@ -34,6 +33,7 @@ body main{
     grid-column: 1/4;
     grid-row: 1/2;
     border-radius: 20px;
+    padding: 10cqb 4cqb;
 }
 
 
