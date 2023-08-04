@@ -6,7 +6,7 @@ require_once __DIR__."/../fileManagement.php";
 $host = "localhost";
 $userName = "lahiru";
 $password = "Lahiru";
-$dbname = "projectTest";
+$dbname = "DataDive";
 
 function createConnection(){
     global $host,$userName,$password,$dbname;
