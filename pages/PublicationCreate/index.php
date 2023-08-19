@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (createPublication($id, $postTitle, $postDescription, $_FILES["Publication"]["size"], $postLanguage, $postSubCategory)) {
 
             $publicationId = getPublicationId($id, $postTitle);
-            if(isset($_FILES["Thumbnail"]["name"])){
+            if (isset($_FILES["Thumbnail"]["name"]) && $_FILES["Thumbnail"]["size"] > 5) {
                 $thumbnailName = $_FILES["Thumbnail"]["name"];
                 move_uploaded_file($_FILES["Thumbnail"]["tmp_name"], __DIR__ . "/$thumbnailName");
                 addThumbnail($id, $publicationId, __DIR__ . "/$thumbnailName");
@@ -129,7 +129,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="text" name="Title" placeholder="Enter The Title" required <?php echo "value = $postTitle" ?>>
                     <h2>Description</h2>
                     <div class="textareaContainer Override">
-                        <textarea name="Description" id="limitedtextarea" class="limitedtextarea Override" placeholder="Enter the description" ><?php echo "$postDescription" ?></textarea>
+                        <textarea name="Description" id="limitedtextarea" class="limitedtextarea Override" placeholder="Enter the description"><?php echo "$postDescription" ?></textarea>
                         <h5 class="errorMessage Override">The maximum number of characters have added</h5>
                     </div>
                     <h2>Langugae</h2>
@@ -171,4 +171,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="pdfDisplayContainer"></div>
     <script src="./js/index.js" type="module"></script>
 </body>
+
 </html>
