@@ -102,6 +102,8 @@ body main{
     justify-self: center;
     align-self: center;
     border-radius: 50%;
+    outline: solid #0099ff 10px;
+    outline-offset: 10px;
 }
 
 .UserDetails .About{
@@ -162,7 +164,9 @@ body main{
     border-radius: 20px;
     background-color: #e9e9ed;
 }
-
+.UserDetails .Bio{
+    min-height: 45cqb;
+}
 .UserDetails .Bio > div{
     padding: 4cqb ;
 }

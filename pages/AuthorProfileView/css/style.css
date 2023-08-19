@@ -94,6 +94,7 @@ body main{
     align-self: center;
     width: 100%;
     height: 100%;
+    padding: 10cqb 5cqb;
     display: grid;
     background-color: var(--glass-bg);
     backdrop-filter: blur(4vh);
@@ -101,9 +102,13 @@ body main{
 .UserDetails .profilePicture img{
     max-width: 20cqb;
     max-height: 20cqb;
+    min-width: 20cqb;
+    min-height: 20cqb;
     justify-self: center;
     align-self: center;
     border-radius: 50%;
+    outline: solid rgba(0, 102, 255, 0.699) 10px;
+    outline-offset: 5px;
 }
 
 .UserDetails .About{
@@ -209,6 +214,11 @@ main .UserFunctions a,button{
     border: none;
     cursor: pointer;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    transition: all 200ms ease-in;
+}
+main .UserFunctions a:hover, main .UserFunctions button:hover{
+    transform: scale(1.05);
+    filter: brightness(0.7);
 }
 main .UserFunctions button.delete{
     background-color: rgba(255, 0, 0, 0.8);
@@ -219,6 +229,7 @@ main .UserFunctions a.update{
 main .UserFunctions a.create{
     background-color: rgba(0, 0, 255, 0.8);
 }
+
 
 .UserPublications{
     display: grid;
@@ -409,5 +420,24 @@ main .UserFunctions a.create{
     }
     .categorySelectionContainer > select{
         font-size: 2.9cqi;
+    }
+    main .UserFunctions button.delete, main .UserFunctions a.update,main .UserFunctions a.create{
+        font-size: 2.5cqi;
+    }
+    .UserDetails .Rating #UserName{
+        font-size: 4.5cqi;
+    }
+    .UserDetails .Rating h2{
+        font-size: 3.8cqi;
+        color: #646463;
+    }
+    .UserDetails .Rating h4:nth-of-type(2){
+        font-size: 3.8cqi;
+    }
+    .UserDetails .Rating h4:nth-of-type(3){
+        font-size: 3.8cqi;
+    }
+    .UserDetails .Rating #RatingBox{
+        font-size: 4cqi;
     }
 }
