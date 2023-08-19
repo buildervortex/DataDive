@@ -9,22 +9,29 @@ if (!$id) {
 }
 
 $authorId = null;
-// ! have to include AID in the get request for this site. if not the ID become null and the database will throw an error because of that redirecting to the home page.
+$publications = [];
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
-    global $authorId;
+    global $authorId,$publications;
     $authorId = $_GET["AID"];
+    $publications = getPublications($authorId, []);
+}
+
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+    global $authorId,$publications;
+    $authorId = $_POST["AID"];
+    $publications = getPublications($authorId, $_POST);
 }
 
 if ($id == $authorId) {
     session_name("redirect");
     session_start();
-    header(("Location: /pages/AuthorProfileView/index.php")); // TODO : change to redirect to the author profile view.
+    header(("Location: /pages/AuthorProfileView/index.php"));
     session_write_close();
 }
 if (!$authorId) {
     session_name("redirect");
     session_start();
-    header(("Location: /index.php")); // TODO : change to redirect to the author profile view.
+    header(("Location: /index.php"));
     session_write_close();
 }
 
@@ -34,13 +41,7 @@ $userSkills = getUserSkills($authorId);
 $userInterests = getUserInterests($authorId);
 $userSocialMedia = getUserSocialMediaLinks($authorId);
 $userMainCategory = getMainCategory($authorId);
-$publications = [];
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $publications = getPublications($authorId, $_POST);
-} else {
-    $publications = getPublications($authorId, []);
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -233,11 +234,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 <div class="filterbox">
                     <label for="likeFilter">Filter By Likes</label>
-                    <div class="filter"><input type="radio" name="FBL" id=""></div>
+                    <div class="filter"><input type="radio" name="FBL" id="likeFilter"></div>
                     <label for="CommentFilter">Filter By Comments</label>
-                    <div class="filter"><input type="radio" name="FBC" id=""></div>
+                    <div class="filter"><input type="radio" name="FBC" id="CommentFilter"></div>
                     <label for="DateFilter">Filter By Date</label>
-                    <div class="filter"><input type="radio" name="FBD" id=""></div>
+                    <div class="filter"><input type="radio" name="FBD" id="DateFilter"></div>
+                    <?php
+                        echo "<input type='text' name='AID' value='$authorId' style='display:none;' >";
+                    ?>
                     <button type="submit">Filter</button>
                 </div>
             </form>

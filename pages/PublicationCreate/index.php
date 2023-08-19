@@ -6,12 +6,11 @@ $id = isCookiesThere();
 if (!$id) {
     session_name("Check_sing_in");
     session_start();
-    header(("Location: /pages/Login/index.php")); // TODO : change to redirect to the author profile view.
+    header(("Location: /pages/Login/index.php"));
     session_write_close();
 }
 
 $MainCategoryList = getAllMainCategory();
-
 $postTitle = null;
 $postDescription = null;
 $postLanguage = null;
@@ -19,7 +18,6 @@ $postMainCategory = null;
 $postSubCategory = null;
 $mainCategorySelected = true;
 $SubCategorySelected = true;
-
 $selectedthePdf = true;
 
 
@@ -112,6 +110,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div>
                     <img src="./img/defaultThumbnail.png" id="PdfUploadImg">
                     <input type="file" name="Publication" id="PdfUploadInput" required>
+                    <h4 id="fileSelectedIdicator">No File Selected</h4>
                     <img src="./img/thumbnail.jpg" id="ThumbnailUploadImg">
                     <input type="file" name="Thumbnail" id="ThumbnailUploadInput">
                     <?php
@@ -128,7 +127,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="text" name="Title" placeholder="Enter The Title" required <?php echo "value = $postTitle" ?>>
                     <h2>Description</h2>
                     <div class="textareaContainer Override">
-                        <textarea name="Description" id="limitedtextarea" class="limitedtextarea Override" placeholder="Enter the description" cols="60" rows="10"><?php echo "$postDescription" ?></textarea>
+                        <textarea name="Description" id="limitedtextarea" class="limitedtextarea Override" placeholder="Enter the description" ><?php echo "$postDescription" ?></textarea>
                         <h5 class="errorMessage Override">The maximum number of characters have added</h5>
                     </div>
                     <h2>Langugae</h2>
@@ -167,12 +166,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </header>
         </main>
     </form>
-    <script src="./js/index.js"></script>
-    <script src="./js/thumbnail.js"></script>
-    <script src="./js/module.js" type="module"></script>
-
+    <div class="pdfDisplayContainer"></div>
+    <script src="./js/index.js" type="module"></script>
+    <!-- <script src="./js/thumbnail.js"></script> -->
 </body>
-
 </html>
-
-<!-- if main,sub == 0 redirect to this page -->

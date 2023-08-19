@@ -8,6 +8,7 @@
   border-radius: 20px;
   cursor: pointer;
   font-weight: 700;
+  transition: all 400ms ease;
 }
 .liked {
   background-color: aqua;
@@ -28,6 +29,8 @@
 body {
   display: grid;
   text-shadow: black 0px 0px 1px;
+  min-width: min-content;
+  position: relative;
 }
 body > svg {
   transform: rotate(180deg);
@@ -50,6 +53,7 @@ body main input {
 main header.PdfThumbnail {
   grid-column: 1/2;
   grid-row: 1/2;
+  border-radius: 20px;
 }
 
 main header.PdfThumbnail a {
@@ -68,7 +72,6 @@ main header.About {
 main header.Comments {
   grid-column: 1/3;
   position: relative;
-  overflow: hidden;
 }
 
 main header.PdfThumbnail > div {
@@ -115,6 +118,11 @@ main header.About > div > div img {
 main header.About input {
   font-size: 0.7cqi;
 }
+
+main header.About input:focus{
+  border: none;
+  outline: none;
+}
 main header.About h2 {
   font-size: 1cqi;
 }
@@ -149,11 +157,12 @@ main header.Comments svg {
 }
 main header.Comments .textareaContainer textarea {
   background-color: #4ec1f7fd;
-  display: block;
-  min-width: 100%;
   padding: 2cqb;
   border-radius: 20px;
+  min-width: 100%;
+  min-height: 15cqb;
   border: none;
+  justify-self: center;
 }
 main header.Comments .textareaContainer + button {
   padding: 1cqb 4cqb;
@@ -220,6 +229,9 @@ main .UserFuctions button {
     grid-row: 1/2;
     grid-gap: 7cqb;
   }
+  main header.PdfThumbnail a{
+    font-size: 2.5cqi;
+  }
   main header.About {
     grid-column: 1/2;
     grid-row: 2/3;
@@ -235,5 +247,8 @@ main .UserFuctions button {
   }
   main header.About  #Title{
     font-size: 5cqi;
+  }
+  .unLiked {
+    font-size: 2.9cqi;
   }
 }

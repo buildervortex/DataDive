@@ -395,4 +395,19 @@ main .UserFunctions a.create{
     main .UserFunctions{
         grid-gap: 1cqb;
     }
+    .UserPublications{
+        grid-template-columns: 1fr;
+    }
+    .asideContainer input[type="search"]{
+        font-size: 2.9cqi;
+    }
+    .asideContainer .filterbox label{
+        font-size: 2.9cqi;
+    }
+    .asideContainer .filterbox button{
+        font-size: 2.9cqi;
+    }
+    .categorySelectionContainer > select{
+        font-size: 2.9cqi;
+    }
 }

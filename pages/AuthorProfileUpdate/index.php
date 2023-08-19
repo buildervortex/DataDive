@@ -194,7 +194,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         echo "
             <h2>Bio</h2>";
                         echo "<div class='textareaContainer Override'>";
-                        echo "<textarea name='Bio' id='limitedtextarea' class='limitedtextarea Override' placeholder='Enter the description' cols='60' rows='10'>".$userData["Bio"]."</textarea>";
+                        echo "<textarea name='Bio' id='limitedtextarea' class='limitedtextarea Override' placeholder='Enter the description'>".$userData["Bio"]."</textarea>";
                         echo "<h5 class='errorMessage Override'>The maximum number of characters have added</h5></div>";
                         ?>
                         <h2>Interests</h2>

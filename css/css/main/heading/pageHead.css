@@ -70,3 +70,12 @@ main .pageHead .container .searchBar #searchIcon:hover{
     transform: scale(1.2);
     background-color: green;
 }
+
+@media screen and (max-width: 950px) {
+    main .pageHead .container h1{
+        font-size: 4.5cqi;
+    }   
+    main .pageHead .container .searchBar input{
+        font-size: 3.4cqi;
+    }
+}

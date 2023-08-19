@@ -4,10 +4,11 @@
 body main.mainSection{
     display: grid;
     grid-template-columns: 1fr 5fr;
-    grid-template-rows: 70vh 1fr;
+    grid-template-rows: 70vh;
 }
 body main div.SearchBarBox{
     grid-column: 1/3;
+    grid-row: 1/2;
 }
 
 body main aside{
@@ -198,4 +199,34 @@ body main .cardContainer .card  .comment img,body main .cardContainer .card .lik
 }
 body main .cardContainer .card .rating{
     letter-spacing: 1cqi;
+}
+
+@media screen and (max-width: 950px) {
+
+    body main aside{
+        grid-column: 1/3;
+        grid-row: 2/3;
+    }
+    body main .cardContainer{
+        grid-column: 1/3;
+        grid-row: 3/4;
+    }
+    body main aside {
+        max-width: 100%;
+    }
+    body main div.SearchBarBox .SearchBox{
+        font-size: 2.5cqi;
+        width: 40cqw;
+    }
+    body main aside .filterbox label{
+        font-size: 2cqi;
+    }
+    body main aside .filterbox button{
+        font-size: 2.9cqi;
+        justify-self: center;
+    }
+
+    .categorySelectionContainer > select{
+        font-size: 2.5cqi;
+    }
 }

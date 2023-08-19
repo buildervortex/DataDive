@@ -175,7 +175,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
                 <?php
                 if ($id) {
                     echo "<div class='textareaContainer Override'>";
-                    echo "<textarea name='Comment' class='limitedtextarea' userId='$id' publicationId='$publicationId' id='commentbox' class='limitedtextarea Override' placeholder='Enter the Comment' cols='60' rows='10'></textarea>";
+                    echo "<textarea name='Comment' class='limitedtextarea' userId='$id' publicationId='$publicationId' id='commentbox' class='limitedtextarea Override' placeholder='Enter the Comment' ></textarea>";
                     echo "<h5 class='errorMessage Override'>The maximum number of characters have added</h5></div>";
 
                     echo "<button onclick='comment(event)'>Add Comment</button><div id='commentViewBox' class='CommentBox'>";

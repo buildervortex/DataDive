@@ -133,7 +133,7 @@
     }
     .navBar{
         grid-template-columns: 1fr minmax(20%,20%) 1fr;
-        font-size: 3cqb;
+        font-size: 2.5cqb;
     }
     .navBar #CompanyLogo{
         grid-column: 2/3;
@@ -152,7 +152,7 @@
         transform: translateX(-40vw);
         transition: all 400ms ease-in;
         
-        background-color: var(--asideBarBackgroundColor);
+        background-color: white;
     }
     .navBar aside a:last-of-type{
         order: -1;
@@ -160,10 +160,26 @@
     }
     .navBar .links-container #SignUpButton{
         padding: 5%;
-        border-radius: 5%;
+        border-radius: 20px;
         justify-self: center;
     }
     .navBar #SignInButton{
-        font-size: 2.4cqw;
+        font-size: 3.4cqw;
+    }
+    .navBar .links-container a{
+        background-color: rgba(0, 0, 255, 0.466);
+        justify-self: center;
+        padding: 2cqb;
+        border-radius: 20px;
+        min-width: 80%;
+        text-align: center;
+    }
+    .navBar .links-container #category img{
+        max-height: 2.5cqi;
+        padding: 0;
+    }
+    .navBar .links-container #category{
+        max-height: min-content;
+        padding: 0;
     }
 }

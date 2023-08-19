@@ -127,6 +127,10 @@ body main{
     background-color: var(--glossy-bg);
     border-radius: 20px;
 }
+textarea{
+    width: 10rem;
+    height: 10rem;
+}
 .UserDetails input,textarea,.UserDetails select{
     padding: 0.5cqb 4cqb;
     display: block;
@@ -258,7 +262,9 @@ body main{
         grid-row: 1/2;
         width: 100%;
     }
-    
+    .UserDetails .profilePicture input[type="submit"]{
+        font-size: 3.8cqi;
+    }   
     .UserDetails .About{
         grid-column: 1/2;
         grid-row: 3/4;

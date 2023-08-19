@@ -2,10 +2,6 @@
 $DOCUEMENT_ROOT = $_SERVER["DOCUMENT_ROOT"];
 include_once $DOCUEMENT_ROOT . "/php/lib/db/pages/CategoryPageHandler/CategoryPageHandler.php";
 
-
-// ! ADD THE SIGN IN REDIRECT
-
-
 $Publications = null;
 
 $id = isCookiesThere();
@@ -19,7 +15,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 $MainCategoryList = getAllMainCategory();
 
-// var_dump($Publications);
 
 ?>
 <!DOCTYPE html>
@@ -31,11 +26,6 @@ $MainCategoryList = getAllMainCategory();
     <title>Document</title>
 
     <link rel="stylesheet" href="./css/style.css">
-    <style>
-        * {
-            color: black;
-        }
-    </style>
 </head>
 
 <body>
@@ -104,13 +94,13 @@ $MainCategoryList = getAllMainCategory();
                     </div>
                     <div class="filterbox">
                         <label for="likeFilter">Filter By Likes</label>
-                        <div class="filter"><input type="radio" name="FBL" id=""></div>
+                        <div class="filter"><input id="likeFilter" type="radio" name="FBL"></div>
                         <label for="CommentFilter">Filter By Comments</label>
-                        <div class="filter"><input type="radio" name="FBC" id=""></div>
+                        <div class="filter"><input type="radio" name="FBC" id="CommentFilter"></div>
                         <label for="RatingFilter">Filter By Rating</label>
-                        <div class="filter"><input type="radio" name="FBR" id=""></div>
+                        <div class="filter"><input type="radio" name="FBR" id="RatingFilter"></div>
                         <label for="DateFilter">Filter By Date</label>
-                        <div class="filter"><input type="radio" name="FBD" id=""></div>
+                        <div class="filter"><input type="radio" name="FBD" id="DateFilter"></div>
                         <button type="submit">Filter</button>
                     </div>
                 </div>

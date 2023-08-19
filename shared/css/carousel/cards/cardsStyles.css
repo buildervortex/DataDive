@@ -14,12 +14,15 @@
     display: grid;
     grid-gap: 2.5cqh 2cqw;
 
+    min-width: 50cqb;
+    max-width: 50cqb;
+
     align-items: center;
     justify-items: center;
 
     background-color: var(--cardBackgroundColor);
     padding: 4cqb;
-    border-radius: 10%;
+    border-radius: 20px;
     box-shadow: var(--cardBoxShadow) 2px 2px var(--cardBoxShadowRadius);
     text-shadow: var(--cardTextShadowColor) 0.2px 0.2px 1px;
 
@@ -86,4 +89,39 @@
 }
 .cards button:hover{
     transform: translateY(2px);
+}
+
+
+@media screen and (max-width: 950px) {
+    .cards h1{
+        font-size: 4cqi;
+    }    
+    .cards{
+
+        grid-template-areas: 
+        "p p p p p p p p"
+        "p p p p p p p p"
+        "h h h h h h h h"
+        "h h h h h h h h"
+        "d d d d d d d d"
+        "d d d d d d d d"
+        "d d d d d d d d"
+        "d d d d d d d d"
+        "d d d d d d d d"
+        ;
+        
+    }
+
+    .cards .description{
+        font-size: 2.9cqi;
+    }
+    .cards .description::first-letter{
+        font-size: 4cqi;
+    }
+    .cards img{
+        max-width: 19cqw;
+        min-width: 19cqw;
+        max-height: 19cqw;
+        min-height: 19cqw;        
+    }
 }
