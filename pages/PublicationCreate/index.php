@@ -36,10 +36,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($postMainCategory != 0 && $postSubCategory != 0 && $selectedthePdf) {
         if (createPublication($id, $postTitle, $postDescription, $_FILES["Publication"]["size"], $postLanguage, $postSubCategory)) {
 
-            $thumbnailName = $_FILES["Thumbnail"]["name"];
-            move_uploaded_file($_FILES["Thumbnail"]["tmp_name"], __DIR__ . "/$thumbnailName");
             $publicationId = getPublicationId($id, $postTitle);
-            addThumbnail($id, $publicationId, __DIR__ . "/$thumbnailName");
+            if(isset($_FILES["Thumbnail"]["name"])){
+                $thumbnailName = $_FILES["Thumbnail"]["name"];
+                move_uploaded_file($_FILES["Thumbnail"]["tmp_name"], __DIR__ . "/$thumbnailName");
+                addThumbnail($id, $publicationId, __DIR__ . "/$thumbnailName");
+            }
             move_uploaded_file($_FILES["Publication"]["tmp_name"], __DIR__ . "/$pdfName");
             addPdf($id, $publicationId, __DIR__ . "/$pdfName");
 
@@ -168,6 +170,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </form>
     <div class="pdfDisplayContainer"></div>
     <script src="./js/index.js" type="module"></script>
-    <!-- <script src="./js/thumbnail.js"></script> -->
 </body>
 </html>

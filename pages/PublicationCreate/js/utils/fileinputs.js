@@ -27,6 +27,7 @@ export function pdfFileUploadHandler(pdfImageElementSelector="main .PdfThumbnail
         if(!pdfFileNameValidator(title)){
             showErrorMessage("Add a valid pdf",event.target);
             event.target.value = "";
+            indicatorElement.innerText="No File Selected";
             return;
         }
         indicatorElement.innerText = title;
