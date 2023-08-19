@@ -41,7 +41,7 @@ function pdfFileValidator(){
 export function initPageValidation(){
     removeButtonsDefaultBehavior(...document.querySelectorAll("button"));
     document.querySelector("main header.PdfThumbnail button").addEventListener("click",()=>{
-        if(pdfFileValidator() && validateCategorySelect() && validateTextInputs() ){
+        if(pdfFileValidator() && validateTextInputs() && validateCategorySelect() ){
             document.querySelector("body form").submit();
         }
     });

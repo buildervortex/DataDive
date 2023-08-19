@@ -1,4 +1,6 @@
 import {setImgFormInput,LinkElements} from "/shared/js/utils/thumbnailHandler.js";
+import {showErrorMessage} from "/shared/js/utils/validation.js";
+import {pdfFileNameValidator} from "/pages/PublicationCreate/js/utils/validation.js";
 
 export function setTheThumbnail(thumbnailViewElementSelector = "main .PdfThumbnail #ThumbnailUploadImg",thumbnailInputElementSelector="main .PdfThumbnail #ThumbnailUploadInput"){
     
@@ -22,6 +24,11 @@ export function pdfFileUploadHandler(pdfImageElementSelector="main .PdfThumbnail
 
     pdfFileInputElement.addEventListener("change",(event)=>{
         let title = event.target.files[0].name;
+        if(!pdfFileNameValidator(title)){
+            showErrorMessage("Add a valid pdf",event.target);
+            event.target.value = "";
+            return;
+        }
         indicatorElement.innerText = title;
     });
 }
