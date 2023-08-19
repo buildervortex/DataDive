@@ -32,6 +32,8 @@
 .navBar .profileImage{
     max-height: 7vh;
     max-width: 7vh;
+    min-height: 7vh;
+    min-width: 7vh;
     border-radius: 50%;
     align-self: center;
     justify-self: center;

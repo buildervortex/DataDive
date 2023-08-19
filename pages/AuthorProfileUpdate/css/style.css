@@ -93,12 +93,18 @@ body main{
 .UserDetails .About .socialMediaContainer .addedAccountContainer{
     display: grid;
     grid-gap: 1cqb;
+    width: 100%;
 }
 .UserDetails .About .socialMediaContainer .addedAccountContainer div{
     display: grid;
     grid-auto-flow: column;
     grid-auto-columns: 1fr;
+    width: 100%;
     grid-gap: 2cqb;
+}
+.UserDetails .About .socialMediaContainer .addedAccountContainer div h4{
+    justify-self: center;
+    align-self: center;
 }
 .UserDetails .About .socialMediaContainer .addedAccountContainer div input{
     justify-self: center;
@@ -164,19 +170,25 @@ textarea{
     padding: 2cqb;
 }
 .UserDetails .profilePicture img{
-    max-width: 20cqb;
-    max-height: 20cqb;
+    width: 20cqb;
+    height: 20cqb;
     justify-self: center;
     align-self: center;
     border-radius: 50%;
     border: solid #00cba9 10px;
+    cursor: pointer;
+    transition: all 200ms ease-in;
+}
+.UserDetails .profilePicture img:hover{
+    transform: scale(1.04);
 }
 .UserDetails .profilePicture #ProfilePicture{
     display: none;
 }
 .UserDetails .profilePicture .Password{
     display: grid;
-    grid-auto-flow: column;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
     align-items: flex-start;
     justify-items: center;
     width: 100%;
@@ -188,6 +200,11 @@ textarea{
     font-size: 1cqi;
     font-weight: 600;
     padding: 0px;
+    cursor: pointer;
+    transition: all 200ms ease-in;
+}
+.UserDetails .profilePicture input[type="submit"]:hover{
+    transform: scale(1.05);
 }
 
 .UserDetails .Bio > div{

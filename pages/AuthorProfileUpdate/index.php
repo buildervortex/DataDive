@@ -1,6 +1,5 @@
 <?php
 
-// ! HAVE TO DO THE PROFILE PICTURE DELETE PART
 $DOCUEMENT_ROOT = $_SERVER["DOCUMENT_ROOT"];
 include_once $DOCUEMENT_ROOT . "/php/lib/db/pages/AuthorProfileUpdate/AuthorProfileUpdateHandler.php";
 include_once $DOCUEMENT_ROOT . "/php/lib/db/pages/AuthorProfileView/AuthorProfileViewDatabaseHandler.php";
@@ -51,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 
-    if ($_FILES["ProfilePicture"]["name"] != "") {
+    if ($_FILES["ProfilePicture"]["name"] != "" && $_FILES["ProfilePicture"]["size"] > 10) {
         $filename = $_FILES["ProfilePicture"]["name"];
         move_uploaded_file($_FILES["ProfilePicture"]["tmp_name"], __DIR__ . "/$filename");
         addProfilePicture($id, __DIR__ . "/$filename");
@@ -134,7 +133,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <?php
                     echo "<div class='Password'>
                     <h2>Password</h2>
-                    <input type='text' name='Password' value = '" . $userData["Password"] . "' placeholder='Enter the Passworld'></div>";
+                    <input type='password' name='Password' value = '" . $userData["Password"] . "' placeholder='Enter the Passworld'>
+                    <h2>Retype Password</h2>
+                    <input type='password' id='retypePassword' value = '" . $userData["Password"] . "' placeholder='Enter the Passworld'>
+                    </div>";
                     ?>
                     <input type="submit" value="Save">
 
@@ -267,7 +269,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </header>
     </main>
     <script src="./js/index.js" type="module"></script>
-    <script src="./js/profilePicture.js"></script>
 </body>
 
 </html>
