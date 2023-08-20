@@ -11,6 +11,10 @@
   font-weight: 700;
   transition: all 400ms ease;
 }
+.unLiked:hover{
+  transform: scale(1.1);
+  filter: brightness(0.7);
+}
 .liked {
   background-color: aqua;
 }
@@ -63,6 +67,11 @@ main header.PdfThumbnail a {
   background-color: rgba(155, 127, 255, 0.692);
   border-radius: 20px;
   font-size: 1cqi;
+  transition: all 200ms ease;
+}
+main header.PdfThumbnail a:hover{
+  transform: scale(1.05);
+  filter: brightness(0.7);
 }
 
 main header.About {
@@ -93,6 +102,13 @@ main header.PdfThumbnail > div .AuthorProfile {
   border-radius: 50%;
   cursor: pointer;
   margin: 2cqb;
+  transition: all 200ms ease;
+  outline: solid  #4ec1f7fd 7px;
+}
+main header.PdfThumbnail > div .AuthorProfile:hover{
+  transform: scale(1.1);
+  filter: brightness(0.7);
+  outline-offset: 5px;
 }
 main header.PdfThumbnail > div .thumbnail {
   max-width: 40cqb;

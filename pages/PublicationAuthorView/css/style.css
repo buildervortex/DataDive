@@ -45,6 +45,11 @@ main header.PdfThumbnail a {
   background-color: rgba(155, 127, 255, 0.692);
   border-radius: 20px;
   font-size: 1cqi;
+  transition: all 200ms ease;
+}
+main header.PdfThumbnail a:hover{
+  transform: scale(1.05);
+  filter: brightness(0.7);
 }
 
 main header.About {
@@ -71,6 +76,7 @@ main header.PdfThumbnail > div {
 main header.PdfThumbnail > div img {
   max-width: 40cqb;
   max-height: 40cqb;
+  border-radius: 20px;
 }
 main header.About > div {
   background-color: var(--glossy-bg);
@@ -163,7 +169,7 @@ main .UserFuctions {
   grid-gap: 2cqb;
 }
 main .UserFuctions a,
-button {
+main .UserFuctions button {
   text-decoration: none;
   padding: 1cqb 4cqb;
   border-radius: 20px;
@@ -171,6 +177,13 @@ button {
   color: black;
   border: none;
   cursor: pointer;
+  transition: all 200ms ease;
+
+}
+main .UserFuctions a:hover,
+main .UserFuctions button:hover{
+  transform: scale(1.05);
+  filter:brightness(0.7);
 }
 main .UserFuctions a:nth-of-type(1) {
   background-color: rgba(153, 205, 50, 0.514);
