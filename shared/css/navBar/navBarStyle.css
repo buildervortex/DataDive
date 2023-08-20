@@ -14,7 +14,7 @@
     max-height: 9vh;
 
     display: grid;
-    grid-template-columns: minmax(10%,10%) 1fr minmax(max-content,10%);
+    grid-template-columns: 10cqw 1fr 10cqw;
 
     
     transition: background-color 250ms ease-in;
@@ -26,6 +26,9 @@
 
 .navBar #Logo{
     max-height: 9vh;
+    max-width: 100%;
+    min-height: 9vh;
+    min-width: 100%;
     background-position: center;
     object-fit: cover;
 }

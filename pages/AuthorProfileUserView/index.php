@@ -195,7 +195,7 @@ $userMainCategory = getMainCategory($authorId);
                     <?php
                     echo $userData["Ratings"] != null ? "<tr>
                 <h2>Ratings</h2>
-                <h4>" . $userData["Ratings"] . "</h4>" : "";
+                <h4 id='AuthorRatings'>" . $userData["Ratings"] . "</h4>" : "";
                     ?>
                     <?php
                     if ($id) {

@@ -14,5 +14,9 @@ function rate(event,Author,User){
             'Content-Type': "application/json",
         },
         body: JSON.stringify(jsonObject)
+    })
+    .then(data=>data.json())
+    .then(ratingValue =>{
+        document.getElementById("AuthorRatings").innerText = ratingValue;
     });
 }
