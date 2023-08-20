@@ -175,12 +175,14 @@ textarea{
     justify-self: center;
     align-self: center;
     border-radius: 50%;
-    border: solid #00cba9 10px;
+    outline: solid #00cba9 10px;
     cursor: pointer;
     transition: all 200ms ease-in;
 }
 .UserDetails .profilePicture img:hover{
     transform: scale(1.04);
+    outline-offset: 10px;
+    filter: brightness(0.8);
 }
 .UserDetails .profilePicture #ProfilePicture{
     display: none;
@@ -205,6 +207,7 @@ textarea{
 }
 .UserDetails .profilePicture input[type="submit"]:hover{
     transform: scale(1.05);
+    filter: brightness(0.8);
 }
 
 .UserDetails .Bio > div{

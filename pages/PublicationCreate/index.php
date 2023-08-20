@@ -121,6 +121,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     }
                     ?>
                     <button type="submit" value="submit">Create</button>
+                    <button type="button" onclick="profileRedirect()">Back</button>
                 </div>
             </header>
             <header class="About">

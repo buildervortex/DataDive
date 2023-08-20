@@ -119,7 +119,7 @@
             <br>
             <br>
 
-            <button type="submit" class="btn">Sign up</button>
+            <button type="button" class="btn">Sign up</button>
 
             <div class=" register-link ">
                 <p>Do have an account?
@@ -129,8 +129,8 @@
         </form>
 
     </div>
-
-</body>
+        <script src="/pages/SignUp/js/index.js" type="module"></script>
+</body> 
 
 </html>
 

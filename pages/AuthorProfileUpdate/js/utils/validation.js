@@ -23,11 +23,11 @@ function isInputFieldsValid(userNameInputSelector=".Rating input[name='UserName'
         return false;
     }
     else if(firstNameElement.value == ""){
-        showErrorMessage("add first name",userNameElement);
+        showErrorMessage("add first name",firstNameElement);
         return false;
     }
     else if(lastNameElement.value == ""){
-        showErrorMessage("add last name",userNameElement);
+        showErrorMessage("add last name",lastNameElement);
         return false;
     }
     else if(!emailRegex.test(emailElement.value)){

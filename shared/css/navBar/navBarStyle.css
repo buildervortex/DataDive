@@ -46,7 +46,6 @@
 }
 .navBar #SignInButton{
 
-    /* align and justify the sign in button at center of the grid box */
     align-self: center;
     justify-self: flex-end;
     padding-right: 7cqb;

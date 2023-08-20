@@ -207,11 +207,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
                 <div class="filterbox">
                     <label for="likeFilter">Filter By Likes</label>
-                    <div class="filter"><input type="radio" name="FBL" id=""></div>
+                    <div class="filter"><input type="radio" name="FBL" id="likeFilter"></div>
                     <label for="CommentFilter">Filter By Comments</label>
-                    <div class="filter"><input type="radio" name="FBC" id=""></div>
+                    <div class="filter"><input type="radio" name="FBC" id="CommentFilter"></div>
                     <label for="DateFilter">Filter By Date</label>
-                    <div class="filter"><input type="radio" name="FBD" id=""></div>
+                    <div class="filter"><input type="radio" name="FBD" id="DateFilter"></div>
                     <button type="submit">Filter</button>
                 </div>
             </form>

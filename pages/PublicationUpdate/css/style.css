@@ -46,17 +46,23 @@ main header.PdfThumbnail > div {
   grid-gap: 2cqb;
   padding: 2cqb;
 }
-main header.PdfThumbnail input{
+main header.PdfThumbnail input {
   display: none;
 }
 
-main header.PdfThumbnail button{
+main header.PdfThumbnail button {
   background-color: #00cba9;
   padding: 1.2cqb 7cqb;
   border: none;
   border-radius: 20px;
+  cursor: pointer;
+  transition: all 200ms ease-in;
 }
-
+main header.PdfThumbnail button:hover{
+  transform: scale(1.05);
+  filter: brightness(0.8);
+  font-weight: 700;
+}
 
 main header.About {
   grid-column: 2/3;
@@ -65,8 +71,18 @@ main header.About {
 }
 
 main header.PdfThumbnail > div img {
-    max-width: 40cqb;
+  max-width: 40cqb;
   max-height: 40cqb;
+  border-radius: 20px;
+  outline: #00cba9 solid 10px;
+  /* outline-offset: 10px; */
+  transition: all 200ms ease-in;
+  cursor: pointer;
+}
+main header.PdfThumbnail > div img:hover{
+  transform: scale(1.02);
+  filter: brightness(0.8);
+  outline-offset: 10px;
 }
 main header.About > div {
   background-color: var(--glossy-bg);
@@ -76,14 +92,16 @@ main header.About > div {
   display: grid;
   grid-gap: 1.2cqb;
 }
-main header.About input{
-    font-size: 0.7cqi;
+main header.About input {
+  font-size: 0.7cqi;
 }
-main header.About h2{
-    font-size: 1cqi;
+main header.About h2 {
+  font-size: 1cqi;
 }
 
-main input,textarea,main select{
+main input,
+textarea,
+main select {
   padding: 0.5cqb 4cqb;
   display: block;
   border: none;
@@ -94,7 +112,7 @@ main input,textarea,main select{
   max-width: 50%;
   min-width: 50%;
 }
-.categorySelectionContainer{
+.categorySelectionContainer {
   display: grid;
   grid-gap: 2cqb;
 }
@@ -120,13 +138,13 @@ main input,textarea,main select{
   main header.Comments {
     grid-column: 1/2;
   }
-  main header.About input{
+  main header.About input {
     font-size: 2cqi;
   }
-  main header.About h2{
-      font-size: 4cqi;
+  main header.About h2 {
+    font-size: 4cqi;
   }
-  main header.About  #Title{
+  main header.About #Title {
     font-size: 5cqi;
   }
 }
