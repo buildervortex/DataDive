@@ -92,7 +92,7 @@ main header.PdfThumbnail > div .AuthorProfile {
   min-height: 7cqb;
   border-radius: 50%;
   cursor: pointer;
-  padding: 2cqb;
+  margin: 2cqb;
 }
 main header.PdfThumbnail > div .thumbnail {
   max-width: 40cqb;
