@@ -29,9 +29,9 @@ body main {
   grid-template-columns: 1fr 1fr;
   text-shadow: black 0px 0px 1.4px;
 }
-body main input{
-    background: none;
-    border: none;
+body main input {
+  background: none;
+  border: none;
 }
 
 main header.PdfThumbnail {
@@ -39,13 +39,12 @@ main header.PdfThumbnail {
   grid-row: 1/2;
 }
 
-main header.PdfThumbnail a{
-    text-decoration: none;
-    padding: 1.7cqb 10cqb;
-    background-color: rgba(155, 127, 255, 0.692);
-    border-radius: 20px;
-    font-size: 1cqi;
-    
+main header.PdfThumbnail a {
+  text-decoration: none;
+  padding: 1.7cqb 10cqb;
+  background-color: rgba(155, 127, 255, 0.692);
+  border-radius: 20px;
+  font-size: 1cqi;
 }
 
 main header.About {
@@ -70,7 +69,7 @@ main header.PdfThumbnail > div {
   grid-gap: 4cqb;
 }
 main header.PdfThumbnail > div img {
-    max-width: 40cqb;
+  max-width: 40cqb;
   max-height: 40cqb;
 }
 main header.About > div {
@@ -81,109 +80,117 @@ main header.About > div {
   display: grid;
   grid-gap: 1.2cqb;
 }
-main header.About > div > div{
-    display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: min-content;
-    justify-items: center;
-    align-items: center;
-    grid-gap: 2cqb;
+main header.About > div > div {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: min-content;
+  justify-items: center;
+  align-items: center;
+  grid-gap: 2cqb;
 }
-main header.About > div > div img{
-    max-width: 5cqb;
-    max-height: 5cqb;
+main header.About > div > div img {
+  max-width: 5cqb;
+  max-height: 5cqb;
 }
 
-main header.About input{
-    font-size: 0.7cqi;
-    outline: none;
+main header.About input {
+  font-size: 0.7cqi;
+  outline: none;
 }
-main header.About input:focus{
+main header.About input:focus {
   outline: none;
   border: none;
 }
-main header.About h2{
-    font-size: 1cqi;
+main header.About h2 {
+  font-size: 1cqi;
 }
-main header.About  #Title{
-    font-size: 2.4cqi;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    text-transform: capitalize;
-    padding-bottom: 2cqb;
-    font-weight: 700;
-    white-space: normal;
+main header.About #Title {
+  font-size: 2.4cqi;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  text-transform: capitalize;
+  padding-bottom: 2cqb;
+  font-weight: 700;
+  white-space: normal;
 }
 
 main header.Comments > div {
-    padding: 2cqb;
-    background-color: var(--glossy-bg);
-    border-radius: 20px;
+  padding: 2cqb;
+  background-color: var(--glossy-bg);
+  border-radius: 20px;
 }
-main header.Comments > div > h1::after{
-    content: "";
-    display: block;
-    width: 100%;
-    height: 4px;
-}
-
-main header.Comments svg{
-    transform: rotate(180deg);
-    position: absolute ;
-    z-index: -6;
-    opacity: 0.5;
-    border-radius: 20px;
-}
-main header.Comments .CommentBox{
-    display: grid;
-    grid-gap: 2cqb;
-    padding: 4cqb;
-    white-space: normal;
-    overflow-wrap: break-word;
-}
-main header.Comments .CommentBox p{
-    max-width: 100%;
-    word-break: break-all;
-
-}
-main header.Comments .CommentBox .comment{
-    padding: 4cqb;
-    background-color: #98cce49f;
-    border-radius: 0px 70px 70px 70px;
-    position: relative;
-}
-main header.Comments .CommentBox .comment img{
-    max-height: 4cqb;
-    max-width: 4cqb;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-main .UserFuctions{
-    display: grid;
-    grid-auto-flow: column;
-    grid-gap: 2cqb;
-}
-main .UserFuctions a,button{
-    text-decoration: none;
-    padding: 1cqb 4cqb;
-    border-radius: 20px;
-    text-align: center;
-    color: black;
-    border: none;
-    cursor: pointer;
-
-}
-main .UserFuctions a:nth-of-type(1){
-    background-color: rgba(153, 205, 50, 0.514);
+main header.Comments > div > h1::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 4px;
 }
 
-main .UserFuctions a:nth-of-type(2){
-    background-color: rgba(127, 255, 212, 0.521);
+main header.Comments svg {
+  transform: rotate(180deg);
+  position: absolute;
+  z-index: -6;
+  opacity: 0.5;
+  border-radius: 20px;
 }
-main .UserFuctions button:nth-of-type(1){
-    background-color: rgba(255, 0, 0, 0.486);
+main header.Comments .CommentBox {
+  display: grid;
+  grid-gap: 2cqb;
+  padding: 4cqb;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+main header.Comments .CommentBox p {
+  max-width: 100%;
+  word-break: break-all;
+}
+main header.Comments .CommentBox .comment {
+  padding: 4cqb;
+  background-color: #98cce49f;
+  border-radius: 0px 70px 70px 70px;
+  position: relative;
+}
+main header.Comments .CommentBox .comment img {
+  max-height: 4cqb;
+  max-width: 4cqb;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+main .UserFuctions {
+  grid-column: 1/3;
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: 2cqb;
+}
+main .UserFuctions a,
+button {
+  text-decoration: none;
+  padding: 1cqb 4cqb;
+  border-radius: 20px;
+  text-align: center;
+  color: black;
+  border: none;
+  cursor: pointer;
+}
+main .UserFuctions a:nth-of-type(1) {
+  background-color: rgba(153, 205, 50, 0.514);
 }
 
+main .UserFuctions a:nth-of-type(2) {
+  background-color: rgba(127, 255, 212, 0.521);
+}
+main .UserFuctions button:nth-of-type(1) {
+  background-color: rgba(255, 0, 0, 0.486);
+}
+.pdfView{
+  grid-column: 1/3;
+}
+.pdfView iframe{
+  display: block;
+  min-width: 100%;
+  min-height: 70vh;
+  border-radius: 20px;
+}
 @media screen and (max-width: 950px) {
   body main {
     display: grid;
@@ -206,13 +213,13 @@ main .UserFuctions button:nth-of-type(1){
   main header.Comments {
     grid-column: 1/2;
   }
-  main header.About input{
+  main header.About input {
     font-size: 2cqi;
   }
-  main header.About h2{
-      font-size: 4cqi;
+  main header.About h2 {
+    font-size: 4cqi;
   }
-  main header.About  #Title{
+  main header.About #Title {
     font-size: 5cqi;
   }
 }

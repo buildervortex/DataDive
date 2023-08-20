@@ -142,6 +142,11 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
             echo "<button id='PublicationDeleteButton' publicationId=$pubid >Delete</button>";
             ?>
         </section>
+        <section class="pdfView">
+        <?php 
+            echo "<iframe src='$postPublicationPdfFilePath'></iframe>";
+        ?>
+        </section>
         <header class="Comments">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
                 <path fill="#5000ca" fill-opacity="1" d="M0,64L48,85.3C96,107,192,149,288,165.3C384,181,480,171,576,192C672,213,768,267,864,261.3C960,256,1056,192,1152,154.7C1248,117,1344,107,1392,101.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
