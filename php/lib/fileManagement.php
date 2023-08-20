@@ -53,7 +53,6 @@ function addThumbnail($userId,$publicationId,$sourcefile){
     global $root;
     $extension = pathinfo($sourcefile,PATHINFO_EXTENSION);
     $pathForThumbnail = $root."publication/thumbnail/".$userId."/";
-    error_log($pathForThumbnail."\n",3,"/var/www/html/error.log");
     if(!is_dir($pathForThumbnail)){
         mkdir($pathForThumbnail);
     }
@@ -71,6 +70,10 @@ function addPdf($userId,$publicationId,$sourcefile){
     $pathForPdf = $root."publication/pdf/".$userId."/";
     if(!is_dir($pathForPdf)){
         mkdir($pathForPdf);
+    }
+    $pathForThumbnail = $root."publication/thumbnail/".$userId."/";
+    if(!is_dir($pathForThumbnail)){
+        mkdir($pathForThumbnail);
     }
     $pathForPdf = $pathForPdf.$publicationId.".pdf";
     rename($sourcefile,$pathForPdf);
