@@ -148,7 +148,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             if ($id == $postLanguageId) {
                                 echo "<option value='$id' selected>$name</option>";
                             }
-                            echo "<option value='$id'>$name</option>";
+                            else{
+                                echo "<option value='$id'>$name</option>";
+                            }
                         }
                         ?>
                     </select>
