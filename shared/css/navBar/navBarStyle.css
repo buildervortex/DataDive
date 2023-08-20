@@ -14,7 +14,7 @@
     max-height: 9vh;
 
     display: grid;
-    grid-template-columns: 10cqw 1fr 10cqw;
+    grid-template-columns: 10cqw 1fr 12cqw;
 
     
     transition: background-color 250ms ease-in;
@@ -48,31 +48,50 @@
     transform: scale(1.1);
 }
 .navBar #SignInButton{
-
+    display: block;
     align-self: center;
-    justify-self: flex-end;
-    padding-right: 7cqb;
+    justify-self: center;
     text-align: center;
     max-height: 100%;
     max-width: 100%;
+    padding: 1cqb 2cqb;
+    border-radius: 20px;
+    transition: transform 200ms ease,background-color 200ms ease;
+}
+.navBar #SignInButton:hover{
+    background-color: blue;
+    transform: scale(1.05);
 }
 
 .navBar .links-container #SignUpButton{
     padding: 1.4cqb;
     background-color: chartreuse;
     border-radius: 20px;
+    transition: all 200ms ease;
+}
+.navBar .links-container #SignUpButton:hover{
+    filter: brightness(0.7);
 }
 
 .navBar .links-container{
-    
     display: grid;
     grid-template-columns: repeat(5,max-content) minmax(max-content,1fr);
-    grid-gap: 4vw;
+    grid-gap: 2cqw;
     justify-items: center;
     align-items: center;
     min-height: max-content;
 
     padding-left:2vw;
+}
+.navBar .links-container a{
+    display: block;
+    padding: 1cqb 2cqb;
+    border-radius: 20px;
+    transition: transform 200ms ease,background-color 200ms ease;
+}
+.navBar .links-container a:hover{
+    background-color: blue;
+    transform: scale(1.05);
 }
 
 
@@ -83,7 +102,6 @@
 
 .navBar .links-container #category{
     display: grid;
-    min-height: 100%;
     grid-auto-flow: column;
     grid-gap: 10%;
     align-items: center;
@@ -180,10 +198,6 @@
     }
     .navBar .links-container #category img{
         max-height: 2.5cqi;
-        padding: 0;
-    }
-    .navBar .links-container #category{
-        max-height: min-content;
         padding: 0;
     }
 }
