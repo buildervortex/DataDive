@@ -161,5 +161,4 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     <script src="./js/index.js" type="module"></script>
     <script src="./js/deleteHandler.js"></script>
 </body>
-
 </html>

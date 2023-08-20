@@ -76,6 +76,9 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
             function profileRedirect() {
                 window.location.href = "/pages/AuthorProfileView/index.php";
             }
+            function profileClick(authorId){
+                window.location.href="/pages/AuthorProfileUserView/index.php?AID="+authorId;
+            }
         </script>
         <div class="hamburgerMenu">
             <div id="asideBarActivator">
@@ -108,7 +111,6 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
             echo "<img onclick='profileRedirect()' class='profileImage'  src='" . getProfilePictureLocation($id) . "'></img>";
         }
         ?>
-
     </nav>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
         <path fill="#0099ff" fill-opacity="1" d="M0,64L48,85.3C96,107,192,149,288,165.3C384,181,480,171,576,192C672,213,768,267,864,261.3C960,256,1056,192,1152,154.7C1248,117,1344,107,1392,101.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
@@ -117,7 +119,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         <header class="PdfThumbnail">
             <div>
                 <?php
-                echo "<img class='AuthorProfile' onclick=profileClick($authorId) src='" . getProfilePictureLocation($authorId) . "'></img>";
+                    echo "<img class='AuthorProfile' onclick=profileClick($authorId) src='" . getProfilePictureLocation($authorId) . "'></img>";
                 ?>
                 <img class="thumbnail" <?php echo "src= '$postPublicationThumbnalFilePath'" ?>>
                 <a <?php echo "href = '$postPublicationPdfFilePath'" ?> download="download.pdf">Download</a>
@@ -150,35 +152,27 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
                     <?php
                     if ($id) {
                         if ($liked) {
-                            echo "<button userId='$id' publicationId='$publicationId' onclick=\"likeHandler(event)\" class='unLiked liked'>Like</button>";
+                            echo "<button userId='$id' id='likeButton' publicationId='$publicationId' class='unLiked liked'>Like</button>";
                         } else {
-                            echo "<button userId='$id' publicationId='$publicationId' onclick=\"likeHandler(event)\" class='unLiked'>Like</button>";
+                            echo "<button userId='$id' id='likeButton' publicationId='$publicationId' class='unLiked'>Like</button>";
                         }
-                        echo "";
                     }
                     ?>
                 </div>
             </div>
         </header>
-        <section class="UserFuctions">
-            <button onclick="goback()">Back</button>
-        </section>
         <header class="Comments">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
                 <path fill="#0099ff" fill-opacity="1" d="M0,64L48,85.3C96,107,192,149,288,165.3C384,181,480,171,576,192C672,213,768,267,864,261.3C960,256,1056,192,1152,154.7C1248,117,1344,107,1392,101.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
             </svg>
             <div>
-                
-                    
-                    
-                
                 <?php
                 if ($id) {
                     echo "<div class='textareaContainer Override'>";
                     echo "<textarea name='Comment' class='limitedtextarea' userId='$id' publicationId='$publicationId' id='commentbox' class='limitedtextarea Override' placeholder='Enter the Comment' ></textarea>";
                     echo "<h5 class='errorMessage Override'>The maximum number of characters have added</h5></div>";
 
-                    echo "<button onclick='comment(event)'>Add Comment</button><div id='commentViewBox' class='CommentBox'>";
+                    echo "<button id='addComment'>Add Comment</button><div id='commentViewBox' class='CommentBox'>";
 
                     foreach ($postComments as $comment) {
                         echo "<div class='comment'><img src='./icon/comment.png'><p>$comment</p></div>";
@@ -189,10 +183,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
             </div>
         </header>
     </main>
-
-
-    <script src="./js/index.js"></script>
-    <script src="./js/importing.js" type="module"></script>
+    <script src="./js/index.js" type="module"></script>
 </body>
 
 </html>

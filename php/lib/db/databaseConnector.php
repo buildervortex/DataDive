@@ -1,5 +1,4 @@
 <?php
-
 require_once __DIR__."/cookiesManagement.php";
 require_once __DIR__."/../fileManagement.php";
 
@@ -53,7 +52,4 @@ function InsertQueryCreator($tableName,$columns,$values){
 function SelectQueryCreator($tableName,$columns,$where=""){
     return "SELECT ".QueryTupleCreater($columns,false)." FROM $tableName $where";
 }
-
-
-
 ?>

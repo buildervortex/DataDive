@@ -1,12 +1,11 @@
 <?php
-// ! EACH PUBLICATIONS VIEW HAVE TO GO TO THE PUBLICATION VIEW PAGE
 $DOCUEMENT_ROOT = $_SERVER["DOCUMENT_ROOT"];
 include_once $DOCUEMENT_ROOT . "/php/lib/db/pages/AuthorProfileView/AuthorProfileViewDatabaseHandler.php";
 $id = isCookiesThere();
 if(!$id){
     session_name("Check_sing_in");
     session_start();
-    header(("Location: /pages/Login/index.php")); // TODO : change to redirect to the author profile view.
+    header(("Location: /pages/Login/index.php"));
     session_write_close();
 }
 $userData = getUserData($id);
@@ -234,7 +233,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             ?>
 
             <script>
-                // ! HAVE TO INCLUDE SENDS THE PUBLICATION ID TO THE PUBLICATION VIEW PAGE
                 let AuthorProfileViewCards = document.querySelectorAll(".Cardcontainer .card");
                 AuthorProfileViewCards.forEach(e => {
                     e.addEventListener("click", () => {

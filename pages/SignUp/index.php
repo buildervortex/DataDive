@@ -2,7 +2,6 @@
     $DOCUEMENT_ROOT = $_SERVER["DOCUMENT_ROOT"];
     include_once $DOCUEMENT_ROOT."/php/lib/db/pages/SingUp/SingUpDatabaseHandler.php";
     
-    // include_once __DIR__."/../../php/lib/db/pages/SingUp/SingUpDatabaseHandler.php";
     if(isCookiesThere()){
         session_name("Check_sing_in");
         session_start();

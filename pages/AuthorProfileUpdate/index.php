@@ -9,7 +9,7 @@ $id = isCookiesThere();
 if (!$id) {
     session_name("Check_sing_in");
     session_start();
-    header(("Location: /pages/Login/index.php")); // TODO : change to redirect to the author profile view.
+    header(("Location: /pages/Login/index.php"));
     session_write_close();
 }
 

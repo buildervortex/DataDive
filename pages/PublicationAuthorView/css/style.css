@@ -96,6 +96,11 @@ main header.About > div > div img{
 
 main header.About input{
     font-size: 0.7cqi;
+    outline: none;
+}
+main header.About input:focus{
+  outline: none;
+  border: none;
 }
 main header.About h2{
     font-size: 1cqi;

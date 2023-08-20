@@ -198,22 +198,6 @@ main header.Comments .CommentBox .comment img {
   top: 0;
   left: 0;
 }
-main .UserFuctions {
-  display: grid;
-  grid-auto-flow: column;
-  grid-gap: 2cqb;
-}
-main .UserFuctions button {
-  text-decoration: none;
-  padding: 1cqb 4cqb;
-  border-radius: 20px;
-  text-align: center;
-  color: black;
-  width: min-content;
-  border: none;
-  background-color: aquamarine;
-  cursor: pointer;
-}
 @media screen and (max-width: 950px) {
   body main {
     display: grid;

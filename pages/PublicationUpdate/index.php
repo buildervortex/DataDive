@@ -42,14 +42,14 @@ $SubCategoryList = getAllSubCategory($postMainCategoryId);
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    global $postTitle,$postDescription,$postLanguage,$postMainCategoryId,$postSubCategoryId,$postLanguageId,$postPublicationThumbnalFilePath,$SubCategoryList;
+    global $postTitle, $postDescription, $postLanguage, $postMainCategoryId, $postSubCategoryId, $postLanguageId, $postPublicationThumbnalFilePath, $SubCategoryList;
     $pubid = $_POST["pubid"];
     $postTitle = $_POST["Title"];
     $postDescription = $_POST["Description"];
     $postLanguageId = $_POST["Language"];
     $postSubCategory = $_POST["subCategorySelector"];
     $postMainCategory = $_POST["mainCategorySelector"];
-    
+
 
     if ($postMainCategory != 0 && $postSubCategory != 0) {
         UpdateThePublication($id, $pubid, $postTitle, $postDescription, $postSubCategory, $postLanguageId);
@@ -194,9 +194,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         </main>
     </form>
-    <script src="./js/index.js"></script>
-    <script src="./js/thumbnail.js"></script>
-    <script src="./js/module.js" type="module"></script>
+    <script src="./js/index.js" type="module"></script>
 </body>
 
 </html>

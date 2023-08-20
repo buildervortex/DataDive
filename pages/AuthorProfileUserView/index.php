@@ -269,7 +269,6 @@ $userMainCategory = getMainCategory($authorId);
                         let publicationId = parseInt(e.querySelector("#ThePublicationIdForRedirection").getAttribute("name"));
                         let AuthorId = parseInt(e.querySelector("#ThePublicationIdForRedirection").getAttribute("AuthorId"));
                         window.location.href = "/pages/PublicationUserView/index.php?AID=" + AuthorId + "&PID=" + publicationId;
-
                     });
                 });
             </script>

@@ -4,7 +4,6 @@ include_once $DOCUEMENT_ROOT."/php/lib/db/pages/AuthorProfileView/AuthorProfileV
 
 
 function subcategory($mainCategory,$authorId){
-    // ! this iscokies there is the problem
     return json_encode(getSubCategory($authorId,$mainCategory),JSON_FORCE_OBJECT);
 }
 

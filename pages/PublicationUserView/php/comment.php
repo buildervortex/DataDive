@@ -12,6 +12,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     $userId = $decodeJsonData->userId;
     $publicationId = $decodeJsonData->publicationId;
 
+    if(strlen($comment)<5)return;
     $result = comment($userId,$publicationId,$comment);
 
     echo json_encode([

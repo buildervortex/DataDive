@@ -3,7 +3,6 @@
 require_once __DIR__."/../../databaseConnector.php";
 
 function getUserData($ID){
-    // SELECT A.UserName,A.FullName,A.Dob,A.Email,A.PhoneNumber,A.Bio,C.Name AS Country , R.Ratings , COUNT(P.ID) AS PublicationCount FROM Author AS A INNER JOIN Country AS C ON A.CountryId = C.ID LEFT JOIN Ratings AS R ON A.ID = R.AuthorId LEFT JOIN Publication AS P ON A.ID = P.AuthorId WHERE A.ID = 1 GROUP BY A.ID;
     $result = queryData("SELECT A.UserName,A.Password,A.FullName,A.FirstName,A.MiddleName,A.LastName,A.Dob,A.Email,A.PhoneNumber,A.Bio,C.Name AS Country,C.ID AS CountryId , R.Ratings , COUNT(P.ID) AS PublicationCount FROM Author AS A INNER JOIN Country AS C ON A.CountryId = C.ID LEFT JOIN Ratings AS R ON A.ID = R.AuthorId LEFT JOIN Publication AS P ON A.ID = P.AuthorId WHERE A.ID = ".$ID." GROUP BY A.ID");
     return $result->fetch_assoc();
 }
@@ -59,7 +58,7 @@ function getSubCategory($ID,$MID){
 }
 
 function getPublications($ID,$post){
-    $FILTERSC1 = ["mainCategorySelector","subCategorySelector","FBS"]; // TODO HAVE TO CHANGE THIS IF CHANGING THE NAMES OF HTML ELEMENTS
+    $FILTERSC1 = ["mainCategorySelector","subCategorySelector","FBS"];
     $FILTERSC2 = ["FBL","FBC","FBD"];
     $SQLQuery = "SELECT P.ID as PublicationId , M.Name AS MainCategory,S.Name AS SubCategory,P.PublishedDate,P.Title,PD.LikeCount,PD.CommentCount FROM Publication AS P LEFT JOIN SubCategory AS S ON S.ID = P.SubCategoryId LEFT JOIN MainCategory AS M ON M.ID = S.MainCategoryId LEFT JOIN PublicationsDetails AS PD ON PD.PublicationId = P.ID  WHERE AuthorId = $ID ";
 
@@ -114,14 +113,14 @@ function AddFilter($filter,$value,$with=""){
     }
 }
 
-$array = [
-    // "mainCategorySelector"=>1,
-    // "subCategorySelector"=>1,
-    // "FBS"=>"",
-    // "FBL"=>"on",
-    // "FBC"=>"on",
-    // "FBD"=>"on",
+// $array = [
+//     // "mainCategorySelector"=>1,
+//     // "subCategorySelector"=>1,
+//     // "FBS"=>"",
+//     // "FBL"=>"on",
+//     // "FBC"=>"on",
+//     // "FBD"=>"on",
 
-];
-// var_dump(getPublications(1,$array)[0]["LikeCount"]);
-// var_dump(getPublications(1,$array));
+// ];
+// // var_dump(getPublications(1,$array)[0]["LikeCount"]);
+// // var_dump(getPublications(1,$array));

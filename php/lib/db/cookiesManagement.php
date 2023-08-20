@@ -1,6 +1,6 @@
 <?php
 
-function setCookies_($Id,$timeOutSeconds=3600){ // TODO: Change the cookies timeout
+function setCookies_($Id,$timeOutSeconds=3600){
     setcookie("UserId",$Id."",time()+$timeOutSeconds,"/");
 }
 
