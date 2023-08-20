@@ -1,5 +1,5 @@
 @import url("/shared/css/navBar/navBarStyle.css");
-
+@import url("/shared/css/pdfFileView/pdfFileView.css");
 * {
   --glass-bg: linear-gradient(
     to right bottom,
@@ -182,15 +182,20 @@ main .UserFuctions a:nth-of-type(2) {
 main .UserFuctions button:nth-of-type(1) {
   background-color: rgba(255, 0, 0, 0.486);
 }
-.pdfView{
+.pdfReader{
   grid-column: 1/3;
-}
-.pdfView iframe{
-  display: block;
-  min-width: 100%;
-  min-height: 70vh;
+  min-width: min-content;
+  background-color: var(--glossy-bg);
   border-radius: 20px;
+  padding: 5cqb;
 }
+.pdfView button{
+  background-color: rgba(0, 0, 255, 0.418);
+}
+.pdfReader #pdf-viewer{
+  border: solid rgba(8, 110, 110, 0.61) 5px;
+}
+
 @media screen and (max-width: 950px) {
   body main {
     display: grid;

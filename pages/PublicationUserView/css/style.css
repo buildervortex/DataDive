@@ -1,5 +1,6 @@
 @import url("/shared/css/limitedDescription/style.css");
 @import url("/shared/css/navBar/navBarStyle.css");
+@import url("/shared/css/pdfFileView/pdfFileView.css");
 .unLiked {
   background-color: red;
   padding: 0.5cqb 2.9cqb;
@@ -87,6 +88,8 @@ main header.PdfThumbnail > div {
 main header.PdfThumbnail > div .AuthorProfile {
   max-width: 7cqb;
   max-height: 7cqb;
+  min-width: 7cqb;
+  min-height: 7cqb;
   border-radius: 50%;
   cursor: pointer;
 }
@@ -197,6 +200,22 @@ main header.Comments .CommentBox .comment img {
   position: absolute;
   top: 0;
   left: 0;
+}
+.pdfReader{
+  grid-column: 1/3;
+  min-width: min-content;
+  background-color: var(--glossy-bg);
+  border-radius: 20px;
+  padding: 5cqb;
+}
+.pdfView button{
+  background-color: rgba(0, 0, 255, 0.418);
+  padding: 2cqb;
+  border-radius: 20px;
+  border: none;
+}
+.pdfReader #pdf-viewer{
+  border: solid rgba(8, 110, 110, 0.61) 5px;
 }
 @media screen and (max-width: 950px) {
   body main {

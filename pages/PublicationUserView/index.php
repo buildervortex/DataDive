@@ -122,7 +122,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
                     echo "<img class='AuthorProfile' onclick=profileClick($authorId) src='" . getProfilePictureLocation($authorId) . "'></img>";
                 ?>
                 <img class="thumbnail" <?php echo "src= '$postPublicationThumbnalFilePath'" ?>>
-                <a <?php echo "href = '$postPublicationPdfFilePath'" ?> download="download.pdf">Download</a>
+                <a <?php echo "href = '$postPublicationPdfFilePath'" ?> <?php echo "download='$postTitle.pdf'" ?>>Download</a>
             </div>
         </header>
         <header class="About">
@@ -161,6 +161,19 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
                 </div>
             </div>
         </header>
+        <section class="pdfReader">
+            <div class="pdfView">
+                <button type="button" id="previous">Previous Page</button>
+                <div class="pdf-container">
+                    <canvas id="pdf-viewer"></canvas>
+                </div>
+                <button type="button" id="next">Next Page</button>
+                <div class="zoomButtons">
+                    <button type="button" id="zoomIn">Zoom In</button>
+                    <button type="button" id="zoomOut">Zoom Out</button>
+                </div>
+            </div>
+        </section>
         <header class="Comments">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
                 <path fill="#0099ff" fill-opacity="1" d="M0,64L48,85.3C96,107,192,149,288,165.3C384,181,480,171,576,192C672,213,768,267,864,261.3C960,256,1056,192,1152,154.7C1248,117,1344,107,1392,101.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
@@ -183,6 +196,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
             </div>
         </header>
     </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
     <script src="./js/index.js" type="module"></script>
 </body>
 

@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (createPublication($id, $postTitle, $postDescription, $_FILES["Publication"]["size"], $postLanguage, $postSubCategory)) {
 
             $publicationId = getPublicationId($id, $postTitle);
-            if (isset($_FILES["Thumbnail"]["name"]) && $_FILES["Thumbnail"]["size"] > 5) {
+            if (isset($_FILES["Thumbnail"]["name"]) && $_FILES["Thumbnail"]["size"] > 100) {
                 $thumbnailName = $_FILES["Thumbnail"]["name"];
                 move_uploaded_file($_FILES["Thumbnail"]["tmp_name"], __DIR__ . "/$thumbnailName");
                 addThumbnail($id, $publicationId, __DIR__ . "/$thumbnailName");

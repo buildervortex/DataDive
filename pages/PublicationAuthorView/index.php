@@ -103,7 +103,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         <header class="PdfThumbnail">
             <div>
                 <img <?php echo "src= '$postPublicationThumbnalFilePath'" ?>>
-                <a <?php echo "href = '$postPublicationPdfFilePath'" ?> download="download.pdf">Download</a>
+                <a <?php echo "href = '$postPublicationPdfFilePath'" ?> <?php echo "download='$postTitle.pdf'" ?>>Download</a>
             </div>
         </header>
         <header class="About">
@@ -142,10 +142,18 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
             echo "<button id='PublicationDeleteButton' publicationId=$pubid >Delete</button>";
             ?>
         </section>
-        <section class="pdfView">
-        <?php 
-            echo "<iframe src='$postPublicationPdfFilePath'></iframe>";
-        ?>
+        <section class="pdfReader">
+            <div class="pdfView">
+                <button type="button" id="previous">Previous Page</button>
+                <div class="pdf-container">
+                    <canvas id="pdf-viewer"></canvas>
+                </div>
+                <button type="button" id="next">Next Page</button>
+                <div class="zoomButtons">
+                    <button type="button" id="zoomIn">Zoom In</button>
+                    <button type="button" id="zoomOut">Zoom Out</button>
+                </div>
+            </div>
         </section>
         <header class="Comments">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
@@ -163,7 +171,9 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
             </div>
         </header>
     </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
     <script src="./js/index.js" type="module"></script>
     <script src="./js/deleteHandler.js"></script>
 </body>
+
 </html>

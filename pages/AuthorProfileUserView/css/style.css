@@ -99,6 +99,8 @@ body main{
 .UserDetails .profilePicture img{
     max-width: 20cqb;
     max-height: 20cqb;
+    min-width: 20cqb;
+    min-height: 20cqb;
     justify-self: center;
     align-self: center;
     border-radius: 50%;

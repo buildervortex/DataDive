@@ -35,7 +35,6 @@ main header.PdfThumbnail {
   grid-row: 1/2;
 }
 textarea{
-  /* cols="60" rows="10" */
   width: 10rem;
   height: 10rem;
 }
@@ -62,8 +61,8 @@ main header.PdfThumbnail h4{
   font-size: 0.7cqi;
   max-width: 50%;
   white-space: nowrap;
-  overflow-y: scroll;
-  overflow-x: hidden;
+  overflow-x: scroll;
+  overflow-y: hidden;
 
 }
 
@@ -88,6 +87,15 @@ main header.About {
 main header.PdfThumbnail > div img {
   max-width: 20cqb;
   max-height: 20cqb;
+  transition: all 200ms ease-in;
+  cursor: pointer;
+  border-radius: 20px;
+  outline: solid #50d6e7 5px;
+}
+main header.PdfThumbnail > div img:hover{
+  transform: scale(1.05);
+  filter: brightness(0.7);
+  outline-offset: 5px;
 }
 main header.About > div {
   background-color: var(--glossy-bg);
