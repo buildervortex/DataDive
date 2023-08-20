@@ -70,10 +70,10 @@ function addPdf($userId,$publicationId,$sourcefile){
     $pathForPdf = $root."publication/pdf/".$userId."/";
     if(!is_dir($pathForPdf)){
         mkdir($pathForPdf);
-    }
-    $pathForThumbnail = $root."publication/thumbnail/".$userId."/";
-    if(!is_dir($pathForThumbnail)){
-        mkdir($pathForThumbnail);
+        $pathForThumbnail = $root."publication/thumbnail/".$userId."/";
+        if(!is_dir($pathForThumbnail)){
+            mkdir($pathForThumbnail);
+        }
     }
     $pathForPdf = $pathForPdf.$publicationId.".pdf";
     rename($sourcefile,$pathForPdf);
