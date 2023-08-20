@@ -14,7 +14,7 @@
     max-height: 9vh;
 
     display: grid;
-    grid-template-columns: 10cqw 1fr 12cqw;
+    grid-template-columns: 8cqw 1fr 12cqw;
 
     
     transition: background-color 250ms ease-in;
@@ -23,6 +23,7 @@
     z-index: 2;
     background-color: var(--navBarBackgroundColor);
 }
+/* http://localhost:3000/favicon.ico */
 
 .navBar #Logo{
     max-height: 9vh;
@@ -30,7 +31,8 @@
     min-height: 9vh;
     min-width: 100%;
     background-position: center;
-    object-fit: cover;
+    object-fit: contain;
+    padding: 2cqb;
 }
 .navBar .profileImage{
     max-height: 7vh;

@@ -15,7 +15,7 @@ if(!$id){
 
 <head>
     <meta name="viweport" content="width=device-width,intail-scale=1.0">
-    <title>Responsive Contact US Page </title>
+    <title>Get Posted</title>
     <link rel="stylesheet" href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css>
     <link href="./css/style.css" rel="stylesheet" type="text/css">
 </head>
