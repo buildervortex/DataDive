@@ -2,6 +2,9 @@ export function setDescriptionTextArea(characterlimit=500,textAreaSelector=".tex
     const textAreaElement = document.querySelector(textAreaSelector);
     const errorMessageElement = document.querySelector(errorMessageSelector);
 
+    if(textAreaElement == null)return;
+    if(errorMessageElement == null)return;
+
     textAreaElement.addEventListener("keydown",(element)=>{
         let textAreaValue = textAreaElement.value;
         if((textAreaValue.length >= characterlimit)){

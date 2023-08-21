@@ -87,6 +87,8 @@ function addComment(comment){
 export function setupHandlers(commentButtonSelector=".Comments #addComment",LikeButtonSelector=".About #likeButton"){
     let commentButtonElement = document.querySelector(commentButtonSelector);
     let likeButtonElement = document.querySelector(LikeButtonSelector);
+    if(commentButtonElement == null)return;
+    if(likeButtonElement == null)return;
 
     commentButtonElement.addEventListener("click",()=>{
         comment();
