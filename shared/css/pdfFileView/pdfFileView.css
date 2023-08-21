@@ -1,9 +1,8 @@
 .pdfView {
   grid-column: 1/3;
   display: grid;
-  grid-template-columns: 1fr 1.5fr 1fr;
+  grid-template-columns: 1fr minmax(40%,50%) 1fr;
   grid-template-rows: min-content;
-  padding: 2cqb;
   align-items: center;
   justify-items: center;
   justify-content: center;
@@ -40,6 +39,7 @@
 }
 .pdfView .pdf-container #pdf-viewer {
   height: 80vh;
+  min-width: min-content;
 }
 @media screen and (max-width: 950px) {
   .pdfView {
