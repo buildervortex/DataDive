@@ -35,7 +35,7 @@ function isInputFieldsValid(userNameInputSelector=".Rating input[name='UserName'
         return false;
     }
     else if(numberElement.value.length !=0){
-        if(isNaN(numberElement.value) && numberElement.value.length != 10){
+        if(isNaN(numberElement.value) || numberElement.value.length != 10){
             showErrorMessage("add valid number",numberElement);
             return false;
         }
