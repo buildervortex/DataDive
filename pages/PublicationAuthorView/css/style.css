@@ -14,7 +14,9 @@
 
 body {
   display: grid;
+  min-width: min-content;
   text-shadow: black 0px 0px 1px;
+  position: relative;
 }
 body > svg {
   transform: rotate(180deg);
@@ -247,5 +249,29 @@ main .UserFuctions button:nth-of-type(1) {
   }
   main header.About #Title {
     font-size: 5cqi;
+  }
+  main .UserFuctions{
+    grid-column: 1/2;
+  }
+  .pdfReader{
+    grid-column: 1/2;
+    min-width: 100%;
+    background-color: var(--glossy-bg);
+    border-radius: 20px;
+    padding: 5cqb;
+  }
+  .pdfView button{
+    background-color: rgba(0, 0, 255, 0.418);
+    padding: 2cqb;
+    border: none;
+    border-radius: 10px;
+    transition: all 200ms ease;
+  }
+  .pdfView button:hover{
+    transform: scale(1.05);
+    filter: brightness(0.7);
+  }
+  .pdfReader #pdf-viewer{
+    border: solid rgba(8, 110, 110, 0.61) 5px;
   }
 }
