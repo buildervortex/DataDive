@@ -140,9 +140,9 @@ if(!$id){
            <div class="footer-col">
              <h4>Website</h4>
              <ul>
-               <li><a href="#">Explore</a></li>
-               <li><a href="#">About Us</a></li>
-               <li><a href="#">Services</a></li>
+               <li><a href="/pages/Category/index.php">Explore</a></li>
+               <li><a href="/pages/About us/index.php">About Us</a></li>
+               <li><a href="/pages/Services/index.php">Services</a></li>
                <li><a href="#">Help</a></li>
              </ul>
            </div>
